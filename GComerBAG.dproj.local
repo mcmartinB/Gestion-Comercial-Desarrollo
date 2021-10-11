@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/05/17 14:27:09.413.pas,C:\Delphi2007\GComer Desarrollo\GComerBAG\Code\Salidas\CFLIntrastat.pas=</Transaction>
+    <Transaction>2021/05/17 14:27:09.413.dfm,C:\Delphi2007\GComer Desarrollo\GComerBAG\Code\Salidas\CFLIntrastat.dfm=</Transaction>
+    <Transaction>2021/05/17 14:58:37.512.pas,C:\Delphi2007\GComer Desarrollo\GComerSAT\Formularios\Informes\LIntrastat.pas=</Transaction>
+    <Transaction>2021/05/17 14:58:37.512.dfm,C:\Delphi2007\GComer Desarrollo\GComerSAT\Formularios\Informes\LIntrastat.dfm=</Transaction>
+    <Transaction>2021/05/17 15:04:19.185.pas,C:\Delphi2007\GComer Desarrollo\GComerBAG\Code\Salidas\CQLIntrastat.pas=</Transaction>
+    <Transaction>2021/05/17 15:04:19.185.dfm,C:\Delphi2007\GComer Desarrollo\GComerBAG\Code\Salidas\CQLIntrastat.dfm=</Transaction>
+    <Transaction>2021/06/17 08:51:44.016.pas,C:\Delphi2007\GComer Desarrollo\Comun\EDI\VerOrdenFD.pas=</Transaction>
+    <Transaction>2021/06/17 08:51:44.016.dfm,C:\Delphi2007\GComer Desarrollo\Comun\EDI\VerOrdenFD.dfm=</Transaction>
+    <Transaction>2021/06/17 09:13:35.298.pas,C:\Delphi2007\GComer Desarrollo\GComerBAG\Formularios\Detalles\MSalidas.pas=</Transaction>
+    <Transaction>2021/06/17 09:13:35.298.dfm,C:\Delphi2007\GComer Desarrollo\GComerBAG\Formularios\Detalles\MSalidas.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>
