@@ -10,31 +10,34 @@ type
   TFDInfTransitosSelect = class(TForm)
     btnSi: TButton;
     btnNo: TButton;
-    rbAlbaran: TRadioButton;
-    rbCMR: TRadioButton;
-    rbFactura: TRadioButton;
-    rbLame: TRadioButton;
+    cbxAlbaran: TCheckBox;
+    cbxCRM: TCheckBox;
+    cbxFacturaTransito: TCheckBox;
+    cbxCertificadoLAME: TCheckBox;
     procedure btnSiClick(Sender: TObject);
     procedure btnNoClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
   private
     { Private declarations }
+    bAlbaran: boolean;
   public
     { Public declarations }
     iResult: Integer;
+
   end;
 
 
 
-function Seleccionar( const AFactura, ACertificadoLame: boolean ): Integer;
+//function Seleccionar( const AFactura, ACertificadoLame: boolean ): Integer;
+procedure Seleccionar2( var AAlbaran, ACRM, AFactura, ACertificado, ACertificadoLame: boolean );
 
 implementation
 
 uses UDMConfig;
 
 {$R *.dfm}
-
+{
 function Seleccionar( const AFactura, ACertificadoLame: boolean ): Integer;
 var
   FDInfTransitosSelect: TFDInfTransitosSelect;
@@ -50,11 +53,44 @@ begin
   end;
   FreeAndNil( FDInfTransitosSelect );
 end;
+}
 
+procedure Seleccionar2 ( var AAlbaran, ACRM, AFActura, ACertificado, ACertificadoLame: boolean);
+var FDInfTransitosSelect: TFDInfTransitosSelect;
+begin
+  FDInfTransitosSelect:= TFDInfTransitosSelect.Create( nil );
+  with FDInfTransitosSelect do
+  begin
+    cbxCertificadoLAME.Enabled := ACertificadoLame;
+    ShowModal;
+
+    if cbxAlbaran.Checked then
+      begin
+        AAlbaran := true;
+      end;
+
+    if cbxCRM.Checked then
+      begin
+        ACRM := true;
+      end;
+
+      if cbxFacturaTransito.Checked then
+      begin
+        AFActura := true;
+      end;
+
+      if cbxCertificadoLAME.Checked then
+      begin
+        ACertificado := true;
+      end;
+      //
+
+  end;
+end;
 
 procedure TFDInfTransitosSelect.btnSiClick(Sender: TObject);
 begin
-  if rbAlbaran.Checked then
+  {if rbAlbaran.Checked then
     iResult:= 1
   else
   if rbCMR.Checked then
@@ -65,7 +101,7 @@ begin
   else
   if rbLame.Checked then
     iResult:= 4;
-
+  }
   Close;
 end;
 
