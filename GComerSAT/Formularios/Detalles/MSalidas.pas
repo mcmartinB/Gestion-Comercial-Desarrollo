@@ -178,7 +178,7 @@ type
     cbx_porte_bonny_sc: TComboBox;
     Label35: TLabel;
     Label36: TLabel;
-    Label37: TLabel;
+    Label37: TLabel;     
     cbx_higiene_sc: TComboBox;
     n_orden_sc: TBDEdit;
     nota_sc: TDBMemo;
