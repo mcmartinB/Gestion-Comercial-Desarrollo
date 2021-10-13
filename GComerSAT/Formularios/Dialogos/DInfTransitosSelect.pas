@@ -27,35 +27,15 @@ type
 
   end;
 
-
-
-//function Seleccionar( const AFactura, ACertificadoLame: boolean ): Integer;
-procedure Seleccionar2( var AAlbaran, ACRM, AFactura, ACertificado, ACertificadoLame: boolean );
+procedure Seleccionar( var AAlbaran, ACRM, AFactura, ACertificado, ACertificadoLame: boolean );
 
 implementation
 
 uses UDMConfig;
 
 {$R *.dfm}
-{
-function Seleccionar( const AFactura, ACertificadoLame: boolean ): Integer;
-var
-  FDInfTransitosSelect: TFDInfTransitosSelect;
-begin
-  FDInfTransitosSelect:= TFDInfTransitosSelect.Create( nil );
-  with FDInfTransitosSelect do
-  begin
-    rbFactura.Visible:= AFactura;
-    rbLame.Enabled := ACertificadoLame;
-    iResult:= 0;
-    ShowModal;
-    result:= iResult;
-  end;
-  FreeAndNil( FDInfTransitosSelect );
-end;
-}
 
-procedure Seleccionar2 ( var AAlbaran, ACRM, AFActura, ACertificado, ACertificadoLame: boolean);
+procedure Seleccionar ( var AAlbaran, ACRM, AFActura, ACertificado, ACertificadoLame: boolean);
 var FDInfTransitosSelect: TFDInfTransitosSelect;
 begin
   FDInfTransitosSelect:= TFDInfTransitosSelect.Create( nil );
@@ -83,25 +63,12 @@ begin
       begin
         ACertificado := true;
       end;
-      //
-
   end;
+    FreeAndNil( FDInfTransitosSelect );
 end;
 
 procedure TFDInfTransitosSelect.btnSiClick(Sender: TObject);
 begin
-  {if rbAlbaran.Checked then
-    iResult:= 1
-  else
-  if rbCMR.Checked then
-    iResult:= 2
-  else
-  if rbFactura.Checked then
-    iResult:= 3
-  else
-  if rbLame.Checked then
-    iResult:= 4;
-  }
   Close;
 end;
 

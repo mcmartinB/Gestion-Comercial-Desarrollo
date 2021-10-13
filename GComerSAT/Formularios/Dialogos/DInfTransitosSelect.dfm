@@ -40,19 +40,21 @@ object FDInfTransitosSelect: TFDInfTransitosSelect
     Width = 121
     Height = 17
     Caption = 'Albar'#225'n de Tr'#225'nsito'
+    Checked = True
+    State = cbChecked
     TabOrder = 2
   end
   object cbxCRM: TCheckBox
     Left = 40
-    Top = 50
-    Width = 113
-    Height = 17
-    Caption = 'CRM'
+    Top = 51
+    Width = 121
+    Height = 25
+    Caption = 'CMR'
     TabOrder = 3
   end
   object cbxFacturaTransito: TCheckBox
     Left = 40
-    Top = 82
+    Top = 91
     Width = 121
     Height = 17
     Caption = 'Factura de Tr'#225'nsito'
@@ -60,7 +62,7 @@ object FDInfTransitosSelect: TFDInfTransitosSelect
   end
   object cbxCertificadoLAME: TCheckBox
     Left = 40
-    Top = 114
+    Top = 122
     Width = 121
     Height = 17
     Caption = 'Certificado LAME'
