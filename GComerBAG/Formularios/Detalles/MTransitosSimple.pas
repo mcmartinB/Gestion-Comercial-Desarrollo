@@ -682,7 +682,7 @@ begin
 end;
 
 procedure TFMTransitosSimple.SeleccionarInforme;
-var bAlbaran, bCartaPorte ,bCRM, bFacturaTransito: boolean;
+var bAlbaran, bCartaPorte ,bCMR, bFacturaTransito: boolean;
 begin
   //De momento la factura de transito solo para Bonnysa
   (*case DInfTransitosSelect.Seleccionar( DMConfig.EsLaFont or (UpperCase(gsCodigo) = 'LLA012') ) of
@@ -692,9 +692,9 @@ begin
     4: ImprimirAlbaranTransito;   *)
   bAlbaran := false;
   bCartaPorte := false;
-  bCRM := false;
+  bCMR := false;
   bFacturaTransito := false;
-  DInfTransitosSelect.Seleccionar( bAlbaran, bCartaPorte ,bCRM, bFacturaTransito );
+  DInfTransitosSelect.Seleccionar( bAlbaran, bCartaPorte ,bCMR, bFacturaTransito );
 
   if bAlbaran then
   begin
@@ -706,7 +706,7 @@ begin
     ImprimirCartaPorte;
   end;
 
-  if bCRM then
+  if bCMR then
   begin
     imprimirCMRInyeccion;
   end;
