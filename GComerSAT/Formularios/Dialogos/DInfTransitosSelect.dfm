@@ -44,7 +44,7 @@ object FDInfTransitosSelect: TFDInfTransitosSelect
     State = cbChecked
     TabOrder = 2
   end
-  object cbxCRM: TCheckBox
+  object cbxCMR: TCheckBox
     Left = 40
     Top = 51
     Width = 121

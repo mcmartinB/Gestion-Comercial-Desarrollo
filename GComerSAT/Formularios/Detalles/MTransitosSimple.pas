@@ -844,36 +844,34 @@ begin
 end;
 
 procedure TFMTransitosSimple.SeleccionarInforme;
-var bAlbaran, bCRM, bFactura, bCertificado, bCertificadoLame: boolean;
+var bAlbaran, bCMR, bFactura, bCertificado, bCertificadoLame: boolean;
 begin
-  //De momento la factura de transito solo para Bonnysa
   bCertificadoLame := EsCertificadoLame(empresa_tc.Text, centro_tc.Text, Referencia_tc.Text, fecha_tc.Text);
-  (*case DInfTransitosSelect.Seleccionar( True, bCertificadoLame) of
-    1: ImprimirAlbaran;
-    2: ImprimirCMRInyeccion;
-    3: ImprimirFactura;
-    4: ImprimirCertificadoLame;  *)
+  bAlbaran := false;
+  bFactura := false;
+  bCertificado := false;
+  bCMR := false;
 
-    DInfTransitosSelect.Seleccionar2( bAlbaran, bCRM, bFactura, bCertificado, bCertificadoLame );
-    if bAlbaran then
-    begin
-      imprimirAlbaran;
-    end;
-    
-    if bCRM then
-    begin
-      imprimirCMRInyeccion;
-    end;
+  DInfTransitosSelect.Seleccionar( bAlbaran, bCMR, bFactura, bCertificado, bCertificadoLame );
+  if bAlbaran then
+  begin
+    imprimirAlbaran;
+  end;
 
-    if bFactura then
-    begin
-      imprimirFactura;
-    end;
+  if bCMR then
+  begin
+    imprimirCMRInyeccion;
+  end;
 
-    if bCertificado then
-    begin
-      imprimirCertificadoLame;
-    end;
+  if bFactura then
+  begin
+    imprimirFactura;
+  end;
+
+  if bCertificado then
+  begin
+    imprimirCertificadoLame;
+  end;
 end;
 
 procedure TFMTransitosSimple.ssEnvaseAntesEjecutar(Sender: TObject);

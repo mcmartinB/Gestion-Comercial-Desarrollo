@@ -11,7 +11,7 @@ type
     btnSi: TButton;
     btnNo: TButton;
     cbxAlbaran: TCheckBox;
-    cbxCRM: TCheckBox;
+    cbxCMR: TCheckBox;
     cbxFacturaTransito: TCheckBox;
     cbxCertificadoLAME: TCheckBox;
     procedure btnSiClick(Sender: TObject);
@@ -20,14 +20,14 @@ type
       Shift: TShiftState);
   private
     { Private declarations }
-    bAlbaran: boolean;
+    //bAlbaran: boolean;
   public
     { Public declarations }
     iResult: Integer;
 
   end;
 
-procedure Seleccionar( var AAlbaran, ACRM, AFactura, ACertificado, ACertificadoLame: boolean );
+procedure Seleccionar( var AAlbaran, ACMR, AFactura, ACertificado, ACertificadoLame: boolean );
 
 implementation
 
@@ -35,7 +35,7 @@ uses UDMConfig;
 
 {$R *.dfm}
 
-procedure Seleccionar ( var AAlbaran, ACRM, AFActura, ACertificado, ACertificadoLame: boolean);
+procedure Seleccionar ( var AAlbaran, ACMR, AFActura, ACertificado, ACertificadoLame: boolean);
 var FDInfTransitosSelect: TFDInfTransitosSelect;
 begin
   FDInfTransitosSelect:= TFDInfTransitosSelect.Create( nil );
@@ -49,9 +49,9 @@ begin
         AAlbaran := true;
       end;
 
-    if cbxCRM.Checked then
+    if cbxCMR.Checked then
       begin
-        ACRM := true;
+        ACMR := true;
       end;
 
       if cbxFacturaTransito.Checked then
