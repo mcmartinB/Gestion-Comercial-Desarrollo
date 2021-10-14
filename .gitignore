@@ -1,5 +1,5 @@
 #ignorar archivos de compilacion
 *.dcu
 *.exe
-GComerBAG.identcache
-GComerSAT.identcache
+*.identcache
+
