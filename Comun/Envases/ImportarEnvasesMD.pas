@@ -237,7 +237,6 @@ begin
     SincDependenciaLineaProducto( sLog );
     SincDependenciaUndConsumo( sLog );
 
-
     while not qryCabLocal.Eof do
     begin
       qryCabLocal.Delete;
@@ -307,7 +306,6 @@ begin
   qryDetRemoto.Open;
   if not qryDetRemoto.IsEmpty then
   begin
-    //borrado local
     BorrarProductosDesglosados;
     while not qryDetRemoto.Eof do
     begin
@@ -361,12 +359,6 @@ begin
     qryDetLocal.ParamByName('producto_des').AsString:= qryDetRemoto.FieldByname('producto_desglose_ad').AsString;
 
   qryDetLocal.Open;
-//  while not qryDetRemoto.Eof do
-//  begin
-//    //qryDetLocal.Delete;
-//    qryDetLocal.Next;
-//  end;
-
   SincronizarRegistro( qryDetRemoto, qryDetLocal, sLog, 'ART. DESGLOSE' );
   VLog:= VLog + sLog;
   qryDetLocal.Close;

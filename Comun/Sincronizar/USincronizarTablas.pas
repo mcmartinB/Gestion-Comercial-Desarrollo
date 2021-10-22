@@ -95,16 +95,12 @@ function  SincronizarRegistro( const AFuente, ADestino: TDataSet; var VLog: stri
 var
   i: integer;
   campo: TField;
-  bAlta : Boolean;
   sLog: string;
 begin
   sLog:= #13 + #10;
 
-  //bAlta := ADestino.IsEmpty;
-  //Habría que borrar antes los articulos desglosados
-  
-
-  //if bAlta then
+  // Se cambia el proceso a solo inserciones. Se borran de BD Destino
+  // y se insertan desde Fuente
   ADestino.Insert;
 
   i:= 0;
@@ -116,43 +112,16 @@ begin
         ADestino.Fields[i].Value:= campo.Value;
         if ADestino.Fields[i].Value <> null then
         begin
-          sLog:= sLog + '    ' + UpperCase( ADestino.Fields[i].FieldName ) + '=> ' + campo.AsString + #13 + #10
+          sLog:= sLog + '    ' + UpperCase( ADestino.Fields[i].FieldName ) + ' => ' + campo.AsString + #13 + #10
         end;
-      end
-    else
-      begin
-        ADestino.Delete;
       end;
     inc( i );
   end;
 
-//  try
-//    if bAlta then
-//    begin
-//      ADestino.Post;
-//      if bAlta then
-//      begin
-//        VLog:= VLog + #13 + #10 + '+ REGISTRO ACTUALIZADO [' + ATable + ']:'   + #13 + #10 + sLog;
-//        Result:= 1;
-//      end
-//    else
-//      begin
-//        VLog:= VLog + #13 + #10 + '= REGISTRO SIN CAMBIOS [' + ATable + ']' + #13 + #10;
-//        ADestino.Cancel;
-//        Result:= 0;
-//      end;
-//    end;
   try
       ADestino.Post;
       VLog:= VLog + #13 + #10 + '+ CAMBIOS APLICADOS CORRECTAMENTE [' + ATable + ']:'   + #13 + #10 + sLog;
       Result:= 1;
-    if bAlta then
-    begin
-      VLog:= VLog + #13 + #10 + '= REGISTRO SIN CAMBIOS [' + ATable + ']' + #13 + #10;
-      ADestino.Cancel;
-      Result:= 0;
-    end;
-
   except
     on E: Exception do
     begin
@@ -163,7 +132,6 @@ begin
     end;
   end;
 end;
-
 
 procedure  ClonarRegistro( const AFuente, ADestino: TDataSet  );
 var
