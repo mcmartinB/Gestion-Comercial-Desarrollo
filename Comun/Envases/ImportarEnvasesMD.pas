@@ -51,6 +51,7 @@ type
     procedure SincronizarDetalles( const ATitle, AField: string; var VLog: string );
     procedure SincronizaDetalle( const ATitle, AField, AValue: string; var VLog: string );
 
+    procedure BorrarProductosDesglosados();
 
     function  ExisteCliente: Boolean;
     function  GetMessage: string;
@@ -236,6 +237,11 @@ begin
     SincDependenciaLineaProducto( sLog );
     SincDependenciaUndConsumo( sLog );
 
+    while not qryCabLocal.Eof do
+    begin
+      qryCabLocal.Delete;
+      qryCabLocal.Next;
+    end;
 
     Result:= SincronizarRegistro( qryCabRemoto, qryCabLocal, sLog, 'ARTÍCULO' ) > -1;
     if Result then
@@ -300,6 +306,7 @@ begin
   qryDetRemoto.Open;
   if not qryDetRemoto.IsEmpty then
   begin
+    BorrarProductosDesglosados;
     while not qryDetRemoto.Eof do
     begin
       SincronizaArtDesglose( VLog );
@@ -307,6 +314,19 @@ begin
     end;
     qryDetRemoto.Close;
   end;
+end;
+
+procedure TDMImportarEnvases.BorrarProductosDesglosados();
+var
+  TConsulta : TQuery;
+begin
+  TConsulta := TQuery.Create(nil);
+  TConsulta.DatabaseName := 'BDProyecto';
+  TConsulta.SQL.Clear;
+  TConsulta.SQL.Add(' delete from frf_articulos_desglose ');
+  TConsulta.SQL.Add(' where articulo_ad = :envase ');
+  TConsulta.ParamByName('envase').AsString := sEnvase;
+  TConsulta.ExecSQL;
 end;
 
 procedure TDMImportarEnvases.SincronizarClientes( var VLog: string );
@@ -329,24 +349,18 @@ end;
 procedure TDMImportarEnvases.SincronizaArtDesglose(var VLog: string);
 var
   sLog: string;
+  i : integer;
 begin
   //Abrir destino solo si existe el producto, si no dara error al grabar
   LoadQueryLocalArtDesglose;
   qryDetLocal.ParamByName('envase').AsString:= sEnvase;
 
   if qryDetRemoto.FieldByname('producto_desglose_ad').Value <> Null then
-    qryDetLocal.ParamByName('producto_des').AsString:= qryDetRemoto.FieldByname('producto_desglose_ad').AsString;;
-{
-  if qryDetRemoto.FieldByname('producto_ad').Value <> Null then
-    qryDetLocal.ParamByName('producto_ad').AsString:= qryDetRemoto.FieldByname('producto_ad').AsString;;
-  if qryDetRemoto.FieldByname('producto_desglose_ad').Value <> Null then
-    qryDetLocal.ParamByName('producto_desglose_ad').AsString:= qryDetRemoto.FieldByname('producto_desglose_ad').AsString;
-  if qryDetRemoto.FieldByname('porcentaje_ad').Value  <> Null then
-    qryDetLocal.ParamByName('porcentaje_ad').AsString:= qryDetRemoto.FieldByname('porcentaje_ad').AsString;
-}
+    qryDetLocal.ParamByName('producto_des').AsString:= qryDetRemoto.FieldByname('producto_desglose_ad').AsString;
+
   qryDetLocal.Open;
   SincronizarRegistro( qryDetRemoto, qryDetLocal, sLog, 'ART. DESGLOSE' );
-   VLog:= VLog + sLog;
+  VLog:= VLog + sLog;
   qryDetLocal.Close;
 end;
 
@@ -364,7 +378,7 @@ begin
     qryDetLocal.ParamByName('cliente').AsString:= qryDetRemoto.FieldByname('cliente_ce').AsString;
     qryDetLocal.Open;
     SincronizarRegistro( qryDetRemoto, qryDetLocal, sLog, 'ARTÍCULO CLIENTE' );
-     VLog:= VLog + sLog;
+    VLog:= VLog + sLog;
     qryDetLocal.Close;
   end;
 end;
