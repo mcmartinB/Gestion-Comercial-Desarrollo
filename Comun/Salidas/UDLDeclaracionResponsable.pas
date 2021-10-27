@@ -26,7 +26,7 @@ type
 
 implementation
 
-uses LDeclaracionResponsable, LDeclaracionResponsable2, DPreview;
+uses LDeclaracionResponsable, DPreview;
 {$R *.dfm}
 
 var
@@ -59,7 +59,7 @@ begin
     begin
       // SELECT DE DBEAVER
       SQL.Add(' select empresas.nombre_e as nombre_empresa, empresas.nif_e as nif_empresa, facturas.cod_factura_fc as cod_factura, facturas.des_pais_fc as pais_desino, ');
-      SQL.Add('   salidas_c.fecha_sc as fecha_salida, productos.descripcion_p as producto_sl, salidas_c.vehiculo_sc as matricula, sum(salidas_l.kilos_sl) as kilos, sum(salidas_l.cajas_sl) as cajas ');
+      SQL.Add('   salidas_c.fecha_sc as fecha_salida, agrupacion.nombre_a as producto_sl, salidas_c.vehiculo_sc as matricula, sum(salidas_l.kilos_sl) as kilos, sum(salidas_l.cajas_sl) as cajas ');
       SQL.Add(' from frf_salidas_c as salidas_c ');
       SQL.Add(' left join frf_salidas_l as salidas_l on empresa_sc = empresa_sl ');
       SQL.Add('   and centro_salida_sc = centro_salida_sl ');
@@ -71,6 +71,7 @@ begin
       SQL.Add('   and facturas.cod_serie_fac_fc = salidas_c.serie_fac_sc ');
       SQL.Add(' left join frf_empresas as empresas on empresa_e = empresa_sc ');
       SQL.Add(' left join frf_productos as productos on producto_p = producto_sl ');
+      SQL.Add(' left join frf_agrupacion as agrupacion on producto_sl = producto_a ');
       SQL.Add(' where fecha_sc = :fecha_sc ');
       SQL.Add('   and empresa_sc = :empresa_sc ');
       SQL.Add('   and centro_salida_sc = :centro_sc ');
