@@ -846,7 +846,9 @@ uses
   uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas',
   URFactura in 'Comercial\Facturacion\URFactura.pas' {RFactura: TQuickRep},
   CMaestroDetalle in 'GComerSAT\Modulos\CMaestroDetalle.pas',
-  MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales};
+  MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales},
+  LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
+  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule};
 
 (*COMERBAG*)
 
