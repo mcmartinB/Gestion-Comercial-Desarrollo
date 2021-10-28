@@ -845,15 +845,11 @@ uses
   URFactura in 'Comercial\Facturacion\URFactura.pas' {RFactura: TQuickRep},
   CMaestroDetalle in 'GComerSAT\Modulos\CMaestroDetalle.pas',
   MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales},
-<<<<<<< HEAD
   LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
-  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule};
-  //
-=======
+  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule},
   MEntradasFrutaEx in 'GComerSAT\Formularios\Detalles\MEntradasFrutaEx.pas' {FMEntradasFrutaEx},
   UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal};
 
->>>>>>> ae8a0a26cb940dc4fc97cb190be0cd7547e19a14
 (*COMERBAG*)
 
   //DatosCMRDD in 'Comun\Salidas\DatosCMRDD.pas' {DDDatosCMR: TDataModule},(*Hace referencia a  LCMRInyeccion, primero unficar esta com en BAG*)
