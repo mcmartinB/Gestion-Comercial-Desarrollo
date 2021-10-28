@@ -200,7 +200,6 @@ uses
   MEAN13 in 'GComerSAT\Formularios\Maestros\MEAN13.pas' {FMEAN13},
   MEAN13_old in 'GComerSAT\Formularios\Maestros\MEAN13_old.pas' {FMEAN13_old},
   MEmpresas in 'Comun\Ficheros\MEmpresas.pas' {FMEmpresas},
-  MEntradasFrutaEx in 'GComerSAT\Formularios\Detalles\MEntradasFrutaEx.pas' {FMEntradasFrutaEx},
   MFederaciones in 'GComerSAT\Formularios\Maestros\MFederaciones.pas' {FMFederaciones},
   MFederacionSalidas in 'GComerSAT\Formularios\Mantenimientos\MFederacionSalidas.pas' {FMFederacionSalidas},
   MFormasPago in 'Comun\Master\MFormasPago.pas' {FMFormaPago},
@@ -274,7 +273,6 @@ uses
   UFConsultaRem in 'Comercial\Facturacion\UFConsultaRem.pas' {FConsultaRem},
   UFContFacturas in 'Comercial\Facturacion\UFContFacturas.pas' {FContFacturas},
   UFDGetEscandallo in 'Comun\Entradas\UFDGetEscandallo.pas' {FDGetEscandallo},
-  UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal},
   UFEnvases in 'Comun\Despegables\UFEnvases.pas' {FEnvases},
   UFFacturarEdi in 'Comercial\Facturacion\UFFacturarEdi.pas' {FFacturarEdi},
   UFFormaPago in 'Comun\Despegables\UFFormaPago.pas' {FFormaPago},
@@ -375,7 +373,7 @@ uses
   LFEnvasesCliente in 'Comun\Clientes\LFEnvasesCliente.pas' {FLEnvasesCliente},
   LFSalidas in 'GComerBAG\Formularios\Informes\LFSalidas.pas' {FLSalidas},
   LiquidaEntregaClientesQL in 'Comun\Compras\LiquidaEntregaClientesQL.pas' {QLLiquidaEntregaClientes: TQuickRep},
-  LiquidaEntregaDL in 'Comun\Compras\LiquidaEntregaDL.pas' {DLLiquidaEntrega: TDataModule},
+  LiquidaEntregaDL in 'Comun\Compras\LiquidaEntregaDL.pas' {compo: TDataModule},
   LiquidaEntregaProveedoresQL in 'Comun\Compras\LiquidaEntregaProveedoresQL.pas' {QLLiquidaEntregaProveedores: TQuickRep},
   LiquidaIncidenciasDL in 'Comun\Compras\LiquidaIncidenciasDL.pas' {DLLiquidaIncidencias: TDataModule},
   LiquidaIncidenciasQL in 'Comun\Compras\LiquidaIncidenciasQL.pas' {QLLiquidaIncidencias: TQuickRep},
@@ -846,7 +844,9 @@ uses
   uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas',
   URFactura in 'Comercial\Facturacion\URFactura.pas' {RFactura: TQuickRep},
   CMaestroDetalle in 'GComerSAT\Modulos\CMaestroDetalle.pas',
-  MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales};
+  MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales},
+  MEntradasFrutaEx in 'GComerSAT\Formularios\Detalles\MEntradasFrutaEx.pas' {FMEntradasFrutaEx},
+  UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal};
 
 (*COMERBAG*)
 
