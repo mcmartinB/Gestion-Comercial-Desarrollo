@@ -742,7 +742,9 @@ uses
   QLIntrastat in 'GComerSAT\Reports\Informes\QLIntrastat.pas' {QRLIntrastat: TQuickRep},
   VerOrdenFD in 'Comun\EDI\VerOrdenFD.pas' {FDVerOrden},
   MSalidas in 'GComerBAG\Formularios\Detalles\MSalidas.pas' {FMSalidas},
-  uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas';
+  uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas',
+  LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
+  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule};
 
 (*
   AbonoDetallesDL in 'GComerSAT\Code\Facturacion\AbonoDetallesDL.pas' {DLAbonoDetalles: TDataModule},
