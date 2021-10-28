@@ -849,7 +849,7 @@ uses
   MComerciales in 'Comun\Comerciales\MComerciales.pas' {FMComerciales},
   LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
   UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule};
-
+  //
 (*COMERBAG*)
 
   //DatosCMRDD in 'Comun\Salidas\DatosCMRDD.pas' {DDDatosCMR: TDataModule},(*Hace referencia a  LCMRInyeccion, primero unficar esta com en BAG*)
