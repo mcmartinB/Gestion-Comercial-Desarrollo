@@ -359,7 +359,7 @@ begin
     qryDetLocal.ParamByName('producto_des').AsString:= qryDetRemoto.FieldByname('producto_desglose_ad').AsString;
 
   qryDetLocal.Open;
-  SincronizarRegistro( qryDetRemoto, qryDetLocal, sLog, 'ART. DESGLOSE' );
+  SincronizarRegistroArtDesglosados( qryDetRemoto, qryDetLocal, sLog, 'ART. DESGLOSE' );
   VLog:= VLog + sLog;
   qryDetLocal.Close;
 end;
