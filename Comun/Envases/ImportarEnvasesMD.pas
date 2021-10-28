@@ -237,12 +237,6 @@ begin
     SincDependenciaLineaProducto( sLog );
     SincDependenciaUndConsumo( sLog );
 
-    while not qryCabLocal.Eof do
-    begin
-      qryCabLocal.Delete;
-      qryCabLocal.Next;
-    end;
-
     Result:= SincronizarRegistro( qryCabRemoto, qryCabLocal, sLog, 'ARTÍCULO' ) > -1;
     if Result then
     begin
