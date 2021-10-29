@@ -27,7 +27,6 @@ object FCliEnvases: TFCliEnvases
     BevelOuter = bvNone
     Enabled = False
     TabOrder = 1
-    ExplicitWidth = 851
     object nbLabel1: TnbLabel
       Left = 24
       Top = 33
@@ -400,7 +399,6 @@ object FCliEnvases: TFCliEnvases
     Caption = 'ToolBar1'
     ShowCaptions = True
     TabOrder = 0
-    ExplicitWidth = 851
     object btnAlta: TToolButton
       Left = 0
       Top = 0
@@ -480,8 +478,6 @@ object FCliEnvases: TFCliEnvases
       LockedStateImageOptions.Font.Height = -11
       LockedStateImageOptions.Font.Name = 'MS Sans Serif'
       LockedStateImageOptions.Font.Style = []
-      ExplicitLeft = 8
-      ExplicitWidth = 817
       object tvDetalle: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         FindPanel.DisplayMode = fpdmAlways

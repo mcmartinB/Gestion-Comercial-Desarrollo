@@ -52,6 +52,7 @@ type
     procedure SincronizaDetalle( const ATitle, AField, AValue: string; var VLog: string );
 
     procedure BorrarProductosDesglosados();
+    procedure BorrarInfoClientes();
 
     function  ExisteCliente: Boolean;
     function  GetMessage: string;
@@ -323,6 +324,19 @@ begin
   TConsulta.ExecSQL;
 end;
 
+procedure TDMImportarEnvases.BorrarInfoClientes();
+var
+  TConsulta : TQuery;
+begin
+  TConsulta := TQuery.Create(nil);
+  TConsulta.DatabaseName := 'BDProyecto';
+  TConsulta.SQL.Clear;
+  TConsulta.SQL.Add(' delete from frf_clientes_env where envase_ce = :envase ');
+  TConsulta.ParamByName('envase').AsString := sEnvase;
+  TConsulta.ExecSQL;
+end;
+
+
 procedure TDMImportarEnvases.SincronizarClientes( var VLog: string );
 begin
   qryDetRemoto.ParamByName('envase').AsString:= sEnvase;
@@ -331,6 +345,7 @@ begin
   qryDetRemoto.Open;
   if not qryDetRemoto.IsEmpty then
   begin
+    BorrarInfoClientes();
     while not qryDetRemoto.Eof do
     begin
       SincronizaClientes( VLog );
@@ -368,10 +383,10 @@ begin
     qryDetLocal.ParamByName('empresa').AsString:= qryDetRemoto.FieldByname('empresa_ce').AsString;
     qryDetLocal.ParamByName('envase').AsString:= sEnvase;
     //if sProducto <> '' then
-      qryDetLocal.ParamByName('producto').AsString:= qryDetRemoto.FieldByname('producto_ce').AsString;//sProducto;
+    qryDetLocal.ParamByName('producto').AsString:= qryDetRemoto.FieldByname('producto_ce').AsString;//sProducto;
     qryDetLocal.ParamByName('cliente').AsString:= qryDetRemoto.FieldByname('cliente_ce').AsString;
     qryDetLocal.Open;
-    SincronizarRegistro( qryDetRemoto, qryDetLocal, sLog, 'ARTÍCULO CLIENTE' );
+    SincronizarRegistroArtDesglosados( qryDetRemoto, qryDetLocal, sLog, 'ARTÍCULO CLIENTE' );
     VLog:= VLog + sLog;
     qryDetLocal.Close;
   end;
@@ -403,6 +418,7 @@ begin
     SQL.Add('where articulo_ad = :envase ');
   end;
 end;
+
 
 procedure TDMImportarEnvases.LoadQueryLocalEan;
 begin
