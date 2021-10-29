@@ -207,7 +207,7 @@ object FAprovechaVerifica: TFAprovechaVerifica
     OnChange = centroChange
   end
   object producto: TBEdit
-    Left = 127
+    Left = 125
     Top = 76
     Width = 33
     Height = 21
