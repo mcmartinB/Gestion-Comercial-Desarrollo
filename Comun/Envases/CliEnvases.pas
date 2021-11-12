@@ -351,6 +351,10 @@ end;
 
 procedure TFCliEnvases.AAceptarExecute(Sender: TObject);
 begin
+    //si no se inserta una referencia de cliente, tomará el valor del envase
+    if ref_cliente_ce.Text = '' then
+      Query.FieldByName('ref_cliente_ce').AsString :=  Query.FieldByName('envase_ce').AsString;
+
   Query.Post;
   SincroBonnyAurora.SincronizarUnidadFacturacion(
     Query.FieldByName('empresa_ce').asString,
@@ -426,9 +430,9 @@ end;
 
 procedure TFCliEnvases.FormCreate(Sender: TObject);
 begin
-  ABorrar.ShortCut := ShortCut(VK_SUBTRACT, []);
-  AAnyadir.ShortCut := ShortCut(VK_ADD, []);
-  AModificar.ShortCut := ShortCut(Word('M'), []);
+  //ABorrar.ShortCut := ShortCut(VK_SUBTRACT, []);
+  //AAnyadir.ShortCut := ShortCut(VK_ADD, []);
+  //AModificar.ShortCut := ShortCut(Word('M'), []);
   AAceptar.ShortCut := ShortCut(VK_F1, []);
 end;
 

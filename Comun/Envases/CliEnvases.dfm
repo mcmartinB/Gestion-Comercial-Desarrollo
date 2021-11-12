@@ -479,6 +479,7 @@ object FCliEnvases: TFCliEnvases
       LockedStateImageOptions.Font.Name = 'MS Sans Serif'
       LockedStateImageOptions.Font.Style = []
       object tvDetalle: TcxGridDBTableView
+        Navigator.Buttons.ConfirmDelete = True
         Navigator.Buttons.CustomButtons = <>
         FindPanel.DisplayMode = fpdmAlways
         DataController.DataSource = DataSource
@@ -660,16 +661,14 @@ object FCliEnvases: TFCliEnvases
   end
   object ActionList: TActionList
     OnUpdate = ActionListUpdate
-    Left = 384
-    Top = 144
+    Left = 472
+    Top = 424
     object AAnyadir: TAction
       Caption = 'A'#241'adir'
-      ShortCut = 187
       OnExecute = AAnyadirExecute
     end
     object ABorrar: TAction
       Caption = 'Borrar'
-      ShortCut = 111
       OnExecute = ABorrarExecute
     end
     object AModificar: TAction
