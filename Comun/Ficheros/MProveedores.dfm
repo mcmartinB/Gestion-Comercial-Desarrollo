@@ -485,7 +485,7 @@ object FMProveedores: TFMProveedores
     Top = 307
     Width = 903
     Height = 424
-    ActivePage = tsProductos
+    ActivePage = tsCostes
     Align = alClient
     TabOrder = 3
     OnChange = PageControlChange
@@ -1407,7 +1407,6 @@ object FMProveedores: TFMProveedores
           Width = 13
           Height = 21
           Action = ARejillaFlotante
-          Enabled = False
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -1492,7 +1491,6 @@ object FMProveedores: TFMProveedores
           ColorDisable = clWindow
           Required = True
           OnRequiredTime = RequiredTime
-          Enabled = False
           MaxLength = 3
           TabOrder = 0
           OnChange = tipo_coste_pcChange

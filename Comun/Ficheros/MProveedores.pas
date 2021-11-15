@@ -711,11 +711,12 @@ begin
         inherited DetalleAltas;
     end;
   end;
-{
+
   tipo_coste_pc.Enabled := true;
   BGBTipoCoste.Enabled := true;
+  tipo_coste_pc.SetFocus;
   fecha_ini_pc.Enabled := true;
-
+{
   if not DMConfig.EsLaFontEx then
   begin
     ShowMessage('Antes de dar de alta un nuevo almacén/variedad de proveedor, recuerde darlo de alta antes en la central.');
@@ -1394,13 +1395,21 @@ begin
   end
   else
   begin
-    FocoDetalle:=tipo_coste_pc;
     tsAlmacenes.TabVisible:= False;
     tsProductos.TabVisible:= False;
     if EstadoDetalle <> tedModificar then
     begin
       QCostes.Close;
       QCostes.Open;
+      tipo_coste_pc.Enabled := true;
+      BGBTipoCoste.Enabled := true;
+      FocoDetalle:=tipo_coste_pc;
+    end
+    else
+    begin
+      tipo_coste_pc.Enabled := false;
+      BGBTipoCoste.Enabled := false;
+      FocoDetalle:=importe_pc;
     end;
   end;
 end;
