@@ -1409,6 +1409,7 @@ begin
     begin
       tipo_coste_pc.Enabled := false;
       BGBTipoCoste.Enabled := false;
+      fecha_ini_pc.Enabled := false;
       FocoDetalle:=importe_pc;
     end;
   end;
