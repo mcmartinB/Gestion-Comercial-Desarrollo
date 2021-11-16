@@ -2,7 +2,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
   Left = 0
   Top = 0
   Width = 794
-  Height = 1123
+  Height = 1144
   Frame.Color = clBlack
   Frame.DrawTop = False
   Frame.DrawBottom = False
@@ -64,7 +64,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     Left = 38
     Top = 38
     Width = 718
-    Height = 867
+    Height = 950
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -80,7 +80,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     ForceNewColumn = False
     ForceNewPage = True
     Size.Values = (
-      2293.937500000000000000
+      2513.541666666667000000
       1899.708333333333000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
@@ -615,7 +615,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRShape1: TQRShape
       Left = 9
-      Top = 934
+      Top = 1006
       Width = 434
       Height = 1
       Frame.Color = clBlack
@@ -626,14 +626,14 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         2.645833333333333000
         23.812500000000000000
-        2471.208333333333000000
+        2661.708333333333000000
         1148.291666666667000000)
       Shape = qrsRectangle
       VertAdjust = 0
     end
     object QRLabel30: TQRLabel
       Left = 11
-      Top = 939
+      Top = 1011
       Width = 704
       Height = 17
       Frame.Color = clBlack
@@ -644,7 +644,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         29.104166666666670000
-        2484.437500000000000000
+        2674.937500000000000000
         1862.666666666667000000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -667,7 +667,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRLabel31: TQRLabel
       Left = 11
-      Top = 954
+      Top = 1026
       Width = 253
       Height = 17
       Frame.Color = clBlack
@@ -678,7 +678,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         29.104166666666670000
-        2524.125000000000000000
+        2714.625000000000000000
         669.395833333333300000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -698,7 +698,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRLabel33: TQRLabel
       Left = 11
-      Top = 978
+      Top = 1050
       Width = 701
       Height = 17
       Frame.Color = clBlack
@@ -709,7 +709,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         29.104166666666670000
-        2587.625000000000000000
+        2778.125000000000000000
         1854.729166666667000000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -1318,7 +1318,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRLabel44: TQRLabel
       Left = 636
-      Top = 907
+      Top = 979
       Width = 63
       Height = 17
       Frame.Color = clBlack
@@ -1329,7 +1329,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         1682.750000000000000000
-        2399.770833333333000000
+        2590.270833333333000000
         166.687500000000000000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -3920,9 +3920,9 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
   end
   object ChildBand1: TQRChildBand
     Left = 38
-    Top = 905
+    Top = 988
     Width = 718
-    Height = 960
+    Height = 400
     Frame.Color = clBlack
     Frame.DrawTop = False
     Frame.DrawBottom = False
@@ -3934,7 +3934,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     ForceNewColumn = False
     ForceNewPage = True
     Size.Values = (
-      2540.000000000000000000
+      1058.333333333333000000
       1899.708333333333000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
@@ -4136,7 +4136,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRLabel7: TQRLabel
       Left = 13
-      Top = 902
+      Top = 1038
       Width = 448
       Height = 17
       Frame.Color = clBlack
@@ -4147,7 +4147,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         34.395833333333330000
-        2386.541666666667000000
+        2746.375000000000000000
         1185.333333333333000000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -4163,7 +4163,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object shape: TQRLabel
       Left = 636
-      Top = 838
+      Top = 974
       Width = 63
       Height = 17
       Frame.Color = clBlack
@@ -4174,7 +4174,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         44.979166666666670000
         1682.750000000000000000
-        2217.208333333333000000
+        2577.041666666667000000
         166.687500000000000000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -4188,7 +4188,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
     end
     object QRShape4: TQRShape
       Left = 9
-      Top = 892
+      Top = 1028
       Width = 406
       Height = 1
       Frame.Color = clBlack
@@ -4199,7 +4199,7 @@ object QLDeclaracionResponsable: TQLDeclaracionResponsable
       Size.Values = (
         2.645833333333333000
         23.812500000000000000
-        2360.083333333333000000
+        2719.916666666667000000
         1074.208333333333000000)
       Shape = qrsRectangle
       VertAdjust = 0

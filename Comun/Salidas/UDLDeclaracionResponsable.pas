@@ -58,7 +58,11 @@ begin
     if sModuloOrigen = 'FMSalidas' then
     begin
       // SELECT DE DBEAVER
-      SQL.Add(' select empresas.nombre_e as nombre_empresa, empresas.nif_e as nif_empresa, facturas.cod_factura_fc as cod_factura, facturas.des_pais_fc as pais_desino, ');
+      SQL.Add(' select empresas.nombre_e as nombre_empresa, empresas.nif_e as nif_empresa,          ');
+      SQL.Add(' CASE WHEN facturas.cod_factura_fc <> '''' THEN facturas.cod_factura_fc              ');
+      SQL.Add('        ELSE empresa_sl || centro_salida_sl || ''-'' || LPAD(n_albaran_sl, 6, "0")   ');
+      SQL.Add('   END as cod_factura,                                                               ');
+      SQL.Add('   facturas.des_pais_fc as pais_desino,                                              ');
       SQL.Add('   salidas_c.fecha_sc as fecha_salida, agrupacion.nombre_a as producto_sl, salidas_c.vehiculo_sc as matricula, sum(salidas_l.kilos_sl) as kilos, sum(salidas_l.cajas_sl) as cajas ');
       SQL.Add(' from frf_salidas_c as salidas_c ');
       SQL.Add(' left join frf_salidas_l as salidas_l on empresa_sc = empresa_sl ');
