@@ -291,7 +291,7 @@ begin
     else
     begin
       if env_sobrepeso <> -1 then
-        FieldByName('kilos_reales').AsFloat := DMTablaTemporalFOB.ClientDataSet.FieldByName('kilos_producto').AsFloat + env_sobrepeso
+        FieldByName('kilos_reales').AsFloat := DMTablaTemporalFOB.ClientDataSet.FieldByName('kilos_producto').AsFloat + bRoundTo(DMTablaTemporalFOB.ClientDataSet.FieldByName('kilos_producto').AsFloat  * env_sobrepeso / 100, 2 )
       else
         FieldByName('kilos_reales').AsFloat := 0;
     end;

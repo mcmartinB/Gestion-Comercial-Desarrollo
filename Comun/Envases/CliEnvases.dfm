@@ -469,6 +469,12 @@ object FCliEnvases: TFCliEnvases
       Width = 834
       Height = 289
       Align = alBottom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnEnter = cxGrid1Enter
       OnExit = cxGrid1Exit
@@ -478,6 +484,9 @@ object FCliEnvases: TFCliEnvases
       LockedStateImageOptions.Font.Height = -11
       LockedStateImageOptions.Font.Name = 'MS Sans Serif'
       LockedStateImageOptions.Font.Style = []
+      LookAndFeel.NativeStyle = True
+      LookAndFeel.SkinName = 'DevExpressStyle'
+      ExplicitTop = 0
       object tvDetalle: TcxGridDBTableView
         Navigator.Buttons.ConfirmDelete = True
         Navigator.Buttons.CustomButtons = <>
