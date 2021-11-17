@@ -533,15 +533,6 @@ begin
     RejillaVisualizacion.Enabled := false;
   end;
      //Poner foco
-{
-  if FocoDetalle <> nil then
-  begin
-    if FocoDetalle.Enabled and FocoDetalle.Visible and FocoDetalle.CanFocus then
-    begin
-      Self.ActiveControl := FocoDetalle;
-    end;
-  end;
-}
   Self.ActiveControl := FocoDetalle;
      //Todas la inserciones
   if DataSourceDetalle.Dataset.CanModify then
