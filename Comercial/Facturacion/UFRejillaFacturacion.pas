@@ -143,7 +143,7 @@ begin
       if (self.tvFacturas.DataController.Values[I, self.tvFacturas.DataController.GetItemByFieldName('importe_total_fc').Index]) = 0 then
         opcion := MessageDlg( 'Hay una factura con importe total 0. Por favor, revísela.', mtWarning, [mbOK], 0);
         if opcion = 1 then
-          ModalResult := mrCancel
+          ModalResult := mrNone
         else
           ModalResult := mrOk;
     end;
