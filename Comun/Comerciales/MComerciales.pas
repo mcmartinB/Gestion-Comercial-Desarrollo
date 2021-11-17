@@ -31,8 +31,6 @@ type
     PMaestro: TPanel;
     DSMaestro: TDataSource;
     lblComercial: TLabel;
-    AComerciales: TActionList;
-    ARejillaFlotante: TAction;
     codigo_c: TBDEdit;
     descripcion_c: TBDEdit;
     qryComerciales: TQuery;
@@ -57,18 +55,20 @@ type
     Label2: TLabel;
     Label3: TLabel;
     fecha_ini_cc: TcxDBDateEdit;
-    PFiltro: TPanel;
     RClientes: TDBGrid;
-    SECliente: TSQLExprStrEdit;
-    Label4: TLabel;
-    cxFiltrar: TcxButton;
-    cxBorrarFiltro: TcxButton;
-    Label5: TLabel;
-    SEProducto: TSQLExprStrEdit;
-    Label6: TLabel;
-    SEEmpresa: TSQLExprStrEdit;
     fecha_fin_cc: TcxDBDateEdit;
     qryClientesAux: TQuery;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxGrid1DBTableView1Column2: TcxGridDBColumn;
+    cxGrid1DBTableView1Column3: TcxGridDBColumn;
+    cxGrid1DBTableView1Column4: TcxGridDBColumn;
+    cxGrid1DBTableView1Column5: TcxGridDBColumn;
+    AComerciales: TActionList;
+    ARejillaFlotante: TAction;
+    ADModificar: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -86,6 +86,8 @@ type
     procedure cod_producto_ccChange(Sender: TObject);
     procedure cxFiltrarClick(Sender: TObject);
     procedure cxBorrarFiltroClick(Sender: TObject);
+    procedure cxGrid1Enter(Sender: TObject);
+    procedure cxGrid1Exit(Sender: TObject);
   private
     { Private declarations }
     ListaComponentes, ListaDetalle: TList;
@@ -168,7 +170,6 @@ end;
 procedure TFMComerciales.FormCreate(Sender: TObject);
 begin
   Top := 1;
-
   LineasObligadas:= False;
   ListadoObligado:= False;
   MultipleAltas:= false;
@@ -357,8 +358,17 @@ begin
         Key := 0;
         PostMessage(Handle, WM_NEXTDLGCTL, 1, 0);
       end;
+    VK_ADD:
+      begin
+        nil;
+      end;
+    VK_SUBTRACT:
+      begin
+        nil;
+      end;
   end;
 end;
+
 
 //*****************************************************************************
 //*****************************************************************************
@@ -534,7 +544,7 @@ begin
         end;
       end;
     end;
-  end;
+  end;                                                                                   
 end;
 
 procedure TFMComerciales.Previsualizar;
@@ -741,8 +751,6 @@ begin
   PanelDetalle.Visible:= false;
   PanelMaestro.Height:= 90;
   tsClientes.TabVisible:= True;
-  PFiltro.Visible := true;
-  SECliente.SetFocus;
 end;
 
 procedure TFMComerciales.EditarDetalle;
@@ -758,7 +766,6 @@ begin
       qryClientes.Close;
       qryClientes.Open;
     end;
-    PFiltro.Visible := false;
   end
   else
   begin
@@ -801,9 +808,6 @@ end;
 
 procedure TFMComerciales.cxBorrarFiltroClick(Sender: TObject);
 begin
-  SECliente.Text := '';
-  SEProducto.Text := '';
-  SEEmpresa.Text := '';
   with qryClientes do
   begin
     if Active then Close;
@@ -828,19 +832,23 @@ begin
     SQL.Clear;
     SQL.Add(' select * from frf_clientes_comercial ');
     SQL.Add('  where cod_comercial_cc = :codigo_c  ');
-
-    if SECliente.Text <> '' then
-      SQL.Add(Format(' and %s', [ SECliente.SQLExpr ]));
-    if SEProducto.Text <> '' then
-      SQL.Add(Format(' and %s', [ SEProducto.SQLExpr ]));
-    if SEEmpresa.Text <> '' then
-      SQL.Add(Format(' and %s', [ SEEmpresa.SQLExpr ]));
-
     SQL.Add(' order by cod_cliente_cc, cod_empresa_cc, cod_fecha_ini desc ');
 
     ParamByName('codigo_c').AsString := codigo_c.Text;
     Open;
   end;
+end;
+
+procedure TFMComerciales.cxGrid1Exit(Sender: TObject);
+begin
+  FPrincipal.AMModificar.ShortCut := Word('M');
+  FPrincipal.AMLocalizar.ShortCut := Word('L');
+end;
+
+procedure TFMComerciales.cxGrid1Enter(Sender: TObject);
+begin
+  FPrincipal.AMModificar.ShortCut := 0;
+  FPrincipal.AMLocalizar.ShortCut := 0;
 end;
 
 procedure TFMComerciales.DespuesDeBorrar;

@@ -420,7 +420,6 @@ procedure TMaestro.Modificar;
 begin
   if not DataSeTMaestro.CanModify
     then Exit;
-
      //Estado
   Estado := teModificar;
   BEEstado;

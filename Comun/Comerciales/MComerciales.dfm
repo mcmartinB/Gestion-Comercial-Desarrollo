@@ -124,7 +124,7 @@ object FMComerciales: TFMComerciales
           Top = 9
           Width = 13
           Height = 21
-          Action = ARejillaFlotante
+          Hint = 'Pulse F2 para ver una lista de valores validos. '
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -160,6 +160,7 @@ object FMComerciales: TFMComerciales
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+          OnClick = ARejillaFlotanteExecute
           Control = cod_empresa_cc
           Grid = RejillaFlotante
           GridAlignment = taDownRight
@@ -171,7 +172,7 @@ object FMComerciales: TFMComerciales
           Top = 31
           Width = 13
           Height = 21
-          Action = ARejillaFlotante
+          Hint = 'Pulse F2 para ver una lista de valores validos. '
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -207,6 +208,7 @@ object FMComerciales: TFMComerciales
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+          OnClick = ARejillaFlotanteExecute
           Control = cod_cliente_cc
           Grid = RejillaFlotante
           GridAlignment = taDownRight
@@ -229,7 +231,7 @@ object FMComerciales: TFMComerciales
           Top = 53
           Width = 13
           Height = 21
-          Action = ARejillaFlotante
+          Hint = 'Pulse F2 para ver una lista de valores validos. '
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -265,6 +267,7 @@ object FMComerciales: TFMComerciales
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
             FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+          OnClick = ARejillaFlotanteExecute
           Control = cod_producto_cc
           Grid = RejillaFlotante
           GridAlignment = taDownRight
@@ -398,134 +401,21 @@ object FMComerciales: TFMComerciales
           Width = 121
         end
       end
-      object PFiltro: TPanel
+      object RClientes: TDBGrid
         Left = 0
         Top = 115
         Width = 435
-        Height = 102
-        Align = alTop
-        TabOrder = 1
-        object Label4: TLabel
-          Left = 7
-          Top = 16
-          Width = 69
-          Height = 19
-          AutoSize = False
-          Caption = ' Cliente'
-          Color = cl3DLight
-          ParentColor = False
-          Layout = tlCenter
-        end
-        object Label5: TLabel
-          Left = 7
-          Top = 40
-          Width = 69
-          Height = 19
-          AutoSize = False
-          Caption = ' Producto'
-          Color = cl3DLight
-          ParentColor = False
-          Layout = tlCenter
-        end
-        object Label6: TLabel
-          Left = 7
-          Top = 64
-          Width = 69
-          Height = 19
-          AutoSize = False
-          Caption = ' Empresa'
-          Color = cl3DLight
-          ParentColor = False
-          Layout = tlCenter
-        end
-        object SECliente: TSQLExprStrEdit
-          Left = 79
-          Top = 16
-          Properties.CharCase = ecUpperCase
-          Properties.MaxLength = 3
-          Style.LookAndFeel.Kind = lfStandard
-          Style.LookAndFeel.NativeStyle = False
-          StyleDisabled.LookAndFeel.Kind = lfStandard
-          StyleDisabled.LookAndFeel.NativeStyle = False
-          StyleFocused.LookAndFeel.Kind = lfStandard
-          StyleFocused.LookAndFeel.NativeStyle = False
-          StyleHot.LookAndFeel.Kind = lfStandard
-          StyleHot.LookAndFeel.NativeStyle = False
-          TabOrder = 0
-          FieldName = 'cod_cliente_cc'
-          Width = 82
-        end
-        object cxFiltrar: TcxButton
-          Left = 266
-          Top = 16
-          Width = 75
-          Height = 25
-          Caption = 'Filtrar'
-          TabOrder = 3
-          OnClick = cxFiltrarClick
-          LookAndFeel.Kind = lfStandard
-          LookAndFeel.NativeStyle = False
-        end
-        object cxBorrarFiltro: TcxButton
-          Left = 343
-          Top = 16
-          Width = 75
-          Height = 25
-          Caption = 'Borrar Filtro'
-          TabOrder = 4
-          OnClick = cxBorrarFiltroClick
-          LookAndFeel.Kind = lfStandard
-          LookAndFeel.NativeStyle = False
-        end
-        object SEProducto: TSQLExprStrEdit
-          Left = 79
-          Top = 40
-          Properties.CharCase = ecUpperCase
-          Properties.MaxLength = 3
-          Style.LookAndFeel.Kind = lfStandard
-          Style.LookAndFeel.NativeStyle = False
-          StyleDisabled.LookAndFeel.Kind = lfStandard
-          StyleDisabled.LookAndFeel.NativeStyle = False
-          StyleFocused.LookAndFeel.Kind = lfStandard
-          StyleFocused.LookAndFeel.NativeStyle = False
-          StyleHot.LookAndFeel.Kind = lfStandard
-          StyleHot.LookAndFeel.NativeStyle = False
-          TabOrder = 1
-          FieldName = 'cod_producto_cc'
-          Width = 82
-        end
-        object SEEmpresa: TSQLExprStrEdit
-          Left = 79
-          Top = 64
-          Properties.CharCase = ecUpperCase
-          Properties.MaxLength = 3
-          Style.LookAndFeel.Kind = lfStandard
-          Style.LookAndFeel.NativeStyle = False
-          StyleDisabled.LookAndFeel.Kind = lfStandard
-          StyleDisabled.LookAndFeel.NativeStyle = False
-          StyleFocused.LookAndFeel.Kind = lfStandard
-          StyleFocused.LookAndFeel.NativeStyle = False
-          StyleHot.LookAndFeel.Kind = lfStandard
-          StyleHot.LookAndFeel.NativeStyle = False
-          TabOrder = 2
-          FieldName = 'cod_empresa_cc'
-          Width = 82
-        end
-      end
-      object RClientes: TDBGrid
-        Left = 0
-        Top = 217
-        Width = 435
-        Height = 172
+        Height = 274
         Align = alClient
         DataSource = DSClientes
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
-        TabOrder = 2
+        TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
+        Visible = False
         Columns = <
           item
             Expanded = False
@@ -568,6 +458,82 @@ object FMComerciales: TFMComerciales
             Visible = True
           end>
       end
+      object cxGrid1: TcxGrid
+        Left = 0
+        Top = 115
+        Width = 435
+        Height = 274
+        Align = alClient
+        TabOrder = 2
+        OnEnter = cxGrid1Enter
+        OnExit = cxGrid1Exit
+        object cxGrid1DBTableView1: TcxGridDBTableView
+          Navigator.Buttons.CustomButtons = <>
+          FindPanel.DisplayMode = fpdmAlways
+          DataController.DataModeController.SmartRefresh = True
+          DataController.DataSource = DSClientes
+          DataController.Summary.DefaultGroupSummaryItems = <>
+          DataController.Summary.FooterSummaryItems = <>
+          DataController.Summary.SummaryGroups = <>
+          Filtering.ColumnAddValueItems = False
+          OptionsData.CancelOnExit = False
+          OptionsData.Deleting = False
+          OptionsData.DeletingConfirmation = False
+          OptionsData.Editing = False
+          OptionsData.Inserting = False
+          OptionsView.CellAutoHeight = True
+          OptionsView.GroupByBox = False
+          OptionsView.HeaderAutoHeight = True
+          object cxGrid1DBTableView1Column1: TcxGridDBColumn
+            Caption = 'Cliente'
+            DataBinding.FieldName = 'cod_cliente_cc'
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 62
+            Options.AutoWidthSizable = False
+            Options.HorzSizing = False
+            Width = 62
+          end
+          object cxGrid1DBTableView1Column2: TcxGridDBColumn
+            Caption = 'Producto'
+            DataBinding.FieldName = 'cod_producto_cc'
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 75
+            Options.AutoWidthSizable = False
+            Options.HorzSizing = False
+            Width = 75
+          end
+          object cxGrid1DBTableView1Column3: TcxGridDBColumn
+            Caption = 'Empresa'
+            DataBinding.FieldName = 'cod_empresa_cc'
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 120
+            Options.AutoWidthSizable = False
+            Options.HorzSizing = False
+            Width = 120
+          end
+          object cxGrid1DBTableView1Column4: TcxGridDBColumn
+            Caption = 'Fecha inicio'
+            DataBinding.FieldName = 'fecha_ini_cc'
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 75
+            Options.AutoWidthSizable = False
+            Options.HorzSizing = False
+            Width = 75
+          end
+          object cxGrid1DBTableView1Column5: TcxGridDBColumn
+            Caption = 'Fecha fin'
+            DataBinding.FieldName = 'fecha_fin_cc'
+            HeaderGlyphAlignmentHorz = taCenter
+            MinWidth = 80
+            Options.AutoWidthSizable = False
+            Options.HorzSizing = False
+            Width = 80
+          end
+        end
+        object cxGrid1Level1: TcxGridLevel
+          GridView = cxGrid1DBTableView1
+        end
+      end
     end
   end
   object RejillaFlotante: TBGrid
@@ -593,17 +559,6 @@ object FMComerciales: TFMComerciales
     DataSet = qryComerciales
     Left = 360
     Top = 16
-  end
-  object AComerciales: TActionList
-    Images = DMBaseDatos.ImgBotones
-    Left = 3
-    Top = 102
-    object ARejillaFlotante: TAction
-      Hint = 'Pulse F2 para ver una lista de valores validos. '
-      ImageIndex = 0
-      ShortCut = 113
-      OnExecute = ARejillaFlotanteExecute
-    end
   end
   object qryComerciales: TQuery
     AfterOpen = qryComercialesAfterOpen
@@ -631,5 +586,21 @@ object FMComerciales: TFMComerciales
     RequestLive = True
     Left = 402
     Top = 17
+  end
+  object AComerciales: TActionList
+    Images = DMBaseDatos.ImgBotones
+    Left = 123
+    Top = 458
+    object ARejillaFlotante: TAction
+      Caption = 'ARejillaFlotante'
+      Hint = 'Pulse F2 para ver una lista de valores validos. '
+      ImageIndex = 0
+      ShortCut = 113
+      OnExecute = ARejillaFlotanteExecute
+    end
+    object ADModificar: TAction
+      Caption = 'ADModificar'
+      ShortCut = 77
+    end
   end
 end
