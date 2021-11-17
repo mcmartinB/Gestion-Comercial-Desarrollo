@@ -858,6 +858,7 @@ object FRejillaFacturacion: TFRejillaFacturacion
     object dxComponentPrinterLink2: TdxGridReportLink
       Active = True
       Component = cxGrid
+      PageNumberFormat = pnfNumeral
       PrinterPage.DMPaper = 9
       PrinterPage.Footer = 6350
       PrinterPage.GrayShading = True
@@ -871,7 +872,8 @@ object FRejillaFacturacion: TFRejillaFacturacion
       PrinterPage.PageSize.Y = 297000
       PrinterPage._dxMeasurementUnits_ = 0
       PrinterPage._dxLastMU_ = 2
-      ReportDocument.CreationDate = 44453.366847581020000000
+      ReportDocument.CreationDate = 44517.564027476850000000
+      AssignedFormatValues = [fvDate, fvTime, fvPageNumber]
       OptionsView.FilterBar = False
       BuiltInReportLink = True
     end
