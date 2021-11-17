@@ -57,24 +57,6 @@ type
     MenuPrincipal: TMainMenu;
     TBMaestroSalir: TToolButton;
     TBMaestroDetalleSalir: TToolButton;
-    AAcciones: TActionList;
-    AMPrimero: TAction;
-    AMSiguiente: TAction;
-    AMAnterior: TAction;
-    AMUltimo: TAction;
-    ADAnterior: TAction;
-    ADSiguiente: TAction;
-    ADAltas: TAction;
-    ADModificar: TAction;
-    ADBorrar: TAction;
-    AMAltas: TAction;
-    AMBorrar: TAction;
-    AMModificar: TAction;
-    AMLocalizar: TAction;
-    AMDCancelar: TAction;
-    AMDAceptar: TAction;
-    ACerrar: TAction;
-    AIPrevisualizar: TAction;
     ToolButton1: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -82,7 +64,6 @@ type
     mnuFicheros: TMenuItem;
     mnuFchEmpresas: TMenuItem;
     mnuFchCosecheros: TMenuItem;
-    AMDSalir: TAction;
     mnuFchTiposVia: TMenuItem;
     mnuFchPlantaciones: TMenuItem;
     mnuFchProductos: TMenuItem;
@@ -232,9 +213,6 @@ type
     mnuSalLisSalidasPalet: TMenuItem;
     mnuSalSubIntrastat: TMenuItem;
     mnuSalSubFederacion: TMenuItem;
-    ACalculadora: TAction;
-    AConversionDivisas: TAction;
-    AEuroConversor: TAction;
     mnuTraAsignarKilosTransitos: TMenuItem;
     mnuUtiAux: TMenuItem;
     mnuDatOtrosPedidos: TMenuItem;
@@ -368,6 +346,28 @@ type
     mnuEntResPesosEntregas: TMenuItem;
     mnuEntServiciosTransportes: TMenuItem;
     mnuEntEntregas_SAT: TMenuItem;
+    AAcciones: TActionList;
+    AMPrimero: TAction;
+    ACerrar: TAction;
+    AMSiguiente: TAction;
+    AMAnterior: TAction;
+    AMUltimo: TAction;
+    ADAnterior: TAction;
+    ADSiguiente: TAction;
+    ADAltas: TAction;
+    ADModificar: TAction;
+    ADBorrar: TAction;
+    AMAltas: TAction;
+    AMBorrar: TAction;
+    AMModificar: TAction;
+    AMLocalizar: TAction;
+    AMDCancelar: TAction;
+    AMDAceptar: TAction;
+    AIPrevisualizar: TAction;
+    AMDSalir: TAction;
+    ACalculadora: TAction;
+    AConversionDivisas: TAction;
+    AEuroConversor: TAction;
 
     // ======================  FUNCIONES/PROCEDIMIENTOS  ======================
 

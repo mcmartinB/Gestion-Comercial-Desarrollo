@@ -370,6 +370,7 @@ type
     procedure TSalidasLBeforeDelete(DataSet: TDataSet);
     procedure DSDetalleDataChange(Sender: TObject; Field: TField);
     procedure TSalidasLBeforePost(DataSet: TDataSet);
+    procedure ActualizarComercial(Sender: TObject);
 
     private
     { Private declarations }
@@ -1685,6 +1686,45 @@ begin
   end;
 end;
 
+
+procedure TFMSalidas.ActualizarComercial(Sender: TObject);
+begin
+  with DMAuxDB.QAux do
+  begin
+    if Active then
+    begin
+      Cancel;
+      Close;
+    end;
+    SQL.Clear;
+    SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
+    SQL.Add(' where cod_empresa_cc = :empresa ');
+    SQL.Add(' and cod_cliente_cc = :cliente ');
+    SQL.Add(' and cod_producto_cc = :producto ');
+    ParamByName('empresa').asString := empresa_sc.Text;
+    ParamByName('cliente').asString := cliente_sal_sc.Text;
+    ParamByName('producto').asString := producto_sl.Text;
+    Open;
+    if isEmpty then
+    begin
+      if Active then
+      begin
+        Cancel;
+        Close;
+      end;
+      SQL.Clear;
+      SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
+      SQL.Add(' where cod_empresa_cc = :empresa ');
+      SQL.Add(' and cod_cliente_cc = :cliente ');
+      SQL.Add(' and cod_producto_cc is null ');
+      ParamByName('empresa').asString := empresa_sc.Text;
+      ParamByName('cliente').asString := cliente_sal_sc.Text;
+      Open;
+    end;
+    comercial_sl.Text := FieldByName('cod_comercial_cc').asString;
+    Close;
+  end;
+end;
 
 //*****************************************************************************
 //*****************************************************************************

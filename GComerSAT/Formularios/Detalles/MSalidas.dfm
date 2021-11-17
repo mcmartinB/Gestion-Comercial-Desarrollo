@@ -2248,7 +2248,7 @@ object FMSalidas: TFMSalidas
     object producto_sl: TBDEdit
       Tag = 1
       Left = 102
-      Top = 14
+      Top = 12
       Width = 30
       Height = 21
       ColorEdit = clMoneyGreen
@@ -2258,6 +2258,7 @@ object FMSalidas: TFMSalidas
       MaxLength = 3
       TabOrder = 0
       OnChange = CambioProducto
+      OnExit = ActualizarComercial
       DataField = 'producto_sl'
       DataSource = DSDetalle
       PrimaryKey = True
@@ -3166,7 +3167,11 @@ object FMSalidas: TFMSalidas
     Width = 212
     Height = 143
     AutoSize = True
+<<<<<<< HEAD
+    Date = 36748.605282442130000000
+=======
     Date = 36748.389421412040000000
+>>>>>>> e1e79222f76a3ca99717ba4ac3d1c7c8f8e37724
     ShowToday = False
     TabOrder = 6
     Visible = False
@@ -3355,8 +3360,8 @@ object FMSalidas: TFMSalidas
     OnClick = btnDesadvClick
   end
   object PanelPrecio: TPanel
-    Left = 313
-    Top = 209
+    Left = 333
+    Top = 210
     Width = 305
     Height = 153
     BevelInner = bvRaised
@@ -3459,8 +3464,8 @@ object FMSalidas: TFMSalidas
   end
   object ACosecheros: TActionList
     Images = DMBaseDatos.ImgBotones
-    Left = 8
-    Top = 112
+    Left = 32
+    Top = 256
     object ARejillaFlotante: TAction
       Hint = 'Pulse F2 para ver una lista de valores validos. '
       ImageIndex = 0
