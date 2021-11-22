@@ -62,6 +62,8 @@ object FArticuloDesgloseSal: TFArticuloDesgloseSal
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'Foggy'
       TabOrder = 0
+      ExplicitLeft = 4
+      ExplicitTop = -2
       Height = 177
       Width = 885
       object stArticulo: TnbStaticText
@@ -278,7 +280,6 @@ object FArticuloDesgloseSal: TFArticuloDesgloseSal
     TabOrder = 1
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Foggy'
-    ExplicitTop = 249
     object tvArticuloDesgloseSal: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = tvArticuloDesgloseSalCellDblClick
@@ -641,6 +642,11 @@ object FArticuloDesgloseSal: TFArticuloDesgloseSal
         item
           BeginGroup = True
           Visible = True
+          ItemName = 'dxImprimir'
+        end
+        item
+          BeginGroup = True
+          Visible = True
           ItemName = 'dxSalir'
         end>
       OneOnRow = True
@@ -699,6 +705,14 @@ object FArticuloDesgloseSal: TFArticuloDesgloseSal
       LargeImageIndex = 20
       OnClick = dxModificarGrupoClick
       AutoGrayScale = False
+    end
+    object dxImprimir: TdxBarLargeButton
+      Caption = 'Imprimir'
+      Category = 0
+      Hint = 'Imprimir'
+      Visible = ivAlways
+      LargeImageIndex = 2
+      OnClick = dxImprimirClick
     end
   end
   object dsQSalidasL2: TDataSource
