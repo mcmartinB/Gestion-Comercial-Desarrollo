@@ -277,7 +277,7 @@ begin
       SQL.Add(' and categoria_sl in (''1'', ''2'') ');
     end;
 
-    SQL.Add('  and nvl(es_transito_sc,0) = 0 ');    
+    SQL.ADD(' AND es_transito_sc <> 2 ');    
     SQL.Add(' and ref_transitos_sl is null ');
     SQL.Add(' and exists ( select * from frf_clientes where cliente_c = cliente_sl ');
     SQL.Add('                                           and pais_c = ''ES'' ) ');
@@ -328,7 +328,7 @@ begin
       SQL.Add(' and categoria_sl in (''1'', ''2'') ');
     end;
 
-    SQL.Add('  and nvl(es_transito_sc,0) = 0 ');
+    SQL.Add(' and es_transito_sc <> 2 ');
     SQL.Add(' and ref_transitos_sl is null ');
     SQL.Add(' and exists ( select * from frf_clientes where cliente_c = cliente_sl ');
     SQL.Add('                                           and pais_c <> ''ES'' ) ');
