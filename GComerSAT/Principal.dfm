@@ -129,12 +129,12 @@ object FPrincipal: TFPrincipal
       object TBMaestroAnterior: TToolButton
         Left = 192
         Top = 0
-        Hint = 'Anterior'
-        Caption = 'A&nterior'
-        ImageIndex = 1
+        Hint = 'Linea arriba'
+        Caption = 'A&rriba'
+        ImageIndex = 5
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMAnteriorExecute
+        OnClick = ADAnteriorExecute
       end
       object TBMaestroSiguiente: TToolButton
         Left = 216
@@ -169,22 +169,16 @@ object FPrincipal: TFPrincipal
       object TBMaestroAceptar: TToolButton
         Left = 288
         Top = 0
-        Hint = 'Aceptar'
-        Caption = '&Aceptar'
-        ImageIndex = 16
+        Action = AMDAceptar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDAceptarExecute
       end
       object TBMaestroCancelar: TToolButton
         Left = 312
         Top = 0
-        Hint = 'Cancelar'
-        Caption = '&Cancelar'
-        ImageIndex = 17
+        Action = AMDCancelar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDCancelarExecute
       end
       object TBMaestroSeparador3: TToolButton
         Left = 336
@@ -197,12 +191,9 @@ object FPrincipal: TFPrincipal
       object TBMaestroSalir: TToolButton
         Left = 360
         Top = 0
-        Hint = 'Cerrar'
-        Caption = '&Salir'
-        ImageIndex = 18
+        Action = AMDSalir
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDSalirExecute
       end
     end
     object TBBarraMaestroDetalle: TToolBar
@@ -1697,8 +1688,8 @@ object FPrincipal: TFPrincipal
     Top = 136
   end
   object AAcciones: TActionList
-    Left = 600
-    Top = 584
+    Left = 80
+    Top = 104
     object AMPrimero: TAction
       Category = 'MaestroMovimiento'
       Caption = '&Primero'

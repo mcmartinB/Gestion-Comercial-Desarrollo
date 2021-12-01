@@ -498,7 +498,6 @@ begin
   ADBorrar.ShortCut := ShortCut(VK_SUBTRACT, [ssAlt]); //menos numerico
   ADModificar.ShortCut := ShortCut(Word('M'), [ssAlt]); //M
 
-
   //Titulo del formulario
   Caption := UpperCase( 'GESTIÓN COMERCIAL ' + gsAplicVersion + ' (' +  gsNombre + ' - ' + arDataConexion[iBDDataConexion].sDescripcion + ') ' );
 
