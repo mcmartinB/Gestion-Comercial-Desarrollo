@@ -640,7 +640,9 @@ begin
   kmtResumen.FieldDefs.Add('res_importe_financiero', ftFloat, 0, False);
   kmtResumen.FieldDefs.Add('res_importe_flete', ftFloat, 0, False);
   kmtResumen.FieldDefs.Add('res_importe_liquidar', ftFloat, 0, False);
+  kmtResumen.FieldDefs.Add('res_importe_indirecto_almacen', ftFloat, 0, False);
 
+  kmtResumen.FieldDefs.Add('res_precio_indirecto_almacen', ftFloat, 0, False);
   kmtResumen.FieldDefs.Add('res_precio_neto', ftFloat, 0, False);
   kmtResumen.FieldDefs.Add('res_precio_descuento', ftFloat, 0, False);
   kmtResumen.FieldDefs.Add('res_precio_gastos', ftFloat, 0, False);
@@ -687,6 +689,7 @@ begin
   kmtClientes.FieldDefs.Add('res_importe_financiero', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_importe_flete', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_importe_liquidar', ftFloat, 0, False);
+  kmtClientes.FieldDefs.Add('res_importe_indirecto_almacen', ftFloat, 0, False);
 
   kmtClientes.FieldDefs.Add('res_precio_bruto', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_precio_neto', ftFloat, 0, False);
@@ -701,6 +704,8 @@ begin
   kmtClientes.FieldDefs.Add('res_precio_financiero', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_precio_flete', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_precio_liquidar', ftFloat, 0, False);
+  kmtClientes.FieldDefs.Add('res_precio_indirecto_almacen', ftFloat, 0, False);
+
   kmtClientes.FieldDefs.Add('res_precio_kilo', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_total_compra', ftFloat, 0, False);
   kmtClientes.FieldDefs.Add('res_margen_kilo', ftFloat, 0, False);
@@ -751,6 +756,8 @@ begin
   kmtLiquidacion.FieldDefs.Add('liq_importe_flete', ftFloat, 0, False);
   kmtLiquidacion.FieldDefs.Add('liq_importe_liquidar', ftFloat, 0, False);
   kmtLiquidacion.FieldDefs.Add('liq_importe_por_precio', ftFloat, 0, False);      //kmtEuroKilo
+  kmtLiquidacion.FieldDefs.Add('liq_importe_indirecto_almacen', ftFloat, 0, False);
+
 
   kmtLiquidacion.FieldDefs.Add('liq_precio_bruto', ftFloat, 0, False);
   kmtLiquidacion.FieldDefs.Add('liq_precio_neto', ftFloat, 0, False);
@@ -765,6 +772,7 @@ begin
   kmtLiquidacion.FieldDefs.Add('liq_precio_financiero', ftFloat, 0, False);
   kmtLiquidacion.FieldDefs.Add('liq_precio_flete', ftFloat, 0, False);
   kmtLiquidacion.FieldDefs.Add('liq_precio_liquidar', ftFloat, 0, False);
+  kmtLiquidacion.FieldDefs.Add('liq_precio_indirecto_almacen', ftFloat, 0, False);
 
   kmtLiquidacion.IndexFieldNames:= 'liq_empresa;liq_anyo_semana;liq_proveedor;liq_canarias;liq_almacen;liq_categoria;liq_cliente_sal;liq_status;liq_entrega';
   kmtLiquidacion.CreateTable;
@@ -830,7 +838,9 @@ begin
   kmtPalet.FieldDefs.Add('pal_importe_financiero', ftFloat, 0, False);
   kmtPalet.FieldDefs.Add('pal_importe_flete', ftFloat, 0, False);
   kmtPalet.FieldDefs.Add('pal_importe_liquidar', ftFloat, 0, False);
+  kmtPalet.FieldDefs.Add('pal_importe_ind_almacen', ftFloat, 0, False);
 
+  kmtPalet.FieldDefs.Add('pal_precio_ind_almacen', ftFloat, 0, False);
   kmtPalet.FieldDefs.Add('pal_precio_neto', ftFloat, 0, False);
   kmtPalet.FieldDefs.Add('pal_precio_descuento', ftFloat, 0, False);
   kmtPalet.FieldDefs.Add('pal_precio_gastos', ftFloat, 0, False);
@@ -873,6 +883,7 @@ begin
   kmtCostesProv.FieldDefs.Add('costeEnvasado', ftFloat, 0, False);
   kmtCostesProv.FieldDefs.Add('costeOPP', ftFloat, 0, False);
   kmtCostesProv.FieldDefs.Add('costeAyuda', ftFloat, 0, False);
+  kmtCostesProv.FieldDefs.Add('costeIndirectoAlmacen', ftFloat, 0, False);
   kmtCostesProv.IndexFieldNames:='proveedor';
   kmtCostesProv.CreateTable;
 
@@ -1342,6 +1353,9 @@ begin
   kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat:= bRoundTo( qryEntregasLin.FieldByName('kilos').AsFloat * rBenificio, 2);
   kmtLiquidacion.FieldByName('liq_importe_financiero').AsFloat:= bRoundTo( qryEntregasLin.FieldByName('kilos').AsFloat * rFinancieroCargados, 2);
   kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat:= bRoundTo(qryEntregasLin.FieldByName('kilos').AsFloat * rFlete, 2);
+  kmtLiquidacion.FieldByName('liq_precio_indirecto_almacen').AsFloat := kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat;
+  kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat := bRoundTo(qryEntregasLin.FieldByName('kilos').AsFloat * kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat, 2);
+
 
  if kmtEuroKilo.Locate('proveedor;categoria;variedad', VarArrayOf([qryEntregasLin.FieldByName('proveedor').AsString,
                                                                    qryEntregasLin.FieldByName('categoria').ASString,
@@ -1361,7 +1375,8 @@ begin
           kmtLiquidacion.FieldByName('liq_importe_compra').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_financiero').AsFloat + 
-          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat
+          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat +
+          kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat
         );
   kmtLiquidacion.FieldByName('liq_precio_liquidar').AsFloat:= 0;//kmtLiquidacion.FieldByName('liq_importe_liquidar').AsFloat / rgPeso;
 
@@ -1441,6 +1456,9 @@ begin
   kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat:=  bRoundTo(qryEntregasLin.FieldByName('kilos').AsFloat * rFlete, 2) +
     kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat;
 
+  kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat := bRoundTo(qryEntregasLin.FieldByName('kilos').AsFloat * kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat, 2);
+
+
   kmtLiquidacion.FieldByName('liq_importe_liquidar').AsFloat:=
     kmtLiquidacion.FieldByName('liq_importe_neto').AsFloat -
         (
@@ -1450,7 +1468,8 @@ begin
           kmtLiquidacion.FieldByName('liq_importe_compra').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_financiero').AsFloat + 
-          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat
+          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat +
+          kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').asFloat
         );
 
 
@@ -1814,6 +1833,8 @@ begin
   kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat:= kmtPalet.FieldByName('pal_importe_beneficio').AsFloat;
   kmtLiquidacion.FieldByName('liq_importe_financiero').AsFloat:= kmtPalet.FieldByName('pal_importe_financiero').AsFloat;
   kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat:= kmtPalet.FieldByName('pal_importe_flete').AsFloat;
+  kmtLiquidacion.FieldByName('liq_precio_indirecto_almacen').AsFloat := kmtPalet.FieldByName('pal_precio_ind_almacen').AsFloat;
+  kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat := kmtPalet.FieldByName('pal_importe_ind_almacen').AsFloat;
 
   kmtLiquidacion.FieldByName('liq_importe_liquidar').AsFloat:= 0;
   kmtLiquidacion.FieldByName('liq_precio_liquidar').AsFloat:= 0;
@@ -1882,6 +1903,9 @@ begin
   kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat:= kmtPalet.FieldByName('pal_importe_flete').AsFloat +
     kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat;
 
+  kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat:= kmtPalet.FieldByName('pal_importe_ind_almacen').AsFloat +
+    kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat;
+
   if kmtEuroKilo.Locate('proveedor;categoria;variedad', VarArrayOf([kmtPalet.FieldByName('pal_proveedor').AsString,
                                                                    kmtPalet.FieldByName('pal_categoria').ASString,
                                                                    kmtPalet.FieldByName('pal_variedad').AsInteger]) , []) then
@@ -1936,7 +1960,8 @@ begin
           kmtLiquidacion.FieldByName('liq_importe_compra').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat +
           kmtLiquidacion.FieldByName('liq_importe_financiero').AsFloat + 
-          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat
+          kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat +
+          kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat
         );
       kmtLiquidacion.FieldByName('liq_precio_liquidar').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_liquidar').AsFloat / rKilos;
 
@@ -2026,6 +2051,7 @@ begin
 //  kmtResumen.FieldByName('res_precio_flete').AsFloat:= 0;
   kmtResumen.FieldByName('res_precio_flete').AsFloat:= kmtLiquidacion.FieldByName('liq_precio_flete').AsFloat;
   kmtResumen.FieldByName('res_precio_liquidar').AsFloat:= 0;
+  kmtResumen.FieldByName('res_precio_indirecto_almacen').AsFloat:= kmtLiquidacion.FieldByName('liq_precio_indirecto_almacen').AsFloat;
 
   kmtResumen.FieldByName('res_importe_neto').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_neto').AsFloat;
   kmtResumen.FieldByName('res_importe_descuento').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_descuento').AsFloat;
@@ -2035,6 +2061,7 @@ begin
   kmtResumen.FieldByName('res_importe_personal').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_personal').AsFloat;
   kmtResumen.FieldByName('res_importe_general').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_general').AsFloat;
   kmtResumen.FieldByName('res_importe_envasado').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_envasado').AsFloat;
+  kmtResumen.FieldByName('res_importe_indirecto_almacen').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').AsFloat;
 
   kmtResumen.FieldByName('res_importe_compra').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_compra').AsFloat;
   kmtResumen.FieldByName('res_importe_beneficio').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_beneficio').AsFloat;
@@ -2105,6 +2132,9 @@ begin
   kmtResumen.FieldByName('res_importe_flete').AsFloat:= kmtLiquidacion.FieldByName('liq_importe_flete').AsFloat +
     kmtResumen.FieldByName('res_importe_flete').AsFloat;
 
+  kmtResumen.FieldByName('res_importe_indirecto_almacen').asFloat := kmtLiquidacion.FieldByName('liq_importe_indirecto_almacen').asFloat +
+    kmtResumen.FieldByName('res_importe_indirecto_almacen').asFloat;
+
 // if kmtEuroKilo.Locate('categoria', VarArrayOf([kmtResumen.FieldByName('res_categoria').ASString]) , []) then
 //   rPrecioCompra := kmtEuroKilo.FieldByName('precio').AsFloat
 // else
@@ -2151,6 +2181,7 @@ begin
       kmtResumen.FieldByName('res_precio_envasado').AsFloat:= kmtResumen.FieldByName('res_importe_envasado').AsFloat / rKilos;
       kmtResumen.FieldByName('res_precio_compra').AsFloat:= kmtResumen.FieldByName('res_importe_compra').AsFloat / rKilos;
       kmtResumen.FieldByName('res_precio_beneficio').AsFloat:= kmtResumen.FieldByName('res_importe_beneficio').AsFloat / rKilos;
+      kmtResumen.FieldByName('res_precio_indirecto_almacen').asFloat := kmtResumen.FieldByName('res_importe_indirecto_almacen').asFloat / rKilos;
 //      kmtResumen.FieldByName('res_precio_financiero').AsFloat:= kmtResumen.FieldByName('res_importe_financiero').AsFloat / rKilos;
 //      kmtResumen.FieldByName('res_precio_flete').AsFloat:= kmtResumen.FieldByName('res_importe_flete').AsFloat / rKilos;
 
@@ -2162,7 +2193,8 @@ begin
           kmtResumen.FieldByName('res_importe_compra').AsFloat +
           kmtResumen.FieldByName('res_importe_beneficio').AsFloat +
           kmtResumen.FieldByName('res_importe_financiero').AsFloat +
-          kmtResumen.FieldByName('res_importe_flete').AsFloat
+          kmtResumen.FieldByName('res_importe_flete').AsFloat +
+          kmtResumen.FieldByName('res_importe_indirecto_almacen').asFloat
         );
       kmtResumen.FieldByName('res_precio_liquidar').AsFloat:= kmtResumen.FieldByName('res_importe_liquidar').AsFloat / rKilos;
 
@@ -2252,6 +2284,7 @@ begin
   kmtClientes.FieldByName('res_precio_envasado').AsFloat:= 0;
   kmtClientes.FieldByName('res_precio_compra').AsFloat:= 0;
   kmtClientes.FieldByName('res_precio_beneficio').AsFloat:= 0;
+  kmtClientes.FieldByName('res_precio_indirecto_almacen').AsFloat:= 0;
 //  kmtClientes.FieldByName('res_precio_financiero').AsFloat:= 0;
   kmtClientes.FieldbyName('res_precio_financiero').AsFloat := kmtLiquidacion.FieldByName('liq_precio_financiero').AsFloat;
 //  kmtClientes.FieldByName('res_precio_flete').AsFloat:= 0;
@@ -2531,6 +2564,8 @@ begin
       kmtClientes.FieldByName('res_precio_envasado').AsFloat:= kmtClientes.FieldByName('res_importe_envasado').AsFloat / rKilos;
       kmtClientes.FieldByName('res_precio_compra').AsFloat:= kmtClientes.FieldByName('res_importe_compra').AsFloat / rKilos;
       kmtClientes.FieldByName('res_precio_beneficio').AsFloat:= kmtClientes.FieldByName('res_importe_beneficio').AsFloat / rKilos;
+      kmtClientes.FieldByName('res_precio_indirecto_almacen').AsFloat:= kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat;
+      kmtClientes.FieldByName('res_importe_indirecto_almacen').asFloat := kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat * rKilos;
 //      kmtClientes.FieldByName('res_precio_financiero').AsFloat:= kmtClientes.FieldByName('res_importe_financiero').AsFloat / rKilos;
 //      kmtClientes.FieldByName('res_precio_flete').AsFloat:= kmtClientes.FieldByName('res_importe_flete').AsFloat / rKilos;
 
@@ -2542,7 +2577,8 @@ begin
           kmtClientes.FieldByName('res_importe_compra').AsFloat +
           kmtClientes.FieldByName('res_importe_beneficio').AsFloat +
           kmtClientes.FieldByName('res_importe_financiero').AsFloat +
-          kmtClientes.FieldByName('res_importe_flete').AsFloat
+          kmtClientes.FieldByName('res_importe_flete').AsFloat +
+          kmtClientes.FieldByName('res_importe_indirecto_almacen').AsFloat
         );
       kmtClientes.FieldByName('res_precio_liquidar').AsFloat:= kmtClientes.FieldByName('res_importe_liquidar').AsFloat / rKilos;
 
@@ -2569,7 +2605,7 @@ begin
                                                              kmtClientes.FieldByName('res_coste_prod').AsFloat -
                                                              kmtClientes.FieldByName('res_coste_env').AsFloat -
                                                              kmtClientes.FieldByName('res_coste_opp').AsFloat +
-                                                             kmtClientes.FieldByName('res_coste_ayu').AsFloat; 
+                                                             kmtClientes.FieldByName('res_coste_ayu').AsFloat;
 
       kmtClientes.Post;
     end;
@@ -2950,6 +2986,8 @@ begin
         kmtCostesProv.FieldByName('costeOPP').AsFloat := FieldByName('importe_pc').AsFloat;
       if FieldByName('tipo_coste_pc').AsString = '04' then
         kmtCostesProv.FieldByName('costeayuda').AsFloat := FieldByName('importe_pc').AsFloat;
+      if FieldByName('tipo_coste_pc').AsString = '05' then
+        kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat := FieldByName('importe_pc').AsFloat;
 
       Next;
     end;
@@ -3629,7 +3667,7 @@ begin
   end
   else
   begin
-    kmtPalet.FieldByName('pal_precio_financiero').AsFloat:= 0;
+    kmtPalet.FieldByName('pal_importe_financiero').AsFloat:= 0;
     kmtPalet.FieldByName('pal_precio_financiero').AsFloat:= 0;
   end;
 
@@ -3695,6 +3733,9 @@ begin
   end;
   //kmtPalet.FieldByName('pal_precio_beneficio').AsFloat:= rCosteEntrega;
 
+  kmtPalet.FieldByName('pal_precio_ind_almacen').AsFloat := kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat;
+  kmtPalet.FieldByName('pal_importe_ind_almacen').AsFloat := bRoundTo(rKilosPalet * kmtCostesProv.FieldByName('costeIndirectoAlmacen').AsFloat, 2);
+
   kmtPalet.FieldByName('pal_importe_liquidar').AsFloat:=
     kmtPalet.FieldByName('pal_importe_neto').AsFloat -
     (
@@ -3704,7 +3745,8 @@ begin
       kmtPalet.FieldByName('pal_importe_compra').AsFloat +
       kmtPalet.FieldByName('pal_importe_beneficio').AsFloat +
       kmtPalet.FieldByName('pal_importe_financiero').AsFloat +
-      kmtPalet.FieldByName('pal_importe_flete').AsFloat
+      kmtPalet.FieldByName('pal_importe_flete').AsFloat +
+      kmtPalet.FieldByName('pal_importe_ind_almacen').AsFloat
     );
 
   kmtPalet.FieldByName('pal_precio_liquidar').AsFloat:=
@@ -3716,7 +3758,8 @@ begin
       kmtPalet.FieldByName('pal_precio_compra').AsFloat +
       kmtPalet.FieldByName('pal_precio_beneficio').AsFloat +
       kmtPalet.FieldByName('pal_precio_financiero').AsFloat +
-      kmtPalet.FieldByName('pal_precio_flete').AsFloat
+      kmtPalet.FieldByName('pal_precio_flete').AsFloat +
+      kmtPalet.FieldByName('pal_precio_ind_almacen').AsFloat
     );
 
   if ( kmtPalet.FieldByName('pal_sscc_origen').AsString = '' ) or
@@ -3929,7 +3972,7 @@ begin
     else
       bProvLiq := false;
 
-    PrevisualizarResumenClientes( AOwner, 'BAG', AProducto, APrecios, bProvLiq, rTotalDestrioTfe, rTotalDestrioTfeImporte, rTotalPeso, rTotalCompra   );
+     PrevisualizarResumenClientes( AOwner, 'BAG', AProducto, APrecios, bProvLiq, rTotalDestrioTfe, rTotalDestrioTfeImporte, rTotalPeso, rTotalCompra   );
 //    PrevisualizarResumenClientesTfe( AOWner, 'BAG', APrecios, bProvLiq, rTotalDestrioTfe, rTotalPeso  );
 
 {
