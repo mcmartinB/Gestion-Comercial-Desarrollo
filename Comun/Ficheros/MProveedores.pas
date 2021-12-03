@@ -192,6 +192,8 @@ type
     procedure rbCostesActivosClick(Sender: TObject);
     procedure DSMaestroDataChange(Sender: TObject; Field: TField);
     procedure AModificarExecute(Sender: TObject);
+    procedure RProductosEnter(Sender: TObject);
+    procedure RProductosExit(Sender: TObject);
   private
     { Private declarations }
     ListaComponentes, ListaDetalle: TList;
@@ -475,6 +477,7 @@ begin
      // Cambia acción por defecto para Form hijas en una aplicación MDI
      // Cierra el Form y libera toda la memoria ocupada por el Form
   Action := caFree;
+  FPrincipal.AMModificar.ShortCut := ShortCut(Word('M'), []);
 end;
 
 procedure TFMProveedores.FormKeyDown(Sender: TObject; var Key: Word;
@@ -1314,6 +1317,17 @@ begin
         Exit;
     isTime := true;
   end;
+end;
+
+procedure TFMProveedores.RProductosEnter(Sender: TObject);
+begin
+  FPrincipal.AMModificar.ShortCut := 0;
+end;
+
+procedure TFMProveedores.RProductosExit(Sender: TObject);
+begin
+//  AModificar.ShortCut := ShortCut(Word('M'), []);
+  FPrincipal.AMModificar.ShortCut := ShortCut(Word('M'), []);
 end;
 
 procedure TFMProveedores.tipo_coste_pcChange(Sender: TObject);

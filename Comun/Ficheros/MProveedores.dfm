@@ -485,7 +485,7 @@ object FMProveedores: TFMProveedores
     Top = 307
     Width = 903
     Height = 424
-    ActivePage = tsCostes
+    ActivePage = tsProductos
     Align = alClient
     TabOrder = 3
     OnChange = PageControlChange
@@ -1187,6 +1187,8 @@ object FMProveedores: TFMProveedores
         Height = 266
         Align = alClient
         TabOrder = 1
+        OnEnter = RProductosEnter
+        OnExit = RProductosExit
         LookAndFeel.Kind = lfFlat
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'DevExpressStyle'
@@ -1618,7 +1620,6 @@ object FMProveedores: TFMProveedores
     end
     object AModificar: TAction
       Caption = 'Modificar'
-      ShortCut = 77
       OnExecute = AModificarExecute
     end
   end
