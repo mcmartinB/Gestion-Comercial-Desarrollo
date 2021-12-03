@@ -478,6 +478,8 @@ begin
      // Cierra el Form y libera toda la memoria ocupada por el Form
   Action := caFree;
   FPrincipal.AMModificar.ShortCut := ShortCut(Word('M'), []);
+  FPrincipal.AMLocalizar.ShortCut := ShortCut(Word('L'), []);
+  FPrincipal.AIPrevisualizar.ShortCut := ShortCut(Word('I'), []);
 end;
 
 procedure TFMProveedores.FormKeyDown(Sender: TObject; var Key: Word;
@@ -1322,12 +1324,16 @@ end;
 procedure TFMProveedores.RProductosEnter(Sender: TObject);
 begin
   FPrincipal.AMModificar.ShortCut := 0;
+  FPrincipal.AMLocalizar.ShortCut := 0;
+  FPrincipal.AIPrevisualizar.ShortCut := 0;
 end;
 
 procedure TFMProveedores.RProductosExit(Sender: TObject);
 begin
 //  AModificar.ShortCut := ShortCut(Word('M'), []);
   FPrincipal.AMModificar.ShortCut := ShortCut(Word('M'), []);
+  FPrincipal.AMLocalizar.ShortCut := ShortCut(Word('L'), []);
+  FPrincipal.AIPrevisualizar.ShortCut := ShortCut(Word('I'), []);
 end;
 
 procedure TFMProveedores.tipo_coste_pcChange(Sender: TObject);
