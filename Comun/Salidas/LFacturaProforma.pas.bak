@@ -3,7 +3,7 @@ unit LFacturaProforma;
 interface
 
 uses Windows, SysUtils, Messages, Classes, Graphics, Controls,
-  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, jpeg, Grids, BonnyQuery;
+  StdCtrls, ExtCtrls, Forms, Quickrpt, QRCtrls, jpeg, Grids, BonnyQuery, uSalidaUtils;
 
 type
   TQRLFacturaProforma = class(TQuickRep)
@@ -23,18 +23,6 @@ type
     QRChildBand1: TQRChildBand;
     CabeceraFactura: TQRGroup;
     PsQRShape1: TQRShape;
-    PsQRShape16: TQRShape;
-    PsQRLabel6: TQRLabel;
-    PsQRLabel8: TQRLabel;
-    PsQRShape20: TQRShape;
-    PsQRShape23: TQRShape;
-    PsQRShape22: TQRShape;
-    PsQRShape18: TQRShape;
-    tipoFactura: TQRLabel;
-    PsQRShape2: TQRShape;
-    PsQRShape3: TQRShape;
-    PsQRLabel9: TQRLabel;
-    PsQRShape7: TQRShape;
     BandaLinea: TQRSubDetail;
     qrlblcajas: TQRLabel;
     lin2: TQRShape;
@@ -48,15 +36,9 @@ type
     PsQRLabel18: TQRLabel;
     PsQRLabel19: TQRLabel;
     PsQRLabel20: TQRLabel;
-    Date: TQRLabel;
-    PsQRLabel31: TQRLabel;
-    PsQRLabel25: TQRLabel;
-    PsQRLabel37: TQRLabel;
     producto: TQRLabel;
     pedido: TQRLabel;
     envase: TQRLabel;
-    fechaFactura: TQRLabel;
-    codigoCliente: TQRLabel;
     albaran: TQRLabel;
     qrlblunidad: TQRLabel;
     qrlblprecio: TQRLabel;
@@ -136,6 +118,20 @@ type
     qrlblTotalPlasticos: TQRLabel;
     qrchldbndChildBand1: TQRChildBand;
     qrm1: TQRMemo;
+    QRShape5: TQRShape;
+    clienteEnvio: TQRMemo;
+    QRLabel12: TQRLabel;
+    QRLabel1: TQRLabel;
+    QRShape16: TQRShape;
+    QRShape20: TQRShape;
+    QRLabel15: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRLabel18: TQRLabel;
+    QRLabel19: TQRLabel;
+    QRLabel21: TQRLabel;
+    tipoFactura: TQRLabel;
+    FechaFactura: TQRLabel;
     procedure BandaLineaBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure BandaLineaAfterPrint(Sender: TQRCustomBand;
@@ -167,6 +163,8 @@ type
     mascara: string;
     StringGrid: TStringGrid;
     bHayGranada: boolean;
+
+    rGGN : TGGN;
 
     constructor Create(AOwner: TComponent); reintroduce;
     procedure Configurar(const AEmpresa, ACentro: string; const ASpain, AFacDespacho: Boolean; ACodigoCliente: String);
@@ -251,9 +249,10 @@ begin
   PsNif.Enabled:= not bAux;
 
   if (AFacDespacho) and (ACentro <> '6') then
-    PsQRLabel6.Caption := 'PROFORMA'
+    QRLabel15.Caption := 'PROFORMA'
   else
-    PsQRLabel6.Caption := 'Nº Factura';
+    QRLabel15.Caption := 'Nº Factura';
+
 end;
 
 constructor TQRLFacturaProforma.Create(AOwner: TComponent);
@@ -271,8 +270,13 @@ procedure TQRLFacturaProforma.BandaLineaBeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 var
   aux: string;
+  producto_sl : string;
 begin
   producto.Caption := StringGrid.Cells[2, contador];
+
+  producto_sl := StringGrid.Cells[12, contador];
+
+  producto.caption := ArreglaProductoGGN(self.rggn, sEmpresa, producto_sl, producto.caption);
 
   if  sEmpresa <> 'F18' then
   begin
@@ -405,31 +409,51 @@ begin
   end;
 
   (*Vuelto a poner a peticion de Esther Cuerda, si alguien vuelve a pedir que se quite que hable con ella*)
-  //if gProgramVersion = pvSAT then
+
+  qrmGarantia.Enabled:= True;
+  qrmGarantia.Lines.Clear;
+  if not bSpain then
   begin
-    qrmGarantia.Enabled:= True;
-    qrmGarantia.Lines.Clear;
+    qrmGarantia.Lines.Add( 'Partial or complete rejections should be communicated and quantified no later than 48 hours after the reception of the goods by email or fax.' );
+  end
+  else
+  begin
+    qrmGarantia.Lines.Add( 'Las incidencias deben ser comunicadas y cuantificadas  por escrito dentro del plazo de 48 horas posteriores a la descarga de la mercancía.' );
+  end;
+
+  if self.rGGN.imprimir_garantia = true then
+  begin
     if not bSpain then
     begin
-      qrmGarantia.Lines.Add( 'Partial or complete rejections should be communicated and quantified no later than 48 hours after the reception of the goods by email or fax.' );
-      if CGlobal.gProgramVersion = CGlobal.pvSAT then
-//        qrmGarantia.Lines.Add( 'All the fruit and vegatables produts packed by S.A.T. Nº9359 BONNYSA are certified according to GLOBALGAP IFA V5.3 product standards.     GGN=4049928415684');
-        qrmGarantia.Lines.Add( 'Certified product GlobalG.A.P.  GGN: 4049928415684');
+      qrmGarantia.Lines.Add( self.rGGN.descri_eng+' '+self.rGGN.ggn_code);
     end
     else
     begin
-      qrmGarantia.Lines.Add( 'Las incidencias deben ser comunicadas y cuantificadas  por escrito dentro del plazo de 48 horas posteriores a la descarga de la mercancía.' );
-      if CGlobal.gProgramVersion = CGlobal.pvSAT then
-//        qrmGarantia.Lines.Add( 'Toda la producción hortofrutícola comercializada por S.A.T. Nº9359 BONNYSA está certificada conforme a la norma GLOBALGAP IFA V5.3.    GGN=4049928415684');
-        qrmGarantia.Lines.Add( 'Producto Certificado GlobalG.A.P.  GGN: 4049928415684');
+      qrmGarantia.Lines.Add( self.rGGN.descri_esp+' '+self.rGGN.ggn_code);
     end;
 
-    if CGlobal.gProgramVersion = CGlobal.pvSAT then
-      qrmReponsabilidadEnvase.Top:= 25
-    else
-      qrmReponsabilidadEnvase.Top:= 15;
-    PiePagina.Height:= 65;
+//    qrmReponsabilidadEnvase.Top:= 25;
+//    PiePagina.Height:= 65;
   end;
+//  else
+//  begin
+//    qrmGarantia.Enabled:= False;
+//    qrmReponsabilidadEnvase.Top:= 15;
+//    PiePagina.Height:= 40;
+//  end;
+
+  if (CGlobal.gProgramVersion = CGlobal.pvSAT) or (rGGN.imprimir_garantia = true) then
+  begin
+      qrmReponsabilidadEnvase.Top:= 25;
+      PiePagina.Height := 65;
+  end
+  else
+  begin
+       qrmReponsabilidadEnvase.Top:= 15;
+      PiePagina.Height := 40;
+  end;
+
+
   (*
   else
   begin
@@ -470,17 +494,26 @@ begin
 
   if PrintBand then
   begin
-    tipo_albaran := FQueryCliente.FieldByName('tipo_albaran_c').asInteger;
-    num_exportador := FQueryEmpresa.FieldByName('num_exp_autorizado_e').asString;
-    case tipo_albaran of
-      0, 1:  // Tipos albaran Valorado, No valorado
-        qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_ES_, [ num_exportador ]));
+   //Peticion de Amparo Segui. Para el cliente SIL y para facturas menores de 6000 euros, no es necesario que salga el num_exportador en la impresion de la factura. 22/06/2021
+    if (sCodigoCliente = 'SIL') and
+       (StrToFloat(StringReplace(total.Caption, '.', '', [rfReplaceAll, rfIgnoreCase]) ) < 6000) then
+    begin
+      qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_EN_SIL_, []));
+    end
+    else
+    begin
+      tipo_albaran := FQueryCliente.FieldByName('tipo_albaran_c').asInteger;
+      num_exportador := FQueryEmpresa.FieldByName('num_exp_autorizado_e').asString;
+      case tipo_albaran of
+        0, 1:  // Tipos albaran Valorado, No valorado
+          qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_ES_, [ num_exportador ]));
 
-      2: // Tipo albaran aleman
-        qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_DE_, [ num_exportador ]));
+        2: // Tipo albaran aleman
+          qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_DE_, [ num_exportador ]));
 
-      3: // Tipo albaran ingles
-        qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_EN_, [ num_exportador ]));
+        3: // Tipo albaran ingles
+          qrm1.Lines.Add(Format(_EXPORTADOR_AUTORIZADO_EN_, [ num_exportador ]));
+      end;
     end;
   end;
 end;

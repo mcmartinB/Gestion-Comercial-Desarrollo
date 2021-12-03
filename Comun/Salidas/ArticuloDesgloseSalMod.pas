@@ -19,7 +19,18 @@ uses
   cxGridDBTableView, cxGridCustomView, cxGrid, ExtCtrls, BonnyClientDataSet,
 
   dxSkinsCore, dxSkinscxPCPainter, dxSkinBlue, dxSkinFoggy, dxSkinsdxBarPainter, dxSkinsdxRibbonPainter,
-  dxSkinBlueprint, dxSkinMoneyTwins;
+  dxSkinBlueprint, dxSkinMoneyTwins, dxSkinBlack, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary,
+  dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin,
+  dxSkinMetropolis, dxSkinMetropolisDark, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue;
 
 type
   TFArticuloDesgloseSalMod = class(TForm)

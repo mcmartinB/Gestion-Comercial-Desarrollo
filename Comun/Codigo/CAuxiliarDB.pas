@@ -1519,6 +1519,7 @@ begin
     if not isEmpty then
     begin
       result:= ( FieldByName('peso_neto_e').AsFloat = 0 ) or (FieldByName('peso_variable_e').Asinteger <> 0 );
+//      result:= FieldByName('peso_variable_e').Asinteger = 1;
     end;
     Close;
   end;

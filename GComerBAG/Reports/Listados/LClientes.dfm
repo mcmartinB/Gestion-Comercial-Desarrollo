@@ -1203,8 +1203,8 @@ object QRLClientes: TQRLClientes
       FontSize = 9
     end
     object nombre_ds: TQRDBText
-      Left = 101
-      Top = 2
+      Left = 108
+      Top = 6
       Width = 65
       Height = 17
       Frame.Color = clBlack
@@ -1214,8 +1214,8 @@ object QRLClientes: TQRLClientes
       Frame.DrawRight = False
       Size.Values = (
         44.979166666666670000
-        267.229166666666700000
-        5.291666666666667000
+        285.750000000000000000
+        15.875000000000000000
         171.979166666666700000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -1575,6 +1575,55 @@ object QRLClientes: TQRLClientes
       Transparent = False
       WordWrap = True
       FontSize = 9
+    end
+    object dias_trayecto_ds: TQRDBText
+<<<<<<< HEAD
+      Left = 260
+      Top = 6
+      Width = 94
+=======
+      Left = 237
+      Top = 2
+      Width = 100
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.979166666666670000
+<<<<<<< HEAD
+        687.916666666666700000
+        15.875000000000000000
+        248.708333333333300000)
+=======
+        627.062500000000000000
+        5.291666666666667000
+        264.583333333333300000)
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = True
+      AutoStretch = False
+      Color = clWhite
+<<<<<<< HEAD
+      DataField = 'dias_trayecto_ds'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsItalic]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FontSize = 9
+=======
+      Transparent = False
+      WordWrap = True
+      FontSize = 10
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
     end
   end
   object bndcNotas: TQRChildBand

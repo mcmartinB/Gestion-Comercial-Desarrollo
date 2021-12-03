@@ -868,6 +868,7 @@ object FArticuloDesgloseSalMod: TFArticuloDesgloseSalMod
     object dxComponentPrinterLink2: TdxGridReportLink
       Active = True
       Component = cxGrid
+      PageNumberFormat = pnfNumeral
       PrinterPage.DMPaper = 9
       PrinterPage.Footer = 6350
       PrinterPage.GrayShading = True
@@ -881,7 +882,8 @@ object FArticuloDesgloseSalMod: TFArticuloDesgloseSalMod
       PrinterPage.PageSize.Y = 297000
       PrinterPage._dxMeasurementUnits_ = 0
       PrinterPage._dxLastMU_ = 2
-      ReportDocument.CreationDate = 43754.538979027780000000
+      ReportDocument.CreationDate = 44522.515876967590000000
+      AssignedFormatValues = [fvDate, fvTime, fvPageNumber]
       OptionsView.FilterBar = False
       BuiltInReportLink = True
     end

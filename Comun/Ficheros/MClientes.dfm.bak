@@ -37,7 +37,7 @@ object FMClientes: TFMClientes
       Top = 2
       Width = 1092
       Height = 311
-      ActivePage = tsUnidades
+      ActivePage = tsSuministro
       Align = alClient
       TabOrder = 0
       object tsSuministro: TTabSheet
@@ -49,6 +49,7 @@ object FMClientes: TFMClientes
           Height = 221
           Align = alTop
           TabOrder = 0
+          ExplicitTop = -1
           object LCliente: TLabel
             Left = 37
             Top = 15
@@ -244,6 +245,17 @@ object FMClientes: TFMClientes
             ParentColor = False
             Layout = tlCenter
           end
+          object Label14: TLabel
+            Left = 547
+            Top = 85
+            Width = 90
+            Height = 21
+            AutoSize = False
+            Caption = ' D'#237'as trayecto'
+            Color = cl3DLight
+            ParentColor = False
+            Layout = tlCenter
+          end
           object stCodCliente: TStaticText
             Left = 133
             Top = 17
@@ -347,7 +359,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 30
-            TabOrder = 11
+            TabOrder = 12
             DataField = 'poblacion_ds'
             DataSource = DSDetalle
           end
@@ -358,7 +370,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 16
-            TabOrder = 14
+            TabOrder = 15
             DataField = 'telefono_ds'
             DataSource = DSDetalle
           end
@@ -369,7 +381,7 @@ object FMClientes: TFMClientes
             Height = 19
             AutoSize = False
             BorderStyle = sbsSunken
-            TabOrder = 10
+            TabOrder = 11
           end
           object provincia_ds: TBDEdit
             Left = 211
@@ -378,7 +390,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 30
-            TabOrder = 9
+            TabOrder = 10
             DataField = 'provincia_ds'
             DataSource = DSDetalle
           end
@@ -389,7 +401,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 8
-            TabOrder = 12
+            TabOrder = 13
             OnChange = pais_dsChange
             DataField = 'pais_ds'
             DataSource = DSDetalle
@@ -401,7 +413,7 @@ object FMClientes: TFMClientes
             Height = 19
             AutoSize = False
             BorderStyle = sbsSunken
-            TabOrder = 13
+            TabOrder = 14
           end
           object nif_ds: TBDEdit
             Left = 645
@@ -422,7 +434,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 125
-            TabOrder = 15
+            TabOrder = 16
             DataField = 'Email_ds'
             DataSource = DSDetalle
           end
@@ -433,7 +445,7 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 125
-            TabOrder = 16
+            TabOrder = 17
             DataField = 'email_fac_ds'
             DataSource = DSDetalle
           end
@@ -454,8 +466,20 @@ object FMClientes: TFMClientes
             Height = 21
             ColorEdit = clMoneyGreen
             MaxLength = 40
-            TabOrder = 17
+            TabOrder = 18
             DataField = 'plataforma_ds'
+            DataSource = DSDetalle
+          end
+          object dias_trayecto_ds: TBDEdit
+            Left = 645
+            Top = 85
+            Width = 42
+            Height = 21
+            ColorEdit = clMoneyGreen
+            OnRequiredTime = RequiredTime
+            MaxLength = 14
+            TabOrder = 9
+            DataField = 'dias_trayecto_ds'
             DataSource = DSDetalle
           end
         end
@@ -2152,19 +2176,6 @@ object FMClientes: TFMClientes
         DataField = 'n_copias_fac_c'
         DataSource = DSMaestro
       end
-      object albaran_factura_c: TDBCheckBox
-        Left = 348
-        Top = 180
-        Width = 149
-        Height = 17
-        Alignment = taLeftJustify
-        Caption = 'Un albar'#225'n por factura'
-        DataField = 'albaran_factura_c'
-        DataSource = DSMaestro
-        TabOrder = 14
-        ValueChecked = '1'
-        ValueUnchecked = '0'
-      end
       object edi_c: TDBCheckBox
         Left = 359
         Top = 36
@@ -2186,7 +2197,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 3
-        TabOrder = 15
+        TabOrder = 14
         OnChange = incoterm_cChange
         DataField = 'incoterm_c'
         DataSource = DSMaestro
@@ -2199,7 +2210,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 30
-        TabOrder = 18
+        TabOrder = 17
         DataField = 'plaza_incoterm_c'
         DataSource = DSMaestro
       end
@@ -2210,7 +2221,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 16
+        TabOrder = 15
       end
       object cta_ingresos_pgc_c: TBDEdit
         Left = 131
@@ -2237,7 +2248,7 @@ object FMClientes: TFMClientes
         Enabled = False
         Visible = False
         MaxLength = 13
-        TabOrder = 21
+        TabOrder = 20
         DataField = 'max_riesgo_c'
         DataSource = DSMaestro
       end
@@ -2249,7 +2260,7 @@ object FMClientes: TFMClientes
         InputType = itDate
         Enabled = False
         Visible = False
-        TabOrder = 22
+        TabOrder = 21
         DataField = 'fecha_riesgo_c'
         DataSource = DSMaestro
       end
@@ -2263,7 +2274,7 @@ object FMClientes: TFMClientes
         DataField = 'seguro_c'
         DataSource = DSMaestro
         Enabled = False
-        TabOrder = 20
+        TabOrder = 19
         ValueChecked = '1'
         ValueUnchecked = '0'
         Visible = False
@@ -2316,7 +2327,7 @@ object FMClientes: TFMClientes
         Enabled = False
         Visible = False
         MaxLength = 3
-        TabOrder = 23
+        TabOrder = 22
         OnChange = banco_cChange
         DataField = 'banco_c'
         DataSource = DSMaestro
@@ -2332,7 +2343,7 @@ object FMClientes: TFMClientes
         Enabled = False
         Visible = False
         MaxLength = 2
-        TabOrder = 25
+        TabOrder = 24
         OnChange = forma_pago_cChange
         DataField = 'forma_pago_c'
         DataSource = DSMaestro
@@ -2345,7 +2356,7 @@ object FMClientes: TFMClientes
         AutoSize = False
         BorderStyle = sbsSunken
         Enabled = False
-        TabOrder = 24
+        TabOrder = 23
         Visible = False
       end
       object txtst1: TStaticText
@@ -2356,7 +2367,7 @@ object FMClientes: TFMClientes
         AutoSize = False
         BorderStyle = sbsSunken
         Enabled = False
-        TabOrder = 26
+        TabOrder = 25
         Visible = False
       end
       object cip_c: TBDEdit
@@ -2368,7 +2379,7 @@ object FMClientes: TFMClientes
         OnRequiredTime = RequiredTime
         CharCase = ecNormal
         MaxLength = 15
-        TabOrder = 17
+        TabOrder = 16
         DataField = 'cip_c'
         DataSource = DSMaestro
       end
@@ -2383,7 +2394,7 @@ object FMClientes: TFMClientes
         Enabled = False
         Visible = False
         MaxLength = 2
-        TabOrder = 27
+        TabOrder = 26
         DataField = 'dias_tesoreria_c'
         DataSource = DSMaestro
       end
@@ -2402,7 +2413,20 @@ object FMClientes: TFMClientes
           'Q - Quincenal'
           'M - Mensual'
           '')
-        TabOrder = 19
+        TabOrder = 18
+      end
+      object albaran_factura_c: TComboBox
+        Left = 304
+        Top = 177
+        Width = 193
+        Height = 21
+        ItemHeight = 13
+        TabOrder = 27
+        OnChange = albaran_factura_cChange
+        Items.Strings = (
+          'Agrupaci'#243'n Albaranes por factura'
+          'Un Albaran por factura'
+          'Agrupaci'#243'n Dir. Suministro por factura')
       end
     end
     object Pago: TPanel
@@ -2778,7 +2802,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 2
-        TabOrder = 5
+        TabOrder = 6
         DataField = 'tipo_via_c'
         DataSource = DSMaestro
       end
@@ -2790,7 +2814,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 60
-        TabOrder = 4
+        TabOrder = 5
         DataField = 'domicilio_c'
         DataSource = DSMaestro
       end
@@ -2802,7 +2826,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 50
-        TabOrder = 6
+        TabOrder = 7
         DataField = 'poblacion_c'
         DataSource = DSMaestro
       end
@@ -2814,7 +2838,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 2
-        TabOrder = 7
+        TabOrder = 8
         OnChange = pais_cChange
         DataField = 'pais_c'
         DataSource = DSMaestro
@@ -2827,7 +2851,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 10
-        TabOrder = 10
+        TabOrder = 11
         OnChange = cod_postal_cChange
         DataField = 'cod_postal_c'
         DataSource = DSMaestro
@@ -2839,7 +2863,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 11
+        TabOrder = 12
       end
       object STPais_c: TStaticText
         Left = 165
@@ -2848,7 +2872,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 8
+        TabOrder = 9
       end
       object telefono_c: TBDEdit
         Left = 104
@@ -2858,7 +2882,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 16
-        TabOrder = 17
+        TabOrder = 18
         DataField = 'telefono_c'
         DataSource = DSMaestro
       end
@@ -2884,7 +2908,7 @@ object FMClientes: TFMClientes
         RequiredMsg = 'El c'#243'digo del representante es de obligada inserci'#243'n.'
         OnRequiredTime = RequiredTime
         MaxLength = 2
-        TabOrder = 20
+        TabOrder = 21
         OnChange = representante_cChange
         DataField = 'representante_c'
         DataSource = DSMaestro
@@ -2896,7 +2920,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 21
+        TabOrder = 22
       end
       object resp_compras_c: TBDEdit
         Left = 104
@@ -2906,7 +2930,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 30
-        TabOrder = 22
+        TabOrder = 23
         DataField = 'resp_compras_c'
         DataSource = DSMaestro
       end
@@ -2919,7 +2943,7 @@ object FMClientes: TFMClientes
         Caption = 'Comunitario'
         DataField = 'es_comunitario_c'
         DataSource = DSMaestro
-        TabOrder = 9
+        TabOrder = 10
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -2931,7 +2955,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         InputType = itInteger
-        TabOrder = 12
+        TabOrder = 13
         DataField = 'n_copias_alb_c'
         DataSource = DSMaestro
       end
@@ -2942,7 +2966,7 @@ object FMClientes: TFMClientes
         Height = 21
         ColorEdit = clMoneyGreen
         CharCase = ecLowerCase
-        TabOrder = 16
+        TabOrder = 17
         DataField = 'email_alb_c'
         DataSource = DSMaestro
       end
@@ -2954,7 +2978,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 16
-        TabOrder = 18
+        TabOrder = 19
         DataField = 'telefono2_c'
         DataSource = DSMaestro
       end
@@ -2966,7 +2990,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 16
-        TabOrder = 19
+        TabOrder = 20
         DataField = 'fax_c'
         DataSource = DSMaestro
       end
@@ -2977,7 +3001,7 @@ object FMClientes: TFMClientes
         Height = 79
         DataField = 'notas_c'
         DataSource = DSMaestro
-        TabOrder = 23
+        TabOrder = 24
       end
       object cta_cliente_c: TBDEdit
         Left = 435
@@ -2987,7 +3011,7 @@ object FMClientes: TFMClientes
         ColorEdit = clMoneyGreen
         OnRequiredTime = RequiredTime
         MaxLength = 10
-        TabOrder = 1
+        TabOrder = 2
         DataField = 'cta_cliente_c'
         DataSource = DSMaestro
       end
@@ -3000,7 +3024,7 @@ object FMClientes: TFMClientes
         Zeros = True
         OnRequiredTime = RequiredTime
         MaxLength = 2
-        TabOrder = 2
+        TabOrder = 3
         OnChange = tipo_cliente_cChange
         DataField = 'tipo_cliente_c'
         DataSource = DSMaestro
@@ -3012,7 +3036,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 3
+        TabOrder = 4
       end
       object grabrar_transporte_c: TDBCheckBox
         Left = 383
@@ -3023,7 +3047,7 @@ object FMClientes: TFMClientes
         Caption = 'Grabar  portes '
         DataField = 'grabrar_transporte_c'
         DataSource = DSMaestro
-        TabOrder = 14
+        TabOrder = 15
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -3041,7 +3065,7 @@ object FMClientes: TFMClientes
           '1'
           '2'
           '3')
-        TabOrder = 13
+        TabOrder = 14
         OnChange = tipo_albaran_cChange
       end
       object des_tipo_albaran_c: TStaticText
@@ -3051,7 +3075,7 @@ object FMClientes: TFMClientes
         Height = 17
         AutoSize = False
         BorderStyle = sbsSunken
-        TabOrder = 15
+        TabOrder = 16
       end
       object eori_cliente_c: TBDEdit
         Left = 232
@@ -3060,7 +3084,7 @@ object FMClientes: TFMClientes
         Height = 21
         ColorEdit = clMoneyGreen
         MaxLength = 17
-        TabOrder = 24
+        TabOrder = 1
         DataField = 'eori_cliente_c'
         DataSource = DSMaestro
       end
@@ -3451,6 +3475,9 @@ object FMClientes: TFMClientes
     end
     object QSuministrofecha_baja_ds: TDateField
       FieldName = 'fecha_baja_ds'
+    end
+    object QSuministrodias_trayecto_ds: TIntegerField
+      FieldName = 'dias_trayecto_ds'
     end
   end
 end

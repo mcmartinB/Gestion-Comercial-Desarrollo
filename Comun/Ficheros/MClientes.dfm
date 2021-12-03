@@ -49,7 +49,6 @@ object FMClientes: TFMClientes
           Height = 221
           Align = alTop
           TabOrder = 0
-          ExplicitTop = -1
           object LCliente: TLabel
             Left = 37
             Top = 15
@@ -624,6 +623,10 @@ object FMClientes: TFMClientes
       object tsDescuentos: TTabSheet
         Caption = 'Descuentos'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lbl5: TLabel
           Left = 904
           Top = 102
@@ -857,6 +860,10 @@ object FMClientes: TFMClientes
       object tsUnidades: TTabSheet
         Caption = 'Unidades'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object BtnUniFac: TBitBtn
           Left = 887
           Top = 15
@@ -1016,6 +1023,10 @@ object FMClientes: TFMClientes
       object tsRecargo: TTabSheet
         Caption = 'Recargo'
         ImageIndex = 4
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object dbgRecargo: TDBGrid
           Left = 0
           Top = 0
@@ -1087,6 +1098,10 @@ object FMClientes: TFMClientes
       object tsFormaPago: TTabSheet
         Caption = 'Forma Pago'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object pnlFormaPago: TPanel
           Left = 0
           Top = 0
@@ -1290,6 +1305,10 @@ object FMClientes: TFMClientes
       object ts1: TTabSheet
         Caption = 'Riesgo Cliente'
         ImageIndex = 5
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object dbgRiesgo: TDBGrid
           Left = 0
           Top = 0
@@ -1393,6 +1412,10 @@ object FMClientes: TFMClientes
       object tsGastos: TTabSheet
         Caption = 'Gastos Fijos'
         ImageIndex = 6
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
