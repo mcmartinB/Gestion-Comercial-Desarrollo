@@ -1,7 +1,7 @@
 object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   Left = 0
   Top = 0
-  Width = 1356
+  Width = 1640
   Height = 794
   Frame.Color = clBlack
   Frame.DrawTop = False
@@ -62,7 +62,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object bndcChildBand1: TQRChildBand
     Left = 19
     Top = 297
-    Width = 1318
+    Width = 1602
     Height = 76
     Frame.Color = clBlack
     Frame.DrawTop = True
@@ -77,7 +77,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       201.083333333333300000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     ParentBand = SummaryBand1
@@ -1104,7 +1104,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object QRBand5: TQRBand
     Left = 19
     Top = 38
-    Width = 1318
+    Width = 1602
     Height = 67
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -1118,7 +1118,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       177.270833333333300000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbPageHeader
@@ -1281,7 +1281,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object QRBand4: TQRBand
     Left = 19
     Top = 105
-    Width = 1318
+    Width = 1602
     Height = 20
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -1296,7 +1296,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       52.916666666666670000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbColumnHeader
@@ -1536,7 +1536,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = #8364'/kg Neto'
+      Caption = #8364'/kg.Neto'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1815,7 +1815,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = #8364'/Kg liquidacion'
+      Caption = #8364'/Kg.Liquidacion'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1846,7 +1846,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = #8364'/kg M.Neto'
+      Caption = #8364'/kg.M.Neto'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2032,7 +2032,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = #8364'/kg M.Bruto'
+      Caption = #8364'/kg.M.Bruto'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2094,7 +2094,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = #8364' liquidaci'#243'n'
+      Caption = #8364'.Liquidaci'#243'n'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2141,7 +2141,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object BandaDetalle: TQRBand
     Left = 19
     Top = 185
-    Width = 1318
+    Width = 1602
     Height = 15
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -2156,7 +2156,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       39.687500000000000000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbDetail
@@ -3023,7 +3023,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object SummaryBand1: TQRBand
     Left = 19
     Top = 276
-    Width = 1318
+    Width = 1602
     Height = 21
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -3037,7 +3037,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       55.562500000000000000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbSummary
@@ -3045,7 +3045,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object qrgrpCabStatus: TQRGroup
     Left = 19
     Top = 125
-    Width = 1318
+    Width = 1602
     Height = 20
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -3060,7 +3060,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       52.916666666666670000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     Expression = '[res_anyo_semana]+[res_status]'
@@ -3104,7 +3104,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object qrbndPieStatus: TQRBand
     Left = 19
     Top = 250
-    Width = 1318
+    Width = 1602
     Height = 26
     Frame.Color = clBlack
     Frame.DrawTop = True
@@ -3119,7 +3119,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       68.791666666666670000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbGroupFooter
@@ -3993,7 +3993,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object grCentroCabCalidad: TQRGroup
     Left = 19
     Top = 145
-    Width = 1318
+    Width = 1602
     Height = 20
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -4008,7 +4008,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       52.916666666666670000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     Expression = '[res_anyo_semana]+[res_status]+[res_calidad]'
@@ -4053,7 +4053,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object qrbndPieCliente: TQRBand
     Left = 19
     Top = 200
-    Width = 1318
+    Width = 1602
     Height = 25
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -4068,7 +4068,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       66.145833333333330000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbGroupFooter
@@ -4960,7 +4960,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object grCentroCabCliente: TQRGroup
     Left = 19
     Top = 165
-    Width = 1318
+    Width = 1602
     Height = 20
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -4974,7 +4974,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       52.916666666666670000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     Expression = '[res_anyo_semana]+[res_status]+[res_calidad]+[res_cliente]'
@@ -5019,7 +5019,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object qrbndPieCalidad: TQRBand
     Left = 19
     Top = 225
-    Width = 1318
+    Width = 1602
     Height = 25
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -5034,7 +5034,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       66.145833333333330000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbGroupFooter
@@ -5925,7 +5925,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
   object grpagefooter: TQRBand
     Left = 19
     Top = 373
-    Width = 1318
+    Width = 1602
     Height = 1
     Frame.Color = clBlack
     Frame.DrawTop = False
@@ -5939,7 +5939,7 @@ object QLLiquidaResumenClientes: TQLLiquidaResumenClientes
     ForceNewPage = False
     Size.Values = (
       2.645833333333333000
-      3487.208333333333000000)
+      4238.625000000000000000)
     PreCaluculateBandHeight = False
     KeepOnOnePage = False
     BandType = rbPageFooter

@@ -1292,7 +1292,7 @@ object QLLiquidaResumen: TQLLiquidaResumen
     BandType = rbDetail
     object qrdbtxtpal_categoria: TQRDBText
       Left = 12
-      Top = 3
+      Top = 0
       Width = 23
       Height = 15
       Enabled = False
@@ -1304,7 +1304,7 @@ object QLLiquidaResumen: TQLLiquidaResumen
       Size.Values = (
         39.687500000000000000
         31.750000000000000000
-        7.937500000000000000
+        0.000000000000000000
         60.854166666666670000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -1325,7 +1325,7 @@ object QLLiquidaResumen: TQLLiquidaResumen
     end
     object qrdbtxtpal_status: TQRDBText
       Left = 41
-      Top = 3
+      Top = 0
       Width = 145
       Height = 15
       Frame.Color = clBlack
@@ -1336,7 +1336,7 @@ object QLLiquidaResumen: TQLLiquidaResumen
       Size.Values = (
         39.687500000000000000
         108.479166666666700000
-        7.937500000000000000
+        0.000000000000000000
         383.645833333333300000)
       Alignment = taLeftJustify
       AlignToBand = False
