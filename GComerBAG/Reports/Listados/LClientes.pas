@@ -62,6 +62,10 @@ type
     email_alb_c: TQRDBText;
     dias_trayecto_ds: TQRDBText;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    QRSubDetail: TQRSubDetail;
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
 =======
     QRSubDetail: TQRSubDetail;
 >>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b

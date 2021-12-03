@@ -1578,9 +1578,15 @@ object QRLClientes: TQRLClientes
     end
     object dias_trayecto_ds: TQRDBText
 <<<<<<< HEAD
+<<<<<<< HEAD
       Left = 260
       Top = 6
       Width = 94
+=======
+      Left = 237
+      Top = 2
+      Width = 100
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
 =======
       Left = 237
       Top = 2
@@ -1595,9 +1601,15 @@ object QRLClientes: TQRLClientes
       Size.Values = (
         44.979166666666670000
 <<<<<<< HEAD
+<<<<<<< HEAD
         687.916666666666700000
         15.875000000000000000
         248.708333333333300000)
+=======
+        627.062500000000000000
+        5.291666666666667000
+        264.583333333333300000)
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
 =======
         627.062500000000000000
         5.291666666666667000
@@ -1609,6 +1621,7 @@ object QRLClientes: TQRLClientes
       AutoStretch = False
       Color = clWhite
 <<<<<<< HEAD
+<<<<<<< HEAD
       DataField = 'dias_trayecto_ds'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1619,6 +1632,11 @@ object QRLClientes: TQRLClientes
       Transparent = False
       WordWrap = True
       FontSize = 9
+=======
+      Transparent = False
+      WordWrap = True
+      FontSize = 10
+>>>>>>> 21ea6e1fb346b34796ffa739f87ed0f7bb615d7b
 =======
       Transparent = False
       WordWrap = True
