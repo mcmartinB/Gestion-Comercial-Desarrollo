@@ -54,42 +54,30 @@ object FPrincipal: TFPrincipal
       object TBMaestroLocalizar: TToolButton
         Left = 0
         Top = 0
-        Hint = 'Localizar'
-        Caption = '&Localizar'
-        ImageIndex = 8
+        Action = AMLocalizar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMLocalizarExecute
       end
       object TBMaestroModificar: TToolButton
         Left = 24
         Top = 0
-        Hint = 'Modificar'
-        Caption = '&Modificar'
-        ImageIndex = 9
+        Action = AMModificar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMModificarExecute
       end
       object TBMaestroBorrar: TToolButton
         Left = 48
         Top = 0
-        Hint = 'Borrar'
-        Caption = '&Borrar'
-        ImageIndex = 10
+        Action = AMBorrar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMBorrarExecute
       end
       object TBMaestroAltas: TToolButton
         Left = 72
         Top = 0
-        Hint = 'A'#241'adir'
-        Caption = '&Altas'
-        ImageIndex = 11
+        Action = AMAltas
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMAltasExecute
       end
       object TBMaestroSeparador1: TToolButton
         Left = 96
@@ -103,10 +91,7 @@ object FPrincipal: TFPrincipal
       object ToolButton3: TToolButton
         Left = 120
         Top = 0
-        Hint = 'Previsualizar listado'
-        Caption = '&Vista previa'
-        ImageIndex = 19
-        OnClick = AIPrevisualizarExecute
+        Action = AIPrevisualizar
       end
       object ToolButton1: TToolButton
         Left = 144
@@ -119,42 +104,30 @@ object FPrincipal: TFPrincipal
       object TBMaestroPrimero: TToolButton
         Left = 168
         Top = 0
-        Hint = 'Primero'
-        Caption = '&Primero'
-        ImageIndex = 0
+        Action = AMPrimero
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMPrimeroExecute
       end
       object TBMaestroAnterior: TToolButton
         Left = 192
         Top = 0
-        Hint = 'Linea arriba'
-        Caption = 'A&rriba'
-        ImageIndex = 5
+        Action = AMAnterior
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADAnteriorExecute
       end
       object TBMaestroSiguiente: TToolButton
         Left = 216
         Top = 0
-        Hint = 'Siguiente'
-        Caption = '&Siguiente'
-        ImageIndex = 2
+        Action = AMSiguiente
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMSiguienteExecute
       end
       object TBMaestroUltimo: TToolButton
         Left = 240
         Top = 0
-        Hint = #218'ltimo'
-        Caption = '&Ultimo'
-        ImageIndex = 3
+        Action = AMUltimo
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMUltimoExecute
       end
       object TBMaestroSeparador2: TToolButton
         Left = 264
@@ -211,42 +184,30 @@ object FPrincipal: TFPrincipal
       object TBMaestroDetalleLocalizarMaestro: TToolButton
         Left = 0
         Top = 0
-        Hint = 'Localizar'
-        Caption = '&Localizar'
-        ImageIndex = 8
+        Action = AMLocalizar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMLocalizarExecute
       end
       object TBMaestroDetalleModificarMaestro: TToolButton
         Left = 24
         Top = 0
-        Hint = 'Modificar'
-        Caption = '&Modificar'
-        ImageIndex = 9
+        Action = AMModificar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMModificarExecute
       end
       object TBMaestroDetalleBorrarMaestro: TToolButton
         Left = 48
         Top = 0
-        Hint = 'Borrar'
-        Caption = '&Borrar'
-        ImageIndex = 10
+        Action = AMBorrar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMBorrarExecute
       end
       object TBMaestroDetalleAltasMaestro: TToolButton
         Left = 72
         Top = 0
-        Hint = 'A'#241'adir'
-        Caption = '&Altas'
-        ImageIndex = 11
+        Action = AMAltas
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMAltasExecute
       end
       object TBMaestroDetalleSeparador3: TToolButton
         Left = 96
@@ -261,32 +222,23 @@ object FPrincipal: TFPrincipal
       object TBMaestroDetalleModificarDetalle: TToolButton
         Left = 120
         Top = 0
-        Hint = 'Modificar linea'
-        Caption = '&Modificar'
-        ImageIndex = 13
+        Action = ADModificar
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADModificarExecute
       end
       object TBMaestroDetalleBorrarDetalle: TToolButton
         Left = 144
         Top = 0
-        Hint = 'Borrar linea'
-        Caption = '&Borrar'
-        ImageIndex = 14
+        Action = ADBorrar
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADBorrarExecute
       end
       object TBMaestroDetalleAltasDetalle: TToolButton
         Left = 168
         Top = 0
-        Hint = 'A'#241'adir linea'
-        Caption = '&Altas'
-        ImageIndex = 15
+        Action = ADAltas
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADAltasExecute
       end
       object TBMaestroDetalleSeparador1: TToolButton
         Left = 192
@@ -300,12 +252,9 @@ object FPrincipal: TFPrincipal
       object ToolButton6: TToolButton
         Left = 216
         Top = 0
-        Hint = 'Previsualizar listado'
-        Caption = '&Vista previa'
-        ImageIndex = 19
+        Action = AIPrevisualizar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AIPrevisualizarExecute
       end
       object ToolButton4: TToolButton
         Left = 240
@@ -318,42 +267,30 @@ object FPrincipal: TFPrincipal
       object TBMaestroDetallePrimero: TToolButton
         Left = 264
         Top = 0
-        Hint = 'Primero'
-        Caption = '&Primero'
-        ImageIndex = 0
+        Action = AMPrimero
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMPrimeroExecute
       end
       object TBMaestroDetalleAnterior: TToolButton
         Left = 288
         Top = 0
-        Hint = 'Anterior'
-        Caption = 'A&nterior'
-        ImageIndex = 1
+        Action = AMAnterior
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMAnteriorExecute
       end
       object TBMaestroDetalleSiguiente: TToolButton
         Left = 312
         Top = 0
-        Hint = 'Siguiente'
-        Caption = '&Siguiente'
-        ImageIndex = 2
+        Action = AMSiguiente
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMSiguienteExecute
       end
       object TBMaestroDetalleUltimo: TToolButton
         Left = 336
         Top = 0
-        Hint = #218'ltimo'
-        Caption = '&Ultimo'
-        ImageIndex = 3
+        Action = AMUltimo
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMUltimoExecute
       end
       object TBMaestroDetalleSeparador5: TToolButton
         Left = 360
@@ -377,22 +314,16 @@ object FPrincipal: TFPrincipal
       object TBMaestroDetalleArriba: TToolButton
         Left = 408
         Top = 0
-        Hint = 'Linea arriba'
-        Caption = 'A&rriba'
-        ImageIndex = 5
+        Action = ADAnterior
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADAnteriorExecute
       end
       object TBMaestroDetalleAbajo: TToolButton
         Left = 432
         Top = 0
-        Hint = 'Linea abajo'
-        Caption = 'A&bajo'
-        ImageIndex = 6
+        Action = ADSiguiente
         ParentShowHint = False
         ShowHint = True
-        OnClick = ADSiguienteExecute
       end
       object TBMaestroDetalleSeparador4: TToolButton
         Left = 456
@@ -406,32 +337,23 @@ object FPrincipal: TFPrincipal
       object TBMaestroDetalleAceptar: TToolButton
         Left = 480
         Top = 0
-        Hint = 'Aceptar'
-        Caption = '&Aceptar'
-        ImageIndex = 16
+        Action = AMDAceptar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDAceptarExecute
       end
       object TBMaestroDetalleCancelar: TToolButton
         Left = 504
         Top = 0
-        Hint = 'Cancelar'
-        Caption = '&Cancelar'
-        ImageIndex = 17
+        Action = AMDCancelar
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDCancelarExecute
       end
       object TBMaestroDetalleSalir: TToolButton
         Left = 528
         Top = 0
-        Hint = 'Cerrar'
-        Caption = '&Salir'
-        ImageIndex = 18
+        Action = AMDSalir
         ParentShowHint = False
         ShowHint = True
-        OnClick = AMDSalirExecute
       end
     end
   end
@@ -1676,9 +1598,7 @@ object FPrincipal: TFPrincipal
       end
     end
     object Salir1: TMenuItem
-      Caption = '&Salir '
-      ShortCut = 27
-      OnClick = ACerrarExecute
+      Action = ACerrar
     end
   end
   object Reloj: TTimer
