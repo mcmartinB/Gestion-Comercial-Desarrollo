@@ -848,7 +848,8 @@ uses
   LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
   UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule},
   MEntradasFrutaEx in 'GComerSAT\Formularios\Detalles\MEntradasFrutaEx.pas' {FMEntradasFrutaEx},
-  UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal};
+  UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal},
+  ArticuloDesgloseSalQR in 'Comun\Salidas\ArticuloDesgloseSalQR.pas' {QRArticuloDesgloseSal: TQuickRep};
 
 (*COMERBAG*)
 
