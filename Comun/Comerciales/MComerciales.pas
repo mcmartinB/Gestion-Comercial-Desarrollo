@@ -314,6 +314,10 @@ end;
 
 procedure TFMComerciales.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  FPrincipal.AMModificar.ShortCut := Word('M');
+  FPrincipal.AMLocalizar.ShortCut := Word('L');
+  FPrincipal.AIPrevisualizar.ShortCut := Word('I');
+
   ListaComponentes.Free;
   ListaDetalle.Free;
      {MODIFICAR}
@@ -843,12 +847,14 @@ procedure TFMComerciales.cxGrid1Exit(Sender: TObject);
 begin
   FPrincipal.AMModificar.ShortCut := Word('M');
   FPrincipal.AMLocalizar.ShortCut := Word('L');
+  FPrincipal.AIPrevisualizar.ShortCut := Word('I');
 end;
 
 procedure TFMComerciales.cxGrid1Enter(Sender: TObject);
 begin
   FPrincipal.AMModificar.ShortCut := 0;
   FPrincipal.AMLocalizar.ShortCut := 0;
+  FPrincipal.AIPrevisualizar.ShortCut := 0;
 end;
 
 procedure TFMComerciales.DespuesDeBorrar;
