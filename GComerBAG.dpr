@@ -744,7 +744,8 @@ uses
   MSalidas in 'GComerBAG\Formularios\Detalles\MSalidas.pas' {FMSalidas},
   uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas',
   LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
-  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule};
+  UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule},
+  ArticuloDesgloseSalQR in 'Comun\Salidas\ArticuloDesgloseSalQR.pas' {QRArticuloDesgloseSal: TQuickRep};
 
 (*
   AbonoDetallesDL in 'GComerSAT\Code\Facturacion\AbonoDetallesDL.pas' {DLAbonoDetalles: TDataModule},

@@ -1551,13 +1551,25 @@ begin
 
   CantDir := 1;
   DirSum := DFactura.mtFacturas_Det.FieldByName('cod_dir_sum_fd').AsString;
-  DFactura.mtFacturas_Det.First;
-  while not DFactura.mtFacturas_Det.eof do
+  with DMAuxDB.QAux do
   begin
-    if DFactura.mtFacturas_Det.FieldByName('cod_dir_sum_fd').AsString <> dirSum then
-      inc ( CantDir);
-    DFactura.mtFacturas_Det.Next;
+    SQL.Clear;
+    SQL.Add(' select count(distinct cod_dir_sum_fd) cantidad from tfacturas_det ');
+    SQL.Add(' where cod_factura_fd = ' + QuotedStr(DFactura.mtFacturas_Det.FieldByName('cod_factura_fd').AsString) );
+    Open;
+
+    CantDir := FieldByname('cantidad').AsInteger;
+    Close;
   end;
+
+//  DFactura.mtFacturas_Det.First;
+//  while not DFactura.mtFacturas_Det.eof do
+//  begin
+//    if DFactura.mtFacturas_Det.FieldByName('cod_dir_sum_fd').AsString <> dirSum then
+//      inc ( CantDir);
+//    DFactura.mtFacturas_Det.Next;
+//  end;
+
   result := CantDir = 1;
 
   if result = true then
