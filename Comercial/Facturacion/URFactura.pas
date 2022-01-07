@@ -355,6 +355,8 @@ type
       var PrintBand: Boolean);
     procedure qrchldbndChildBand1BeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
     procedure ProductoPrint(sender: TObject; var Value: string);
+    procedure CabeceraGastosBeforePrint(Sender: TQRCustomBand;
+      var PrintBand: Boolean);
 
 
   private
@@ -1144,6 +1146,15 @@ end;
 procedure TRFactura.CabeceraGastosAfterPrint(Sender: TQRCustomBand; BandPrinted: Boolean);
 begin
   CabeceraGastos.Enabled := false;
+  QRLabel6.Enabled := false;
+  QRLabel3.Enabled := false;
+end;
+
+procedure TRFactura.CabeceraGastosBeforePrint(Sender: TQRCustomBand;
+  var PrintBand: Boolean);
+begin
+  QRLabel6.Enabled := false;
+  QRLabel3.Enabled := false;
 end;
 
 procedure TRFactura.bndDescuentoComisionBeforePrint(Sender: TQRCustomBand;
