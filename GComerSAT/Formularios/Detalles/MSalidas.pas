@@ -1686,44 +1686,10 @@ begin
   end;
 end;
 
-
+//actualiza el campo comercial según cliente y producto según SI-1282
 procedure TFMSalidas.ActualizarComercial(Sender: TObject);
 begin
-  with DMAuxDB.QAux do
-  begin
-    if Active then
-    begin
-      Cancel;
-      Close;
-    end;
-    SQL.Clear;
-    SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
-    SQL.Add(' where cod_empresa_cc = :empresa ');
-    SQL.Add(' and cod_cliente_cc = :cliente ');
-    SQL.Add(' and cod_producto_cc = :producto ');
-    ParamByName('empresa').asString := empresa_sc.Text;
-    ParamByName('cliente').asString := cliente_sal_sc.Text;
-    ParamByName('producto').asString := producto_sl.Text;
-    Open;
-    if isEmpty then
-    begin
-      if Active then
-      begin
-        Cancel;
-        Close;
-      end;
-      SQL.Clear;
-      SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
-      SQL.Add(' where cod_empresa_cc = :empresa ');
-      SQL.Add(' and cod_cliente_cc = :cliente ');
-      SQL.Add(' and cod_producto_cc is null ');
-      ParamByName('empresa').asString := empresa_sc.Text;
-      ParamByName('cliente').asString := cliente_sal_sc.Text;
-      Open;
-    end;
-    comercial_sl.Text := FieldByName('cod_comercial_cc').asString;
-    Close;
-  end;
+    comercial_sl.Text := GetCodeComercial(producto_sl.Text, cliente_sal_sc.Text, StrToDate(fecha_sc.Text));
 end;
 
 //*****************************************************************************
@@ -5053,7 +5019,7 @@ end;
 procedure TFMSalidas.TSalidasLNewRecord(DataSet: TDataSet);
 begin
   DataSet.FieldByName('emp_procedencia_sl').AsString := empresa_sc.Text;
-  DataSet.FieldByName('comercial_sl').AsString := GetCodeComercial(empresa_sc.Text, cliente_sal_sc.Text);
+  DataSet.FieldByName('comercial_sl').AsString := GetCodeComercial(producto_sl.Text, cliente_sal_sc.Text, strtodate(fecha_sc.Text));
   DataSet.FieldByName('desEnvase').AsString := desEnvase(DataSet.FieldByName('empresa_sl').AsString, DataSet.FieldByName('envase_sl').AsString);
   DataSet.FieldByName('empresa_sl').AsString := QSalidasC.FieldByName('empresa_sc').AsString;
   DataSet.FieldByName('centro_salida_sl').AsString := QSalidasC.FieldByName('centro_salida_sc').AsString;

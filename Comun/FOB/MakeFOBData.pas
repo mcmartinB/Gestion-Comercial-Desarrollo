@@ -1105,8 +1105,8 @@ begin
     SQL.Add(' SELECT cod_empresa_albaran_fd empresa, cod_cliente_fc cliente, ');
     SQL.Add('        cod_dir_sum_fd suministro, ');
     //Comercial
-    SQL.Add('        nvl( ( select cod_comercial_cc from frf_clientes_comercial where cod_empresa_cc = cod_empresa_albaran_fd and cod_cliente_cc = cod_cliente_fc ),''000'') comercial,');
-
+//    SQL.Add('        nvl( ( select cod_comercial_cc from frf_clientes_comercial where cod_cliente_cc = cod_cliente_fc ),''000'') comercial,');
+    SQL.Add('        cod_comercial_fd comercial, ');
 
     SQL.Add('        n_albaran_fd albaran, ');
     SQL.Add('        cod_producto_fd producto, ');
