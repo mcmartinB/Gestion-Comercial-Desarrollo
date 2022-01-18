@@ -2715,7 +2715,12 @@ begin
         ParamByName('cliente').asString := ACliente;
         Open;
       end;
-      result := FieldByName('cod_comercial_cc').AsString;
+
+      if not isEmpty then
+         result := FieldByName('cod_comercial_cc').AsString
+      else
+          result := '000';
+
       Close;
   end;
 end;
