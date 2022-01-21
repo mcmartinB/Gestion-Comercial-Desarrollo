@@ -113,7 +113,6 @@ type
     qrdbtxtliq_proveedor1: TQRDBText;
     qrlbl1: TQRLabel;
     qrbnd1: TQRBand;
-    qrsysdt1: TQRSysData;
     QRLabel1: TQRLabel;
     QRDBText1: TQRDBText;
     QRExpr1: TQRExpr;

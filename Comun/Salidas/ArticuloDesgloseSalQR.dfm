@@ -51,7 +51,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
   PrinterSettings.Collate = 0
   PrinterSettings.ColorOption = 0
   PrintIfEmpty = True
-  ReportTitle = 'Control Ayuda POSEI'
+  ReportTitle = 'Composicion Articulo Desglose'
   SnapToGrid = True
   Units = MM
   Zoom = 100
@@ -451,7 +451,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       FontSize = 8
     end
     object QRLabel4: TQRLabel
-      Left = 702
+      Left = 700
       Top = 80
       Width = 45
       Height = 15
@@ -462,7 +462,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       Frame.DrawRight = False
       Size.Values = (
         39.687500000000000000
-        1857.375000000000000000
+        1852.083333333333000000
         211.666666666666700000
         119.062500000000000000)
       Alignment = taLeftJustify
@@ -482,9 +482,9 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       FontSize = 8
     end
     object QRLabel5: TQRLabel
-      Left = 752
+      Left = 746
       Top = 80
-      Width = 40
+      Width = 49
       Height = 15
       Frame.Color = clBlack
       Frame.DrawTop = False
@@ -493,14 +493,14 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       Frame.DrawRight = False
       Size.Values = (
         39.687500000000000000
-        1989.666666666667000000
+        1973.791666666667000000
         211.666666666666700000
-        105.833333333333300000)
-      Alignment = taLeftJustify
+        129.645833333333300000)
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
-      Caption = 'KG'
+      Caption = 'KG     '
       Color = clSilver
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -527,7 +527,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         2106.083333333333000000
         211.666666666666700000
         246.062500000000000000)
-      Alignment = taLeftJustify
+      Alignment = taCenter
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -558,7 +558,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         2360.083333333333000000
         211.666666666666700000
         185.208333333333300000)
-      Alignment = taLeftJustify
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -589,7 +589,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         2553.229166666667000000
         211.666666666666700000
         203.729166666666700000)
-      Alignment = taLeftJustify
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -925,7 +925,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       FontSize = 8
     end
     object QRDBText9: TQRDBText
-      Left = 702
+      Left = 700
       Top = 2
       Width = 45
       Height = 15
@@ -936,7 +936,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       Frame.DrawRight = False
       Size.Values = (
         39.687500000000000000
-        1857.375000000000000000
+        1852.083333333333000000
         5.291666666666667000
         119.062500000000000000)
       Alignment = taLeftJustify
@@ -958,9 +958,9 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       FontSize = 8
     end
     object QRDBText10: TQRDBText
-      Left = 752
+      Left = 746
       Top = 2
-      Width = 40
+      Width = 49
       Height = 15
       Frame.Color = clBlack
       Frame.DrawTop = False
@@ -969,10 +969,10 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       Frame.DrawRight = False
       Size.Values = (
         39.687500000000000000
-        1989.666666666667000000
+        1973.791666666667000000
         5.291666666666667000
-        105.833333333333300000)
-      Alignment = taLeftJustify
+        129.645833333333300000)
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -1005,7 +1005,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         2106.083333333333000000
         5.291666666666667000
         246.062500000000000000)
-      Alignment = taLeftJustify
+      Alignment = taCenter
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -1038,7 +1038,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         2360.083333333333000000
         5.291666666666667000
         185.208333333333300000)
-      Alignment = taLeftJustify
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False
@@ -1050,7 +1050,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
-      Mask = '###'
+      Mask = '##0.00'
       ParentFont = False
       Transparent = False
       WordWrap = True
@@ -1059,7 +1059,7 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
     object QRDBText13: TQRDBText
       Left = 965
       Top = 2
-      Width = 76
+      Width = 77
       Height = 15
       Frame.Color = clBlack
       Frame.DrawTop = False
@@ -1070,8 +1070,8 @@ object QRArticuloDesgloseSal: TQRArticuloDesgloseSal
         39.687500000000000000
         2553.229166666667000000
         5.291666666666667000
-        201.083333333333300000)
-      Alignment = taLeftJustify
+        203.729166666666700000)
+      Alignment = taRightJustify
       AlignToBand = False
       AutoSize = False
       AutoStretch = False

@@ -62,8 +62,6 @@ object FArticuloDesgloseSal: TFArticuloDesgloseSal
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'Foggy'
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = -2
       Height = 177
       Width = 885
       object stArticulo: TnbStaticText

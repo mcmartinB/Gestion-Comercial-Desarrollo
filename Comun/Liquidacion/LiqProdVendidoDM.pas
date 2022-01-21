@@ -692,7 +692,7 @@ begin
       DMLiqProdVendidoSalidas.KilosSalidasSemana( sEmpresa, sCentro, sProducto, dFechaIni, dFechaFin, rKilosOutSalidas, rKilosOutTransitos  );
 
       //Con los kilos entrados, salidos e inventarios calculamos la merma.
-      rMerma:=  ( rKilosEntradas.rKilosTotal + rKilosIni ) - ( ( rKilosOutSalidas + rKilosOutTransitos ) + rKilosFin );
+      rMerma:=  broundto(( rKilosEntradas.rKilosTotal + rKilosIni ) - ( ( rKilosOutSalidas + rKilosOutTransitos ) + rKilosFin ), 2);
       if rMerma < 0 then
       begin
         rObjetivo:= rKilosEntradas.rKilosTotal;

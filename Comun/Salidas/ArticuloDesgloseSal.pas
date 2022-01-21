@@ -16,18 +16,7 @@ uses
   cxPC, ActnList, SQLExprEdit, SQLExprStrEdit, SQLExprIntEdit, SQLExprDateEdit,
   dxSkinsCore, dxSkinBlue, dxSkinFoggy, dxSkinscxPCPainter,  dxSkinsdxBarPainter, dxSkinMoneyTwins,
   dxSkinBlueprint, nbLabels, DBTables, bTextUtils, cxGridBandedTableView,
-  cxGridDBBandedTableView, dxSkinBlack, dxSkinCaramel, dxSkinCoffee,
-  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
-  dxSkinDevExpressStyle, dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary,
-  dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin,
-  dxSkinMetropolis, dxSkinMetropolisDark, dxSkinOffice2007Black,
-  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
-  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
-  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
-  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
-  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
-  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue;
+  cxGridDBBandedTableView, dxSkinDevExpressStyle;
 
 type
   TFArticuloDesgloseSal = class(TForm)
@@ -295,6 +284,7 @@ begin
     SQL.Add('     and sall2.centro_salida_sl2 = salc.centro_salida_sc ');
     SQL.Add('     and sall2.n_albaran_sl2 = salc.n_albaran_sc ');
     SQL.Add('     and sall2.fecha_sl2 = salc.fecha_sc ');
+    SQL.Add('     and sall2.id_linea_albaran_sl2 = sall.id_linea_albaran_sl ');
     SQL.Add('  where 1=1 ');
 
     if cxFechaIni.Text <> '' then
