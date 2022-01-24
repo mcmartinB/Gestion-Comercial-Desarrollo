@@ -3,7 +3,7 @@ unit LiqProdVendidoDM;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, kbmMemTable, StdCtrls, Dialogs;
+  SysUtils, Classes, DB, DBTables, kbmMemTable, StdCtrls, bMath, Math, Dialogs;
 
 type
   R_KilosEntradas = record
@@ -136,7 +136,7 @@ implementation
 {$R *.dfm}
 
 uses
-  Math, DateUtils, bTimeUtils, LiqProdVendidoEntradasDM, Forms,
+  DateUtils, bTimeUtils, LiqProdVendidoEntradasDM, Forms,
   LiqProdVendidoBDDatosDM, LiqProdVendidoSalidasDM, Variants,
   LiqProdVendidoPlanQR, LiqProdVendidoCosQR, LiqProdVendidoResumenQR,
   LiqProdALiquidarQR, LiqProdVendidoTransitosDM, LiqProdInfLiquidacionQR,

@@ -1088,11 +1088,11 @@ object FPrincipal: TFPrincipal
         OnClick = mnuLiquidacionClick
       end
       object mnuInformesLiquidacion: TMenuItem
-        Caption = 'V2 .- Informes Liquidaci'#243'n'
+        Caption = 'Detalle Liquidaci'#243'n'
         OnClick = mnuLiquidacionClick
       end
       object mnuLiquidacionMensual: TMenuItem
-        Caption = 'V2 .- OLD -> Proceso Liquidaci'#243'n Mensual'
+        Caption = 'Resumen Liquidaci'#243'n'
         OnClick = mnuLiquidacionClick
       end
       object mnuLiquidacionMensual2: TMenuItem

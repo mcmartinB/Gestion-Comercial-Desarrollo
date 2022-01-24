@@ -720,9 +720,9 @@ begin
       EntradasSalidas;
 
       // Guardar csv con informacion de tablas temporales
-      CrearCsv(kmtEntradas);
-      CrearCsv(kmtSalidas);
-      CrearCsv(kmtInOut);
+//      CrearCsv(kmtEntradas);
+//      CrearCsv(kmtSalidas);
+//      CrearCsv(kmtInOut);
 
       PreparaLiquidacion;
 
