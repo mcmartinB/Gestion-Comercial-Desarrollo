@@ -111,7 +111,6 @@ type
     qrdbtxtliq_proveedor1: TQRDBText;
     qrlbl1: TQRLabel;
     qrbnd1: TQRBand;
-    qrsysdt1: TQRSysData;
     qrdbtxtliq_cliente_sal: TQRDBText;
     qrdbtxtliq_proveedor: TQRDBText;
     qrdbtxtliq_kilos_liquidar: TQRDBText;
