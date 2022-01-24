@@ -1,6 +1,6 @@
 object FMSalidas: TFMSalidas
-  Left = 90
-  Top = 102
+  Left = 274
+  Top = 62
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '  SALIDAS DE FRUTA'
@@ -15,7 +15,7 @@ object FMSalidas: TFMSalidas
   FormStyle = fsMDIChild
   KeyPreview = True
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
   Visible = True
   OnActivate = FormActivate
   OnClose = FormClose
@@ -3167,7 +3167,7 @@ object FMSalidas: TFMSalidas
     Width = 212
     Height = 143
     AutoSize = True
-    Date = 36748.605282442130000000
+    Date = 36748.415902210650000000
     ShowToday = False
     TabOrder = 6
     Visible = False

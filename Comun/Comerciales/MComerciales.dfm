@@ -93,24 +93,13 @@ object FMComerciales: TFMComerciales
         Left = 0
         Top = 0
         Width = 435
-        Height = 115
+        Height = 89
         Align = alTop
         TabOrder = 0
         Visible = False
-        object lblEmpresa: TLabel
-          Left = 7
-          Top = 10
-          Width = 69
-          Height = 19
-          AutoSize = False
-          Caption = ' Empresa'
-          Color = cl3DLight
-          ParentColor = False
-          Layout = tlCenter
-        end
         object lblCliente: TLabel
-          Left = 7
-          Top = 32
+          Left = 6
+          Top = 8
           Width = 69
           Height = 19
           AutoSize = False
@@ -119,57 +108,9 @@ object FMComerciales: TFMComerciales
           ParentColor = False
           Layout = tlCenter
         end
-        object btnEmpresa: TBGridButton
-          Left = 110
-          Top = 9
-          Width = 13
-          Height = 21
-          Hint = 'Pulse F2 para ver una lista de valores validos. '
-          Glyph.Data = {
-            36040000424D3604000000000000360000002800000010000000100000000100
-            2000000000000004000000000000000000000000000000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00000000000000000000000000000000000000
-            0000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF0000000000000000000000000000000000000000000000
-            000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
-          OnClick = ARejillaFlotanteExecute
-          Control = cod_empresa_cc
-          Grid = RejillaFlotante
-          GridAlignment = taDownRight
-          GridWidth = 280
-          GridHeigth = 160
-        end
         object btnCliente: TBGridButton
-          Left = 110
-          Top = 31
+          Left = 109
+          Top = 7
           Width = 13
           Height = 21
           Hint = 'Pulse F2 para ver una lista de valores validos. '
@@ -216,8 +157,8 @@ object FMComerciales: TFMComerciales
           GridHeigth = 160
         end
         object Label1: TLabel
-          Left = 7
-          Top = 54
+          Left = 6
+          Top = 30
           Width = 69
           Height = 19
           AutoSize = False
@@ -227,8 +168,8 @@ object FMComerciales: TFMComerciales
           Layout = tlCenter
         end
         object btnProducto: TBGridButton
-          Left = 110
-          Top = 53
+          Left = 109
+          Top = 29
           Width = 13
           Height = 21
           Hint = 'Pulse F2 para ver una lista de valores validos. '
@@ -275,8 +216,8 @@ object FMComerciales: TFMComerciales
           GridHeigth = 160
         end
         object Label2: TLabel
-          Left = 7
-          Top = 78
+          Left = 6
+          Top = 54
           Width = 69
           Height = 19
           AutoSize = False
@@ -286,8 +227,8 @@ object FMComerciales: TFMComerciales
           Layout = tlCenter
         end
         object Label3: TLabel
-          Left = 227
-          Top = 78
+          Left = 226
+          Top = 54
           Width = 69
           Height = 19
           AutoSize = False
@@ -296,81 +237,55 @@ object FMComerciales: TFMComerciales
           ParentColor = False
           Layout = tlCenter
         end
-        object cod_empresa_cc: TBDEdit
-          Left = 79
-          Top = 9
+        object cod_cliente_cc: TBDEdit
+          Left = 78
+          Top = 7
           Width = 30
           Height = 21
-          Hint = 'El c'#243'digo del producto es obligatorio.'
           ColorEdit = clMoneyGreen
-          Required = True
           OnRequiredTime = RequiredTime
           MaxLength = 3
           TabOrder = 0
-          OnChange = cod_empresa_ccChange
-          DataField = 'cod_empresa_cc'
-          DataSource = DSClientes
-          Modificable = False
-          PrimaryKey = True
-        end
-        object cod_cliente_cc: TBDEdit
-          Left = 79
-          Top = 31
-          Width = 30
-          Height = 21
-          ColorEdit = clMoneyGreen
-          OnRequiredTime = RequiredTime
-          MaxLength = 3
-          TabOrder = 2
           OnChange = cod_cliente_ccChange
           DataField = 'cod_cliente_cc'
           DataSource = DSClientes
           Modificable = False
         end
-        object txtEmpresa: TStaticText
-          Left = 125
-          Top = 11
+        object txtCliente: TStaticText
+          Left = 124
+          Top = 9
           Width = 293
           Height = 17
           AutoSize = False
           BorderStyle = sbsSunken
           TabOrder = 1
         end
-        object txtCliente: TStaticText
-          Left = 125
-          Top = 33
-          Width = 293
-          Height = 17
-          AutoSize = False
-          BorderStyle = sbsSunken
-          TabOrder = 3
-        end
         object cod_producto_cc: TBDEdit
-          Left = 79
-          Top = 53
+          Left = 78
+          Top = 29
           Width = 30
           Height = 21
           ColorEdit = clMoneyGreen
           OnRequiredTime = RequiredTime
           MaxLength = 3
-          TabOrder = 4
+          TabOrder = 2
           OnChange = cod_producto_ccChange
           DataField = 'cod_producto_cc'
           DataSource = DSClientes
           Modificable = False
         end
         object txtProducto: TStaticText
-          Left = 125
-          Top = 55
+          Left = 124
+          Top = 31
           Width = 293
           Height = 17
           AutoSize = False
           BorderStyle = sbsSunken
-          TabOrder = 5
+          TabOrder = 3
         end
         object fecha_ini_cc: TcxDBDateEdit
-          Left = 79
-          Top = 76
+          Left = 78
+          Top = 52
           DataBinding.DataField = 'fecha_ini_cc'
           DataBinding.DataSource = DSClientes
           Style.LookAndFeel.Kind = lfStandard
@@ -381,12 +296,12 @@ object FMComerciales: TFMComerciales
           StyleFocused.LookAndFeel.NativeStyle = False
           StyleHot.LookAndFeel.Kind = lfStandard
           StyleHot.LookAndFeel.NativeStyle = False
-          TabOrder = 6
+          TabOrder = 4
           Width = 121
         end
         object fecha_fin_cc: TcxDBDateEdit
-          Left = 297
-          Top = 78
+          Left = 296
+          Top = 54
           DataBinding.DataField = 'fecha_fin_cc'
           DataBinding.DataSource = DSClientes
           Style.LookAndFeel.Kind = lfStandard
@@ -397,15 +312,15 @@ object FMComerciales: TFMComerciales
           StyleFocused.LookAndFeel.NativeStyle = False
           StyleHot.LookAndFeel.Kind = lfStandard
           StyleHot.LookAndFeel.NativeStyle = False
-          TabOrder = 7
+          TabOrder = 5
           Width = 121
         end
       end
       object RClientes: TDBGrid
         Left = 0
-        Top = 115
+        Top = 89
         Width = 435
-        Height = 274
+        Height = 300
         Align = alClient
         DataSource = DSClientes
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
@@ -460,9 +375,9 @@ object FMComerciales: TFMComerciales
       end
       object cxGrid1: TcxGrid
         Left = 0
-        Top = 115
+        Top = 89
         Width = 435
-        Height = 274
+        Height = 300
         Align = alClient
         TabOrder = 2
         OnEnter = cxGrid1Enter
@@ -501,15 +416,6 @@ object FMComerciales: TFMComerciales
             Options.AutoWidthSizable = False
             Options.HorzSizing = False
             Width = 75
-          end
-          object cxGrid1DBTableView1Column3: TcxGridDBColumn
-            Caption = 'Empresa'
-            DataBinding.FieldName = 'cod_empresa_cc'
-            HeaderGlyphAlignmentHorz = taCenter
-            MinWidth = 120
-            Options.AutoWidthSizable = False
-            Options.HorzSizing = False
-            Width = 120
           end
           object cxGrid1DBTableView1Column4: TcxGridDBColumn
             Caption = 'Fecha inicio'

@@ -39,13 +39,9 @@ type
     PageControl: TPageControl;
     tsClientes: TTabSheet;
     pnlClientes: TPanel;
-    lblEmpresa: TLabel;
-    cod_empresa_cc: TBDEdit;
     lblCliente: TLabel;
     cod_cliente_cc: TBDEdit;
-    txtEmpresa: TStaticText;
     txtCliente: TStaticText;
-    btnEmpresa: TBGridButton;
     btnCliente: TBGridButton;
     RejillaFlotante: TBGrid;
     Label1: TLabel;
@@ -63,7 +59,6 @@ type
     cxGrid1: TcxGrid;
     cxGrid1DBTableView1Column1: TcxGridDBColumn;
     cxGrid1DBTableView1Column2: TcxGridDBColumn;
-    cxGrid1DBTableView1Column3: TcxGridDBColumn;
     cxGrid1DBTableView1Column4: TcxGridDBColumn;
     cxGrid1DBTableView1Column5: TcxGridDBColumn;
     AComerciales: TActionList;
@@ -81,7 +76,7 @@ type
     procedure qryComercialesBeforeClose(DataSet: TDataSet);
     procedure qryClientesNewRecord(DataSet: TDataSet);
     procedure PageControlChange(Sender: TObject);
-    procedure cod_empresa_ccChange(Sender: TObject);
+    //procedure cod_empresa_ccChange(Sender: TObject);
     procedure cod_cliente_ccChange(Sender: TObject);
     procedure cod_producto_ccChange(Sender: TObject);
     procedure cxFiltrarClick(Sender: TObject);
@@ -104,7 +99,7 @@ type
     procedure AbrirTablas;
     procedure CerrarTablas;
     function ValidarValues: boolean;
-    function  ActualizarFechaFinAlta ( const ACodigo, AEmpresa, ACliente, AProducto: String; var VFechaFin: TDateTime ): boolean;
+    function  ActualizarFechaFinAlta ( const ACodigo, ACliente, AProducto: String; var VFechaFin: TDateTime ): boolean;
 
   protected
     //procedure AlBorrar;
@@ -204,7 +199,7 @@ begin
     Clear;
     Add(' select * from frf_clientes_comercial   ');
     Add('  where cod_comercial_cc = :codigo_c    ');
-    Add('  order by cod_cliente_cc, cod_producto_cc, cod_empresa_cc, fecha_ini_cc desc ');
+    Add('  order by cod_cliente_cc, cod_producto_cc, fecha_ini_cc desc ');
   end;
 
   with qryClientesAux.SQL do
@@ -212,9 +207,9 @@ begin
     Clear;
     Add(' select * from frf_clientes_comercial   ');
     Add('  where cod_comercial_cc = :comercial   ');
-    Add('    and cod_empresa_cc = :empresa       ');
+    //Add('    and cod_empresa_cc = :empresa       ');
     Add('    and cod_cliente_cc = :cliente       ');
-    Add('  order by cod_cliente_cc, cod_producto_cc, cod_empresa_cc, fecha_ini_cc desc  ');
+    Add('  order by cod_cliente_cc, cod_producto_cc, fecha_ini_cc desc  ');
   end;
 
 
@@ -279,7 +274,7 @@ begin
   {+}FocoModificar := descripcion_c;
   {+}FocoLocalizar := codigo_c;
 
-  cod_empresa_cc.Tag:= kEmpresa;
+  //cod_empresa_cc.Tag:= kEmpresa;
   cod_cliente_cc.Tag:= kCliente;
   cod_producto_cc.Tag:= kProducto;
 end;
@@ -478,14 +473,14 @@ end;
 
 function TFMComerciales.ValidarValues: boolean;
 begin
-  if txtEmpresa.Caption = '' then
-  begin
-    raise Exception.Create('Falta el código de la empresa o es incorrecto.');
-  end;
-  if txtCliente.Caption = '' then
-  begin
-    raise Exception.Create('Falta el código del cliente o es incorrecto.');
-  end;
+//  if txtEmpresa.Caption = '' then
+//  begin
+//    raise Exception.Create('Falta el código de la empresa o es incorrecto.');
+//  end;
+//  if txtCliente.Caption = '' then
+//  begin
+//    raise Exception.Create('Falta el código del cliente o es incorrecto.');
+//  end;
   if TryStrToDate( fecha_ini_cc.Text, dFechaIni ) then
   begin
     ValidarValues:= True;
@@ -506,50 +501,97 @@ var
 begin
   if ValidarValues then
   begin
-
-    //Esta asignado ya
-
-    DMBaseDatos.QAux.SQL.Clear;
-    DMBaseDatos.QAux.SQL.Add('select cod_comercial_cc || '' - '' || descripcion_c comercial ');
-    DMBaseDatos.QAux.SQL.Add('from frf_clientes_comercial ');
-    DMBaseDatos.QAux.SQL.Add('     join frf_comerciales on codigo_c = cod_comercial_cc ');
-    DMBaseDatos.QAux.SQL.Add('where cod_empresa_cc = :empresa ');
-    DMBaseDatos.QAux.SQL.Add('and cod_cliente_cc = :cliente ');
-    DMBaseDatos.QAUx.SQL.Add('and cod_comercial_cc <> :comercial ');
-    if cod_producto_cc.Text <> '' then
-      DMBaseDatos.QAUx.SQL.Add('and cod_producto_cc = :producto ');
-
-
-    DMBaseDatos.QAux.ParamByName('empresa').AsString:= cod_empresa_cc.Text;
-    DMBaseDatos.QAux.ParamByName('cliente').AsString:= cod_cliente_cc.Text;
-    DMBaseDatos.QAux.ParamByName('comercial').AsString:= codigo_c.Text;
-    if cod_producto_cc.Text <> '' then
-      DMBaseDatos.QAux.ParamByName('producto').AsString:= cod_producto_cc.Text;
-    
-    DMBaseDatos.QAux.Open;
-    if not DMBaseDatos.QAux.IsEmpty then
+    with DMBaseDatos.QAux do
     begin
-      sComercial:= DMBaseDatos.QAux.FieldByName('comercial').AsString;
-      DMBaseDatos.QAux.Close;
+      //consulta fecha fin anterior
+      //fecha_ini_input > resultado Ó resultado = NULL
+      SQL.Clear;
+      SQL.Add(' select nvl(max(fecha_fin_cc), ' + QuotedStr(DateToStr(dFechaIni - 1)) + ') as fecha_fin_anterior ');
+      SQL.Add(' from frf_clientes_comercial ');
+      SQL.Add(' where fecha_ini_cc < ' + QuotedStr(DateToStr(dFechaIni)) + ' ');
       if cod_producto_cc.Text <> '' then
-        raise Exception.Create('El cliente / producto seleccionado ya esta asignado al comercial -> ' + sComercial  )
+      begin
+        SQL.Add('   and cod_producto_cc = :producto ');
+        ParamByName('producto').AsString := cod_producto_cc.Text;
+      end;
+
+      if cod_cliente_cc.Text <> '' then
+      begin
+        SQL.Add(' and cod_cliente_cc = :cliente ');
+        ParamByName('cliente').AsString := cod_cliente_cc.Text;
+      end;
+
+      //ParamByName('fecha_ini_input').asDateTime := dFechaIni;
+      Open;
+
+      if dFechaIni <= FieldByName('fecha_fin_anterior').asDateTime then
+        raise Exception.Create('Fecha de inicio incorrecta. Ya la tiene asignado un comercial.')
       else
-        raise Exception.Create('El cliente seleccionado ya esta asignado al comercial -> ' + sComercial  );
-    end
-    else
-    begin
-      DMBaseDatos.QAux.Close;
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add(' select nvl(min(fecha_ini_cc), ' + QuotedStr(DateToStr(dFechaFin)) + ') as fecha_ini_siguiente ');
+        SQL.Add(' from frf_clientes_comercial ');
+        SQL.Add(' where fecha_ini_cc >= ' + QuotedStr(DateToStr(dFechaIni)));
+
+        if cod_producto_cc.Text <> '' then
+        begin
+          SQL.Add('   and cod_producto_cc = :producto ');
+          ParamByName('producto').AsString := cod_producto_cc.Text;
+        end
+        else
+          if cod_cliente_cc.Text <> '' then
+          begin
+            SQL.Add(' and cod_cliente_cc = :cliente ');
+            ParamByName('cliente').AsString := cod_cliente_cc.Text;
+          end;
+          //ParamByName('fecha_ini_input').asDateTime := dFechaIni;
+        end;
+        Open;
+
+        if dFechaFin >= FieldByName('fecha_ini_siguiente').asDateTime then
+          raise Exception.Create('La fecha fin es posterior a una fecha inicio. Revise el tramo de fechas.');
+
+//      Close;
+//      SQL.Clear;
+//      SQL.Add('select cod_comercial_cc || '' - '' || descripcion_c comercial ');
+//      SQL.Add('from frf_clientes_comercial join frf_comerciales on codigo_c = cod_comercial_cc ');
+//      SQL.Add('where 1=1 ');
+//      if cod_cliente_cc.Text <> '' then
+//      begin
+//        SQL.Add('and cod_cliente_cc = :cliente ');
+//        ParamByName('cliente').AsString:= cod_cliente_cc.Text;
+//      end;
+//
+//      if cod_producto_cc.Text <> '' then
+//      begin
+//        SQL.Add('and cod_producto_cc = :producto ');
+//        ParamByName('producto').AsString:= cod_producto_cc.Text;
+//      end;
+//
+//      Open;
+//      if not IsEmpty then //si encuentra un comercial
+//      begin
+//        sComercial:= FieldByName('comercial').AsString;
+//        Close;
+//        if cod_producto_cc.Text <> '' then
+//          raise Exception.Create('El producto seleccionado ya está asignado al comercial -> ' + sComercial  )
+//        else
+//          raise Exception.Create('El cliente seleccionado ya está asignado al comercial -> ' + sComercial  );
+//      end
+//      else //si está vacío
+//      begin
+//        Close;
       if bAlta then
       begin
-        dFechaFin:= dFechaIni;
-       if ActualizarFechaFinAlta( codigo_c.Text, cod_empresa_cc.Text, cod_cliente_cc.Text, cod_producto_cc.Text, dFechaFin ) then
-        begin
+        dFechaFin := dFechaIni;
+        if ActualizarFechaFinAlta( codigo_c.Text, cod_cliente_cc.Text, cod_producto_cc.Text, dFechaFin ) then
           qryClientes.FieldByName('fecha_fin_cc').AsDateTime:= dFechaFin;
-        end;
       end;
     end;
-  end;                                                                                   
+  end;
 end;
+
 
 procedure TFMComerciales.Previsualizar;
 begin
@@ -580,11 +622,11 @@ end;
 
 procedure TFMComerciales.ARejillaFlotanteExecute(Sender: TObject);
 begin
-  case ActiveControl.Tag of
-    kEmpresa: DespliegaRejilla(btnEmpresa);
-    kCliente: DespliegaRejilla(btnCliente, [cod_empresa_cc.Text]);
-    kProducto: DespliegaRejilla(btnProducto, [cod_empresa_cc.Text]);
-  end;
+//  case ActiveControl.Tag of
+//    kEmpresa: DespliegaRejilla(btnEmpresa);
+//    kCliente: DespliegaRejilla(btnCliente, [cod_empresa_cc.Text]);
+//    kProducto: DespliegaRejilla(btnProducto, [cod_empresa_cc.Text]);
+//  end;
 end;
 
 procedure TFMComerciales.AntesDeInsertar;
@@ -637,7 +679,7 @@ begin
 
 end;
 
-function TFMComerciales.ActualizarFechaFinAlta(const ACodigo, AEmpresa, ACliente, AProducto: String; var VFechaFin: TDateTime): boolean;
+function TFMComerciales.ActualizarFechaFinAlta(const ACodigo, ACliente, AProducto: String; var VFechaFin: TDateTime): boolean;
 var
   bAnt: boolean;
 begin
@@ -646,17 +688,21 @@ begin
   qryClientesAux.SQL.Clear;
   qryClientesAux.SQL.Add(' select * from frf_clientes_comercial   ');
   qryClientesAux.SQL.Add('  where cod_comercial_cc = :comercial   ');
-  qryClientesAux.SQL.Add('    and cod_empresa_cc = :empresa       ');
-  qryClientesAux.SQL.Add('    and cod_cliente_cc = :cliente       ');
-  if AProducto <> '' then
-    qryClientesAux.SQL.Add('  and cod_producto_cc = :producto     ');
-  qryClientesAux.SQL.Add('  order by cod_cliente_cc, cod_producto_cc, cod_empresa_cc, fecha_ini_cc desc ');
 
-  qryClientesAux.ParamByName('comercial').AsString := ACodigo;
-  qryClientesAux.ParamByName('empresa').AsString := AEmpresa;
-  qryClientesAux.ParamByName('cliente').AsString := ACliente;
+  if ACliente <> '' then
+  begin
+    qryClientesAux.SQL.Add('    and cod_cliente_cc = :cliente       ');
+    qryClientesAux.ParamByName('cliente').AsString := ACliente;
+  end;
+
   if AProducto <> '' then
+  begin
+    qryClientesAux.SQL.Add('  and cod_producto_cc = :producto     ');
     qryClientesAux.ParamByName('producto').AsString := AProducto;
+  end;
+
+  qryClientesAux.SQL.Add('  order by cod_cliente_cc, cod_producto_cc, fecha_ini_cc desc ');
+  qryClientesAux.ParamByName('comercial').AsString := ACodigo;
 
   qryClientesAux.Open;
   try
@@ -764,7 +810,7 @@ begin
   PanelMaestro.Height:= 90;
   if PageControl.ActivePage = tsClientes then
   begin
-    FocoDetalle:=cod_empresa_cc;
+    FocoDetalle:=cod_cliente_cc;  // antes FocoDetalle:=cod_empresa_cc;
     if EstadoDetalle <> tedModificar then
     begin
       qryClientes.Close;
@@ -799,11 +845,11 @@ begin
   PanelDetalle.GetTabOrderList(ListaDetalle);
 end;
 
-procedure TFMComerciales.cod_empresa_ccChange(Sender: TObject);
-begin
-  txtEmpresa.Caption:= desEmpresa( cod_empresa_cc.Text );
-  cod_cliente_ccChange( cod_cliente_cc );
-end;
+//procedure TFMComerciales.cod_empresa_ccChange(Sender: TObject);
+//begin
+//  txtEmpresa.Caption:= desEmpresa( cod_empresa_cc.Text );
+//  cod_cliente_ccChange( cod_cliente_cc );
+//end;
 
 procedure TFMComerciales.cod_producto_ccChange(Sender: TObject);
 begin
@@ -820,7 +866,7 @@ begin
     SQL.Add(' select * from frf_clientes_comercial ');
     SQL.Add('  where cod_comercial_cc = :codigo_c  ');
 
-    SQL.Add(' order by cod_cliente_cc, cod_producto_cc, cod_empresa_cc, cod_fecha_ini desc ');
+    SQL.Add(' order by cod_cliente_cc, cod_producto_cc, cod_fecha_ini desc ');
 
     ParamByName('codigo_c').AsString := codigo_c.Text;
     Open;
@@ -836,7 +882,7 @@ begin
     SQL.Clear;
     SQL.Add(' select * from frf_clientes_comercial ');
     SQL.Add('  where cod_comercial_cc = :codigo_c  ');
-    SQL.Add(' order by cod_cliente_cc, cod_empresa_cc, cod_fecha_ini desc ');
+    SQL.Add(' order by cod_cliente_cc, cod_fecha_ini desc ');
 
     ParamByName('codigo_c').AsString := codigo_c.Text;
     Open;
@@ -866,8 +912,6 @@ end;
 
 procedure TFMComerciales.DetalleAltas;
 begin
-
-  cod_empresa_cc.Enabled := true;
   cod_cliente_cc.Enabled := true;
   cod_producto_cc.Enabled := true;
   fecha_ini_cc.Enabled := true;
@@ -916,10 +960,8 @@ end;
 
 procedure TFMComerciales.DetalleModificar;
 begin
-
-  cod_empresa_cc.Enabled := false;
-  cod_cliente_cc.Enabled := false;
-  cod_producto_cc.Enabled := false;
+  cod_cliente_cc.Enabled := true;
+  cod_producto_cc.Enabled := true;
   fecha_ini_cc.Enabled := false;
   bAlta := false;
 
