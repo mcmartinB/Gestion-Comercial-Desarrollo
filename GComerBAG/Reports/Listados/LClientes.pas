@@ -31,6 +31,7 @@ type
     PsQRLabel8: TQRLabel;
     PsQRLabel9: TQRLabel;
     PsQRLabel10: TQRLabel;
+    QRSubDetail: TQRSubDetail;
     dir_sum_ds: TQRDBText;
     nombre_ds: TQRDBText;
     tipo_via_ds: TQRDBText;
@@ -61,10 +62,9 @@ type
     qrlbl3: TQRLabel;
     email_alb_c: TQRDBText;
     dias_trayecto_ds: TQRDBText;
-    QRSubDetail: TQRSubDetail;
     procedure QRSysData1Print(sender: TObject; var Value: string);
     procedure LDireccionPrint(sender: TObject; var Value: string);
-    procedure vBeforePrint(Sender: TQRCustomBand;
+    procedure QRSubDetailBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure DetailBand1AfterPrint(Sender: TQRCustomBand;
       BandPrinted: Boolean);
@@ -103,7 +103,7 @@ begin
   Value := IntToStr(Conta) + 'ª ' + Value;
 end;
 
-procedure TQRLClientes.vBeforePrint(Sender: TQRCustomBand;
+procedure TQRLClientes.QRSubDetailBeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
   Inc(Conta);

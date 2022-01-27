@@ -1203,8 +1203,8 @@ object QRLClientes: TQRLClientes
       FontSize = 9
     end
     object nombre_ds: TQRDBText
-      Left = 108
-      Top = 6
+      Left = 101
+      Top = 2
       Width = 65
       Height = 17
       Frame.Color = clBlack
@@ -1214,8 +1214,8 @@ object QRLClientes: TQRLClientes
       Frame.DrawRight = False
       Size.Values = (
         44.979166666666670000
-        285.750000000000000000
-        15.875000000000000000
+        267.229166666666700000
+        5.291666666666667000
         171.979166666666700000)
       Alignment = taLeftJustify
       AlignToBand = False
@@ -1596,13 +1596,6 @@ object QRLClientes: TQRLClientes
       AutoSize = True
       AutoStretch = False
       Color = clWhite
-      DataField = 'dias_trayecto_ds'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Arial'
-      Font.Style = [fsItalic]
-      ParentFont = False
       Transparent = False
       WordWrap = True
       FontSize = 10
