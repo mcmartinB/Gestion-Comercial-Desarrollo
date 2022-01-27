@@ -20,7 +20,7 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue;
+  dxSkinXmas2008Blue, kbmMemTable, kbmMemCSVStreamFormat;
 
 type
   TFCosteEnvasado = class(TMaestro)
@@ -76,11 +76,9 @@ type
     lbl3: TLabel;
     edt2: TBDEdit;
     edtcoste_total: TBDEdit;
-    lbl4: TLabel;
     lbl5: TLabel;
     edtpcoste_ec: TBDEdit;
     edtpsecciones_ec: TBDEdit;
-    lbl6: TLabel;
     lbl7: TLabel;
     pnlBotones: TPanel;
     btnPromedioRegistro: TButton;
@@ -89,6 +87,8 @@ type
     QCosteEnvasesproducto_ec: TStringField;
     envase_ec: TcxDBTextEdit;
     ssEnvase: TSimpleSearch;
+    btnCargarCSV: TButton;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -108,6 +108,10 @@ type
     procedure btnTodosClick(Sender: TObject);
     procedure envase_ecExit(Sender: TObject);
     procedure ssEnvaseAntesEjecutar(Sender: TObject);
+    procedure btnCargarCSVClick(Sender: TObject);
+    procedure CargarDatosCSV(FileName : string);
+    procedure InsertarNuevosCostes(registros : TStringList);
+    function Comprobaciones(KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion : string) : Boolean;
   private
     { Private declarations }
     Lista: TList;
@@ -504,6 +508,7 @@ procedure TFCosteEnvasado.AntesDeModificar;
 var i: Integer;
 begin
   pnlBotones.Enabled:= False;
+    btnCargarCSV.Enabled := False;
   PMaestro.Height:= 205;
   for i := 0 to Lista.Count - 1 do
   begin
@@ -729,6 +734,191 @@ begin
   end
   else
     ShowMessage( 'Todos los costes ya estaban calculados. ' );
+end;
+
+procedure TFCosteEnvasado.btnCargarCSVClick(Sender: TObject);
+var
+  sFile : string;
+  sLinea : TStringList;
+begin
+  with TOpenDialog.Create(nil) do
+  try
+    Title := '  Abrir CSV.';
+    Filter := 'All filters ' + '(*.*)|*.*';//'CSV (*.csv)|*.csv' + 'Documento EXCEL (*.xlsx)|*.xlsx|';
+    InitialDir := 'C:\';
+    if not Execute() then
+      ShowMessage('Debe seleccionar un archivo para iniciar la carga de valores.')
+    else
+    begin
+      if FileExists(FileName) then
+      begin
+        sFile := FileName;
+        CargarDatosCSV(sFile);
+      end;
+   end;
+  finally
+    Free;
+  end;
+end;
+
+procedure TFCosteEnvasado.CargarDatosCSV(FileName : string);
+var
+  Registros : TStringList;
+begin
+  Registros := TStringList.Create;
+  Registros.CommaText := ';';
+  Registros.LoadFromFile(FileName);
+  InsertarNuevosCostes(Registros);
+end;
+
+
+procedure  TFCosteEnvasado.InsertarNuevosCostes(registros : TStringList);
+var
+  KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion : string;
+  QInsert : TQuery;
+  sentencia : string;
+  puntero: Integer;
+  sAux : String;
+
+begin
+  sentencia := ' insert into frf_env_costes(empresa_ec, anyo_ec, mes_ec, centro_ec, envase_ec, producto_ec, coste_ec, material_ec, secciones_ec) '
+             + ' values(:empresa, :anyo, :mes, :centro, :envase, :producto, :envasado, :material, :seccion) ';
+  QInsert := TQuery.Create(nil);
+  QInsert.DatabaseName := 'BDProyecto';
+  QInsert.SQL.Text := sentencia;
+
+  try
+    //abrir transacción
+    if not AbrirTransaccion(DMBaseDatos.DBBaseDatos) then
+      raise Exception.Create('Error al abrir transaccion en BD.');
+
+    for puntero := 0 to registros.Count - 1 do
+    begin
+      sAux := registros[puntero];
+      KEmpresa  := Copy(sAux, 1, 3);
+      KAnyo     := Copy(sAux, 5, 4);
+      KMes      := Copy(sAux, 10, 2);
+      KCentro   := Copy(sAux, 13, 1);
+      KEnvase   := Copy(sAux, 15, 9);
+      KProducto := Copy(sAux, 25, 3);
+      KEnvasado := Copy(sAux, 29, 6);
+      KMaterial := Copy(sAux, 36, 6);
+      KSeccion  := Copy(sAux, 43, 6);
+
+      if Comprobaciones(KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion) then
+      begin
+        CancelarTransaccion(DMBaseDatos.DBBaseDatos);
+        Exit;
+      end
+      else
+      begin
+        with QInsert do
+        begin
+          ParamByName('empresa').AsString := KEmpresa;
+          ParamByName('anyo').AsInteger := strtoint(KAnyo);
+          ParamByName('mes').AsInteger := strtoint(KMes);
+          ParamByName('centro').AsInteger := strtoint(KCentro);
+          ParamByName('envase').AsString := KEnvase;
+          ParamByName('producto').AsString := KProducto;
+          ParamByName('envasado').AsFloat := StrToFloat(KEnvasado);
+          ParamByName('material').AsFloat := StrToFloat(KMaterial);
+          ParamByName('seccion').AsFloat := StrToFloat(KSeccion);
+          ExecSQL;
+        end;
+      end;
+    end;  //fin bucle
+      //aceptar transacción
+      AceptarTransaccion(DMBaseDatos.DBBaseDatos);
+      ShowMessage('Se han insertado ' + inttostr(puntero) + ' nuevos costes.');
+    except
+    on e: Exception do
+      begin
+        if DMBaseDatos.DBBaseDatos.InTransaction then
+          CancelarTransaccion(DMBaseDatos.DBBaseDatos);
+    end;
+  end;
+end;
+
+function TFCosteEnvasado.Comprobaciones(KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion : string) : Boolean;
+var
+  status : Boolean;
+begin
+  //comprobar la empresa
+  status := False;
+  with DMAuxDB.QAux do
+  begin
+    SQL.Clear;
+    SQL.Add(' select * from frf_empresas where empresa_e = ' + Quotedstr(KEmpresa));
+    Open;
+    if IsEmpty then
+    begin
+      ShowMessage('La empresa ' + KEmpresa + ' no existe.');
+      result := True;
+    end;
+  end;
+
+  //comprobar que el mes sea >= 1 y <= 12
+  if (strtoint(KMes) <= 0) or (strtoint(KMes) >= 13) then
+  begin
+    ShowMessage('El mes ' + KMes + ' no es correcto.');
+    result := True;
+  end;
+
+  //comprobar que el año sea correcto
+  if length(KAnyo) <> 4 then
+  begin
+    ShowMessage('El año es incorrecto, has introducido : ' + KAnyo);
+    result := True;
+  end;
+
+  //comprobar costes sean > 0
+  if (strtofloat(KEnvasado) < 0) and (strtofloat(KMaterial) < 0) and (strtofloat(KSeccion) < 0) then
+  begin
+    ShowMessage('Hay algún coste que es negativo: ' + #13 + 'Envasado = ' + KEnvasado + #13
+                                                          + 'Material = ' + KMaterial + #13
+                                                          + 'Seccion = ' + KSeccion);
+    result := True;
+  end;
+
+  //comprobar centro
+  with DMAuxDB.QAux do
+  begin
+    SQL.Clear;
+    SQL.Add(' select * from frf_centros where centro_c = ' + Quotedstr(KCentro));
+    Open;
+    if IsEmpty then
+    begin
+      ShowMessage('El centro ' + KCentro + ' no existe.');
+      result := True;
+    end;
+  end;
+
+  //comprobar envase
+  with DMAuxDB.QAux do
+  begin
+    SQL.Clear;
+    SQL.Add(' select * from frf_envases where envase_e = ' + Quotedstr(KEnvase));
+    Open;
+    if IsEmpty then
+    begin
+      ShowMessage('El envase ' + KEnvase + ' no existe.');
+      result := True;
+    end;
+  end;
+
+  //comprobar producto
+  with DMAuxDB.QAux do
+  begin
+    SQL.Clear;
+    SQL.Add(' select * from frf_productos where producto_p = ' + Quotedstr(KProducto));
+    Open;
+    if IsEmpty then
+    begin
+      ShowMessage('El Producto ' + KProducto + ' no existe.');
+      result := True;
+    end;
+  end;
+
 end;
 
 end.

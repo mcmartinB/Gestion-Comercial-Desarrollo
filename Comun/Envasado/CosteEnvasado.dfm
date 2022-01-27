@@ -5,7 +5,7 @@ object FCosteEnvasado: TFCosteEnvasado
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '    COSTES DE ENVASADO POR KILO'
-  ClientHeight = 446
+  ClientHeight = 498
   ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,27 +24,17 @@ object FCosteEnvasado: TFCosteEnvasado
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
-  object lbl6: TLabel
-    Left = 404
-    Top = 135
-    Width = 100
-    Height = 19
-    AutoSize = False
-    Caption = 'Promedio Envasado'
-    Color = cl3DLight
-    ParentColor = False
-    Layout = tlCenter
-  end
   object PMaestro: TPanel
     Left = 0
     Top = 0
     Width = 782
-    Height = 205
+    Height = 249
     Align = alTop
     TabOrder = 0
+    ExplicitLeft = 64
     object lblCoste: TLabel
-      Left = 22
-      Top = 139
+      Left = 24
+      Top = 184
       Width = 100
       Height = 19
       AutoSize = False
@@ -54,8 +44,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblMes: TLabel
-      Left = 377
-      Top = 48
+      Left = 392
+      Top = 104
       Width = 100
       Height = 19
       AutoSize = False
@@ -65,8 +55,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblEmpresa: TLabel
-      Left = 22
-      Top = 26
+      Left = 26
+      Top = 80
       Width = 100
       Height = 19
       AutoSize = False
@@ -76,8 +66,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblProducto: TLabel
-      Left = 22
-      Top = 71
+      Left = 26
+      Top = 128
       Width = 100
       Height = 19
       AutoSize = False
@@ -87,8 +77,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblEnvse: TLabel
-      Left = 22
-      Top = 117
+      Left = 26
+      Top = 153
       Width = 100
       Height = 19
       AutoSize = False
@@ -98,8 +88,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lbAnyo: TLabel
-      Left = 22
-      Top = 48
+      Left = 26
+      Top = 104
       Width = 100
       Height = 19
       AutoSize = False
@@ -110,36 +100,36 @@ object FCosteEnvasado: TFCosteEnvasado
     end
     object des_mes: TnbStaticText
       Tag = 1
-      Left = 532
-      Top = 48
+      Left = 512
+      Top = 104
       Width = 190
       Height = 19
       About = 'NB 0.1/20020725'
     end
     object des_empresa: TnbStaticText
-      Left = 177
-      Top = 26
+      Left = 150
+      Top = 79
       Width = 190
       Height = 19
       About = 'NB 0.1/20020725'
     end
     object des_producto: TnbStaticText
-      Left = 177
-      Top = 71
+      Left = 150
+      Top = 128
       Width = 190
       Height = 19
       About = 'NB 0.1/20020725'
     end
     object des_envase: TnbStaticText
-      Left = 225
-      Top = 117
+      Left = 229
+      Top = 154
       Width = 249
       Height = 19
       About = 'NB 0.1/20020725'
     end
     object lblCentro: TLabel
-      Left = 377
-      Top = 26
+      Left = 384
+      Top = 80
       Width = 100
       Height = 19
       AutoSize = False
@@ -149,15 +139,15 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object des_centro: TnbStaticText
-      Left = 532
-      Top = 26
+      Left = 512
+      Top = 80
       Width = 190
       Height = 19
       About = 'NB 0.1/20020725'
     end
     object lblNombre1: TLabel
       Left = 22
-      Top = 161
+      Top = 209
       Width = 100
       Height = 19
       AutoSize = False
@@ -167,8 +157,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lbl1: TLabel
-      Left = 216
-      Top = 138
+      Left = 190
+      Top = 183
       Width = 100
       Height = 19
       AutoSize = False
@@ -178,8 +168,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblTotal: TLabel
-      Left = 216
-      Top = 160
+      Left = 190
+      Top = 208
       Width = 100
       Height = 19
       AutoSize = False
@@ -189,8 +179,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lbl2: TLabel
-      Left = 569
-      Top = 138
+      Left = 583
+      Top = 183
       Width = 100
       Height = 19
       AutoSize = False
@@ -200,8 +190,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lbl3: TLabel
-      Left = 569
-      Top = 160
+      Left = 583
+      Top = 208
       Width = 100
       Height = 19
       AutoSize = False
@@ -210,21 +200,9 @@ object FCosteEnvasado: TFCosteEnvasado
       ParentColor = False
       Layout = tlCenter
     end
-    object lbl4: TLabel
-      Left = 377
-      Top = 117
-      Width = 343
-      Height = 19
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Costes Promedio Anual'
-      Color = cl3DLight
-      ParentColor = False
-      Layout = tlCenter
-    end
     object lbl5: TLabel
-      Left = 377
-      Top = 160
+      Left = 370
+      Top = 208
       Width = 100
       Height = 19
       AutoSize = False
@@ -234,8 +212,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lbl7: TLabel
-      Left = 377
-      Top = 138
+      Left = 370
+      Top = 178
       Width = 100
       Height = 19
       AutoSize = False
@@ -245,8 +223,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object empresa_ec: TBDEdit
-      Left = 125
-      Top = 25
+      Left = 114
+      Top = 80
       Width = 30
       Height = 21
       ColorEdit = clMoneyGreen
@@ -264,9 +242,9 @@ object FCosteEnvasado: TFCosteEnvasado
     end
     object anyo_ec: TBDEdit
       Tag = 1
-      Left = 125
-      Top = 47
-      Width = 40
+      Left = 114
+      Top = 104
+      Width = 50
       Height = 21
       ColorEdit = clMoneyGreen
       Required = True
@@ -282,8 +260,8 @@ object FCosteEnvasado: TFCosteEnvasado
     end
     object mes_ec: TBDEdit
       Tag = 1
-      Left = 480
-      Top = 47
+      Left = 496
+      Top = 104
       Width = 20
       Height = 21
       ColorEdit = clMoneyGreen
@@ -300,8 +278,8 @@ object FCosteEnvasado: TFCosteEnvasado
       PrimaryKey = True
     end
     object producto_ec: TBDEdit
-      Left = 125
-      Top = 70
+      Left = 114
+      Top = 128
       Width = 30
       Height = 21
       ColorEdit = clMoneyGreen
@@ -317,10 +295,10 @@ object FCosteEnvasado: TFCosteEnvasado
       PrimaryKey = True
     end
     object coste_ec: TBDEdit
-      Left = 125
-      Top = 138
-      Width = 50
-      Height = 21
+      Left = 114
+      Top = 184
+      Width = 63
+      Height = 19
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste.'
       OnRequiredTime = RequiredTime
@@ -333,8 +311,8 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object centro_ec: TBDEdit
-      Left = 480
-      Top = 25
+      Left = 496
+      Top = 80
       Width = 14
       Height = 21
       ColorEdit = clMoneyGreen
@@ -351,10 +329,10 @@ object FCosteEnvasado: TFCosteEnvasado
       PrimaryKey = True
     end
     object secciones_ec: TBDEdit
-      Left = 125
-      Top = 160
-      Width = 50
-      Height = 21
+      Left = 114
+      Top = 209
+      Width = 65
+      Height = 19
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste de las secciones.'
       OnRequiredTime = RequiredTime
@@ -367,10 +345,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object material_ec: TBDEdit
-      Left = 318
-      Top = 137
-      Width = 50
-      Height = 21
+      Left = 276
+      Top = 183
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste.'
       OnRequiredTime = RequiredTime
@@ -383,10 +361,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object edttotal_ec: TBDEdit
-      Left = 318
-      Top = 159
-      Width = 50
-      Height = 21
+      Left = 276
+      Top = 208
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -402,10 +380,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object edt2: TBDEdit
-      Left = 672
-      Top = 137
-      Width = 50
-      Height = 21
+      Left = 684
+      Top = 183
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -421,10 +399,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object edtcoste_total: TBDEdit
-      Left = 672
-      Top = 159
-      Width = 50
-      Height = 21
+      Left = 684
+      Top = 208
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -440,10 +418,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object edtpcoste_ec: TBDEdit
-      Left = 480
-      Top = 137
-      Width = 50
-      Height = 21
+      Left = 486
+      Top = 183
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -459,10 +437,10 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object edtpsecciones_ec: TBDEdit
-      Left = 480
-      Top = 159
-      Width = 50
-      Height = 21
+      Left = 486
+      Top = 208
+      Width = 75
+      Height = 19
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -478,8 +456,8 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object envase_ec: TcxDBTextEdit
-      Left = 125
-      Top = 116
+      Left = 114
+      Top = 153
       DataBinding.DataField = 'envase_ec'
       DataBinding.DataSource = DSMaestro
       Properties.CharCase = ecUpperCase
@@ -499,8 +477,8 @@ object FCosteEnvasado: TFCosteEnvasado
       Width = 75
     end
     object ssEnvase: TSimpleSearch
-      Left = 200
-      Top = 116
+      Left = 195
+      Top = 153
       Width = 21
       Height = 21
       Hint = 'B'#250'squeda de Art'#237'culo'
@@ -536,10 +514,10 @@ object FCosteEnvasado: TFCosteEnvasado
   end
   object dbgEnvasado: TDBGrid
     Left = 0
-    Top = 205
+    Top = 249
     Width = 782
-    Height = 241
-    Align = alClient
+    Height = 249
+    Align = alBottom
     DataSource = DSMaestro
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
@@ -637,18 +615,32 @@ object FCosteEnvasado: TFCosteEnvasado
       end>
   end
   object pnlBotones: TPanel
-    Left = 377
-    Top = 71
-    Width = 345
+    Left = 72
+    Top = 8
+    Width = 638
     Height = 38
     TabOrder = 1
     object lbl8: TLabel
-      Left = 9
-      Top = 13
-      Width = 340
+      Left = 323
+      Top = 14
+      Width = 146
       Height = 13
       AutoSize = False
-      Caption = 'Calculo Costes Promedio'
+      Caption = 'C'#225'lculo Costes Promedio'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 9
+      Top = 14
+      Width = 132
+      Height = 13
+      AutoSize = False
+      Caption = 'Carga fichero  Costes'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -657,7 +649,7 @@ object FCosteEnvasado: TFCosteEnvasado
       ParentFont = False
     end
     object btnPromedioRegistro: TButton
-      Left = 181
+      Left = 469
       Top = 7
       Width = 80
       Height = 25
@@ -666,13 +658,22 @@ object FCosteEnvasado: TFCosteEnvasado
       OnClick = btnPromedioRegistroClick
     end
     object btnTodos: TButton
-      Left = 263
+      Left = 551
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Pendientes'
       TabOrder = 1
       OnClick = btnTodosClick
+    end
+    object btnCargarCSV: TButton
+      Left = 136
+      Top = 7
+      Width = 89
+      Height = 25
+      Caption = 'Cargar CSV'
+      TabOrder = 2
+      OnClick = btnCargarCSVClick
     end
   end
   object DSMaestro: TDataSource

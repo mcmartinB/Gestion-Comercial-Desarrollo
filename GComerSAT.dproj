@@ -527,6 +527,9 @@
       <Form>MDPutEscandalloSemanal</Form>
       <DesignClass>TDataModule</DesignClass>
     </DCCReference>
+    <DCCReference Include="Comun\Envasado\CosteEnvasado.pas">
+      <Form>FCosteEnvasado</Form>
+    </DCCReference>
     <DCCReference Include="Comun\Envases\ArticuloDesglose.pas">
       <Form>FArticuloDesglose</Form>
     </DCCReference>
@@ -1200,6 +1203,10 @@
       <Form>FArticuloDesgloseSal</Form>
     </DCCReference>
     <DCCReference Include="Comun\Salidas\ArticuloDesgloseSalMod.pas" />
+    <DCCReference Include="Comun\Salidas\ArticuloDesgloseSalQR.pas">
+      <Form>QRArticuloDesgloseSal</Form>
+      <DesignClass>TQuickRep</DesignClass>
+    </DCCReference>
     <DCCReference Include="Comun\Salidas\CDAsignarGastosServicioVenta.pas">
       <Form>DAsignarGastosServicioVenta</Form>
       <DesignClass>TDataModule</DesignClass>
@@ -1996,9 +2003,6 @@
     </DCCReference>
     <DCCReference Include="GComerSAT\Code\Envasado\CFLSobrepesosActuales.pas">
       <Form>FLSobrepesosActuales</Form>
-    </DCCReference>
-    <DCCReference Include="GComerSAT\Code\Envasado\CosteEnvasado.pas">
-      <Form>FCosteEnvasado</Form>
     </DCCReference>
     <DCCReference Include="GComerSAT\Code\Envasado\CQLSobrepesosActuales.pas">
       <Form>QLSobrepesosActuales</Form>

@@ -656,7 +656,6 @@ uses
   PedidosDM in 'GComerBAG\Code\Pedidos\PedidosDM.pas' {DMPedidos: TDataModule},
   MTipoPalets in 'Comun\Envases\MTipoPalets.pas' {FMTipoPalets},
   LTipoPalets in 'Comun\Envases\LTipoPalets.pas' {QRLTipoPalets: TQuickRep},
-  CosteEnvasado in 'GComerBAG\Code\Envasado\CosteEnvasado.pas' {FCosteEnvasado},
   LiquidaResumenClientesQL in 'Comun\Compras\LiquidaResumenClientesQL.pas' {QLLiquidaResumenClientes: TQuickRep},
   MCodigosEAN13 in 'GComerBAG\Formularios\Maestros\MCodigosEAN13.pas' {FCodigosMEAN13},
   UDMAuxDB in 'Comun\BaseDatos\UDMAuxDB.pas' {DMAuxDB: TDataModule},
@@ -745,7 +744,8 @@ uses
   uSalidaUtils in 'Comun\Salidas\uSalidaUtils.pas',
   LDeclaracionResponsable in 'Comun\Salidas\LDeclaracionResponsable.pas' {QLDeclaracionResponsable: TQuickRep},
   UDLDeclaracionResponsable in 'Comun\Salidas\UDLDeclaracionResponsable.pas' {DLDeclaracionResponsable: TDataModule},
-  ArticuloDesgloseSalQR in 'Comun\Salidas\ArticuloDesgloseSalQR.pas' {QRArticuloDesgloseSal: TQuickRep};
+  ArticuloDesgloseSalQR in 'Comun\Salidas\ArticuloDesgloseSalQR.pas' {QRArticuloDesgloseSal: TQuickRep},
+  CosteEnvasado in 'Comun\Envasado\CosteEnvasado.pas' {FCosteEnvasado};
 
 (*
   AbonoDetallesDL in 'GComerSAT\Code\Facturacion\AbonoDetallesDL.pas' {DLAbonoDetalles: TDataModule},
