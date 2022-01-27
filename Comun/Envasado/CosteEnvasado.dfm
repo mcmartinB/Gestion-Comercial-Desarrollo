@@ -2,10 +2,11 @@ object FCosteEnvasado: TFCosteEnvasado
   Left = 278
   Top = 197
   ActiveControl = empresa_ec
+  AutoSize = True
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '    COSTES DE ENVASADO POR KILO'
-  ClientHeight = 498
+  ClientHeight = 500
   ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -28,10 +29,10 @@ object FCosteEnvasado: TFCosteEnvasado
     Left = 0
     Top = 0
     Width = 782
-    Height = 249
+    Height = 250
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 64
+    VerticalAlignment = taAlignBottom
     object lblCoste: TLabel
       Left = 24
       Top = 184
@@ -44,9 +45,9 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object lblMes: TLabel
-      Left = 392
+      Left = 384
       Top = 104
-      Width = 100
+      Width = 30
       Height = 19
       AutoSize = False
       Caption = 'Mes'
@@ -100,9 +101,9 @@ object FCosteEnvasado: TFCosteEnvasado
     end
     object des_mes: TnbStaticText
       Tag = 1
-      Left = 512
+      Left = 453
       Top = 104
-      Width = 190
+      Width = 230
       Height = 19
       About = 'NB 0.1/20020725'
     end
@@ -139,9 +140,9 @@ object FCosteEnvasado: TFCosteEnvasado
       Layout = tlCenter
     end
     object des_centro: TnbStaticText
-      Left = 512
+      Left = 453
       Top = 80
-      Width = 190
+      Width = 230
       Height = 19
       About = 'NB 0.1/20020725'
     end
@@ -175,7 +176,13 @@ object FCosteEnvasado: TFCosteEnvasado
       AutoSize = False
       Caption = 'Coste Total'
       Color = cl3DLight
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
       Layout = tlCenter
     end
     object lbl2: TLabel
@@ -197,7 +204,13 @@ object FCosteEnvasado: TFCosteEnvasado
       AutoSize = False
       Caption = 'Promedio Total'
       Color = cl3DLight
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
       Layout = tlCenter
     end
     object lbl5: TLabel
@@ -260,7 +273,7 @@ object FCosteEnvasado: TFCosteEnvasado
     end
     object mes_ec: TBDEdit
       Tag = 1
-      Left = 496
+      Left = 437
       Top = 104
       Width = 20
       Height = 21
@@ -311,7 +324,7 @@ object FCosteEnvasado: TFCosteEnvasado
       DataSource = DSMaestro
     end
     object centro_ec: TBDEdit
-      Left = 496
+      Left = 437
       Top = 80
       Width = 14
       Height = 21
@@ -514,10 +527,10 @@ object FCosteEnvasado: TFCosteEnvasado
   end
   object dbgEnvasado: TDBGrid
     Left = 0
-    Top = 249
+    Top = 250
     Width = 782
-    Height = 249
-    Align = alBottom
+    Height = 250
+    Align = alTop
     DataSource = DSMaestro
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2

@@ -187,7 +187,7 @@ begin
   MD := nil;
      //Panel sobre el que iran los controles
   PanelMaestro := PMaestro;
-  PMaestro.Height:= 110;
+  PMaestro.Height:= 180;
 
      //Fuente de datos maestro
     DataSetGuia := qGuia;
@@ -500,7 +500,7 @@ end;
 //Aprobrechar para modificar estado controles
 procedure TFCosteEnvasado.AntesDeLocalizar;
 begin
-  PMaestro.Height:= 205;
+  PMaestro.Height:= 250;
   pnlBotones.Enabled:= False;
 end;
 
@@ -509,7 +509,7 @@ var i: Integer;
 begin
   pnlBotones.Enabled:= False;
     btnCargarCSV.Enabled := False;
-  PMaestro.Height:= 205;
+  PMaestro.Height:= 250;
   for i := 0 to Lista.Count - 1 do
   begin
     Objeto := Lista.Items[i];
@@ -527,7 +527,7 @@ procedure TFCosteEnvasado.AntesDeVisualizar;
 var i: Integer;
 begin
   pnlBotones.Enabled:= True;
-  PMaestro.Height:= 110;
+  PMaestro.Height:= 180;
     //Resaturar estado
   for i := 0 to Lista.Count - 1 do
   begin
@@ -548,7 +548,7 @@ end;
 
 procedure TFCosteEnvasado.AntesDeInsertar;
 begin
-  PMaestro.Height:= 205;
+  PMaestro.Height:= 250;
   empresa_ec.Text:= sEmpresa;
   anyo_ec.Text:= sAnyo;
   mes_ec.Text:= sMes;
@@ -744,7 +744,7 @@ begin
   with TOpenDialog.Create(nil) do
   try
     Title := '  Abrir CSV.';
-    Filter := 'All filters ' + '(*.*)|*.*';//'CSV (*.csv)|*.csv' + 'Documento EXCEL (*.xlsx)|*.xlsx|';
+    Filter := 'Comma Separed File (*.csv)|*.csv';// + 'Documento EXCEL (*.xlsx)|*.xlsx|'; //'All filters ' + '(*.*)|*.*';//
     InitialDir := 'C:\';
     if not Execute() then
       ShowMessage('Debe seleccionar un archivo para iniciar la carga de valores.')
