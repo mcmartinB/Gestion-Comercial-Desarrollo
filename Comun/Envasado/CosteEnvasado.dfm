@@ -311,7 +311,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 114
       Top = 184
       Width = 63
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste.'
       OnRequiredTime = RequiredTime
@@ -345,7 +345,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 114
       Top = 209
       Width = 65
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste de las secciones.'
       OnRequiredTime = RequiredTime
@@ -361,7 +361,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 276
       Top = 183
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       RequiredMsg = 'Introduce el coste.'
       OnRequiredTime = RequiredTime
@@ -377,7 +377,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 276
       Top = 208
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -396,7 +396,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 684
       Top = 183
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -415,7 +415,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 684
       Top = 208
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -434,7 +434,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 486
       Top = 183
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'
@@ -453,7 +453,7 @@ object FCosteEnvasado: TFCosteEnvasado
       Left = 486
       Top = 208
       Width = 75
-      Height = 19
+      Height = 21
       ColorEdit = clMoneyGreen
       ColorDisable = clBtnFace
       RequiredMsg = 'Introduce el coste.'

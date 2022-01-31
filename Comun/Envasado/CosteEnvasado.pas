@@ -500,7 +500,7 @@ end;
 //Aprobrechar para modificar estado controles
 procedure TFCosteEnvasado.AntesDeLocalizar;
 begin
-  PMaestro.Height:= 250;
+  PMaestro.Height:= 180;
   pnlBotones.Enabled:= False;
 end;
 
@@ -508,7 +508,7 @@ procedure TFCosteEnvasado.AntesDeModificar;
 var i: Integer;
 begin
   pnlBotones.Enabled:= False;
-    btnCargarCSV.Enabled := False;
+//  btnCargarCSV.Enabled := False;
   PMaestro.Height:= 250;
   for i := 0 to Lista.Count - 1 do
   begin
