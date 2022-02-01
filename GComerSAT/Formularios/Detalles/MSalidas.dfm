@@ -1199,6 +1199,7 @@ object FMSalidas: TFMSalidas
       MaxLength = 3
       TabOrder = 9
       OnChange = PonNombre
+      OnEnter = ComprobarDatosMaestro
       OnExit = RellenaClienteFacturacion
       DataField = 'cliente_sal_sc'
       DataSource = DSMaestro
@@ -3167,7 +3168,7 @@ object FMSalidas: TFMSalidas
     Width = 212
     Height = 143
     AutoSize = True
-    Date = 36748.415902210650000000
+    Date = 36748.392789386580000000
     ShowToday = False
     TabOrder = 6
     Visible = False

@@ -1438,7 +1438,7 @@ object FMSalidas: TFMSalidas
     end
     object LEmpresa_p: TLabel
       Left = 405
-      Top = 19
+      Top = 17
       Width = 100
       Height = 19
       AutoSize = False
@@ -2566,6 +2566,7 @@ object FMSalidas: TFMSalidas
       MaxLength = 3
       TabOrder = 8
       OnChange = PonNombre
+      OnEnter = comprobarDatosMaestro
       OnExit = RellenaClienteFacturacion
       DataField = 'cliente_sal_sc'
       DataSource = DSMaestro
@@ -3002,7 +3003,7 @@ object FMSalidas: TFMSalidas
     Width = 212
     Height = 143
     AutoSize = True
-    Date = 36748.666914849530000000
+    Date = 36748.637261539350000000
     ShowToday = False
     TabOrder = 13
     Visible = False
