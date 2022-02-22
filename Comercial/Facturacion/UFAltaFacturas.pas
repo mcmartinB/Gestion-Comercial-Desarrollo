@@ -2187,12 +2187,14 @@ begin
       lbFechaFactura.Caption := 'Fecha Abono';
       lbNumeroFactura.Caption:= 'Numero Abono';
       edtNumeroFactura.Style.Font.Color:= clRed;
+      dePrevisionTeso.Text := deFechaFactura.Text;
     end
     else
     begin
       lbFechaFactura.Caption := 'Fecha Factura';
       lbNumeroFactura.Caption:= 'Numero Factura';
       edtNumeroFactura.Style.Font.Color:= clNavy;
+      dePrevisionTeso.Text := '';
     end;
   end;
   if deFechaFactura.Text = '' then
