@@ -3736,6 +3736,7 @@ begin
         nota_sc.Lines.Add(UpperCase('La mercancía transportada realiza tráfico marítimo entre islas'));
       end;
       nota_sc.Lines.Add('-" EL CONDUCTOR CONFIRMA QUE LA MERCANCÍA VA SUJETA POR BARRAS".');
+      nota_sc.Lines.Add('-" TEMPERATURA DE LA CARGA: CONFORME".');
     end;
 end;
 
