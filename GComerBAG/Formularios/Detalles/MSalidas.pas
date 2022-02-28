@@ -331,7 +331,9 @@ type
     procedure TSalidasLAfterPost(DataSet: TDataSet);
     procedure TSalidasLNewRecord(DataSet: TDataSet);
     procedure TSalidasLBeforePost(DataSet: TDataSet);
+    procedure ActualizarComercial(Sender: TObject);
     procedure ComprobarDatosMaestro(Sender: TObject);
+
   private
     { Private declarations }
     bAbonos, bImpFac: Boolean;
@@ -3638,6 +3640,12 @@ begin
   PonNombre(categoria_sl);
   if Length(envase_sl.Text) >= 3 then
     CambioDeEnvase(envase_SL);
+end;
+
+//actualiza el campo comercial según cliente y producto según SI-1282
+procedure TFMSalidas.ActualizarComercial(Sender: TObject);
+begin
+    comercial_sl.Text := GetCodeComercial(producto_sl.Text, cliente_sal_sc.Text, StrToDate(fecha_sc.Text));
 end;
 
 procedure TFMSalidas.GastosClick(const AFacturable: boolean);
