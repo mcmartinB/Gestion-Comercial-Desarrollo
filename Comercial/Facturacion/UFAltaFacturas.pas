@@ -1135,9 +1135,9 @@ begin
     dePrevisionCobro.Text:= DateToStr( dCobro  );
 //    if dePrevisionTeso.Text = ''  then
     if rgTipoFactura.Properties.Items[rgTipoFactura.ItemIndex].Value = '381' then
-        dePrevisionTeso.Text:= DateToStr( dTesoreria  )
+        dePrevisionTeso.Text:= DateToStr( dFecha  )
     else
-        dePrevisionTeso.Text:= DateToStr( dFecha + DFactura.GetFechaTesoreria(edtEmpresa.Text, edtCliente.Text) );
+        dePrevisionTeso.Text:= DateToStr( dTesoreria );
 
   end;
 end;
@@ -2135,7 +2135,6 @@ begin
     dePrevisionTeso.Text:= deFechaFactura.Text
   else
     dePrevisionTeso.Text:= DateToStr( dFecha + DFactura.GetFechaTesoreria(edtEmpresa.Text, edtCliente.Text) );
-
 end;
 
 procedure TFAltaFacturas.edtMonedaPropertiesChange(Sender: TObject);
