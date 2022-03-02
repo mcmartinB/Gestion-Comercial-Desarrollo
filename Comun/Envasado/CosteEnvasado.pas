@@ -112,6 +112,7 @@ type
     procedure CargarDatosCSV(FileName : string);
     procedure InsertarNuevosCostes(registros : TStringList);
     function Comprobaciones(KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion : string) : Boolean;
+    function CheckExisteRegistros(registro : string): boolean;
   private
     { Private declarations }
     Lista: TList;
@@ -739,7 +740,6 @@ end;
 procedure TFCosteEnvasado.btnCargarCSVClick(Sender: TObject);
 var
   sFile : string;
-  sLinea : TStringList;
 begin
   with TOpenDialog.Create(nil) do
   try
@@ -775,8 +775,8 @@ end;
 procedure  TFCosteEnvasado.InsertarNuevosCostes(registros : TStringList);
 var
   KEmpresa, KEnvase, KProducto, KAnyo, KMes, KCentro, KEnvasado, KMaterial, KSeccion : string;
-  QInsert : TQuery;
-  sentencia : string;
+  QInsert: TQuery;
+  sentencia, sentenciaComprobacion : string;
   puntero: Integer;
   sAux : String;
 
@@ -786,6 +786,15 @@ begin
   QInsert := TQuery.Create(nil);
   QInsert.DatabaseName := 'BDProyecto';
   QInsert.SQL.Text := sentencia;
+
+  for puntero := 0 to registros.Count - 1 do
+  begin
+    sAux := registros[puntero];
+    //si existe el registro
+    if not CheckExisteRegistros(sAux) then
+       raise Exception.Create('Ya hay registros para el mes ' + Copy(sAux, 10, 2) + ' y año ' + Copy(sAux, 5, 4) + #10#13 +'. Revise los datos del regisro número ' + IntToStr( puntero+1 ) + '.');
+    sAux := '';
+  end;
 
   try
     //abrir transacción
@@ -925,6 +934,27 @@ begin
     end;
   end;
 
+end;
+
+function TFCosteEnvasado.CheckExisteRegistros(registro : string): boolean;
+var
+  sentenciaComprobacion : string;
+  QComprobacion : TQuery;
+begin
+  sentenciaComprobacion := 'select count(*) as total from frf_env_costes where anyo_ec = :anyo and mes_ec = :mes';
+  QComprobacion := TQuery.Create(nil);
+  with QComprobacion do
+  begin
+    DatabaseName := 'BDProyecto';
+    SQL.Text := sentenciaComprobacion;
+    ParamByName('anyo').asInteger := StrToInt(Copy(registro, 5, 4));
+    ParamByName('mes').asInteger := StrToInt(Copy(registro, 10, 2));
+    Open;
+    if (FieldByName('total').asInteger = 0) then
+      result := true
+    else
+      result := false;
+  end;
 end;
 
 end.
