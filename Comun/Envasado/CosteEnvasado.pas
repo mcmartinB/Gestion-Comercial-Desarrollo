@@ -834,7 +834,13 @@ begin
     on e: Exception do
       begin
         if DMBaseDatos.DBBaseDatos.InTransaction then
+        begin
           CancelarTransaccion(DMBaseDatos.DBBaseDatos);
+          ShowMessage('Error en la carga de datos. Revisar que la empresa tenga 3 dígitos, ' + #10#13 +
+                      'el mes tenga 2 dígitos y los costes de envasado material y sección tengan 4 decimales.');
+
+        end;
+
     end;
   end;
 end;
