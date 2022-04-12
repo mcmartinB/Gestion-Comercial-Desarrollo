@@ -186,7 +186,6 @@ type
     mnuEntResEntregas: TMenuItem;
     mnuSalPorcentajesFederacion: TMenuItem;
     mnuFchAduanasPuertos: TMenuItem;
-    mnuFchProductoEDI: TMenuItem;
     mnuSalAsignarFederacion: TMenuItem;
     mnuEntSepEntradas: TMenuItem;
     mnuFchSep: TMenuItem;
@@ -872,7 +871,7 @@ begin
   ConfigurarOpcion(  mnuFchClientes, True, 'Clientes', '');
   ConfigurarOpcion(  mnuFchRepresentantes, True, 'Representantes', '');
   ConfigurarOpcion(  mnuFchClientesEDI, True , 'Códigos EDI de Clientes', '');
-  ConfigurarOpcion(  mnuFchProductoEDI, True , 'Códigos Facturación EDI', '');
+//  ConfigurarOpcion(  mnuFchProductoEDI, True , 'Códigos Facturación EDI', '');
   ConfigurarOpcion(  mnuFchTipoCliente, True , 'Tipos de Clientes', '');
   ConfigurarOpcion(  mnuFchListadoComisiones, True, 'Listado de Descuentos y Comisiones', '');
   ConfigurarOpcion(  mnuFchListadoDatosCobroCliente, True, 'Listado Datos Cobro Cliente', '');

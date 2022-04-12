@@ -176,7 +176,6 @@ type
     mnuEntResEntregas: TMenuItem;
     mnuSalServiciosTransporteImporte: TMenuItem;
     mnuFchAduanasPuertos: TMenuItem;
-    mnuFchProductoEDI: TMenuItem;
     mnuFchSep: TMenuItem;
     mnuPedidos: TMenuItem;
     mnuAlmSepCosteEnvase: TMenuItem;
@@ -834,7 +833,7 @@ begin
   ConfigurarOpcion(  mnuFchListadoComisiones, True, 'Clientes - Listado Descuentos/Comisiones', '');
   ConfigurarOpcion(  mnuFchEan13, True, 'Códigos EAN13 de Articulos', '');
   ConfigurarOpcion(  mnuFchClientesEDI, DMConfig.EsLaFont, 'Códigos EDI de Clientes', '');
-  ConfigurarOpcion(  mnuFchProductoEDI, DMConfig.EsLaFont, 'Códigos Facturación EDI', '');
+//  ConfigurarOpcion(  mnuFchProductoEDI, DMConfig.EsLaFont, 'Códigos Facturación EDI', '');
   ConfigurarOpcion(  mnuFchEmpresas, True, 'Empresas', '');
 
   ConfigurarOpcion(  mnuFchEnvases, True, 'Artículos ', '');

@@ -140,7 +140,7 @@ object FPrincipal: TFPrincipal
         Style = tbsDivider
       end
       object TBMaestroAceptar: TToolButton
-        Left = 288
+        Left = 279
         Top = 0
         Action = AMDAceptar
         ParentShowHint = False
@@ -545,10 +545,6 @@ object FPrincipal: TFPrincipal
         end
         object mnuFchClientesEDI: TMenuItem
           Caption = 'C'#243'digos EDI de Clientes'
-          OnClick = mnuFicherosClick
-        end
-        object mnuFchProductoEDI: TMenuItem
-          Caption = 'C'#243'digos Facturaci'#243'n EDI'
           OnClick = mnuFicherosClick
         end
         object N1: TMenuItem

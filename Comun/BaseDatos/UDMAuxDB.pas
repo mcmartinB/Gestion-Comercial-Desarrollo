@@ -2680,8 +2680,8 @@ begin
     SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
     SQL.Add(' where cod_cliente_cc = :cliente ');
     SQL.Add(' and cod_producto_cc = :producto ');
-    SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
-    ParamByName('fecha').AsDateTime := AFecha;
+//    SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
+//    ParamByName('fecha').AsDateTime := AFecha;
     ParamByName('cliente').asString := ACliente;
     ParamByName('producto').asString := AProducto;
     Open;
@@ -2695,8 +2695,9 @@ begin
       SQL.Clear;
       SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
       SQL.Add(' where cod_producto_cc = :producto');
-      SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
-      ParamByName('fecha').asDateTime := AFecha;
+      SQL.Add('   and cod_cliente_cc is null     ');
+//      SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
+//      ParamByName('fecha').asDateTime := AFecha;
       ParamByName('producto').asString := AProducto;
       Open;
     end;
@@ -2710,8 +2711,9 @@ begin
         SQL.Clear;
         SQL.Add(' select cod_comercial_cc from frf_clientes_comercial ');
         SQL.Add(' where cod_cliente_cc = :cliente');
-        SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
-        ParamByName('fecha').asDateTime := AFecha;
+        SQL.Add('   and cod_producto_cc is null  ');
+//        SQL.Add(' and :fecha between fecha_ini_cc and nvl(fecha_fin_cc, ' + QuotedStr(DateToStr(AFecha)) + ')');
+//        ParamByName('fecha').asDateTime := AFecha;
         ParamByName('cliente').asString := ACliente;
         Open;
       end;
