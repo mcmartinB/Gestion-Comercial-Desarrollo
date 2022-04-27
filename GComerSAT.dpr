@@ -63,7 +63,6 @@ uses
   CUAMenuEntradas in 'GComerSAT\Menu\CUAMenuEntradas.pas',
   CUAMenuLiquidacion in 'GComerSAT\Menu\CUAMenuLiquidacion.pas',
   CUPEnviarGastosEntregas in 'GComerSAT\NCode\Sincronizacion\CUPEnviarGastosEntregas.pas',
-  CVariables in 'Comun\Codigo\CVariables.pas',
   DatosExcelFOB in 'Comun\FOB\DatosExcelFOB.pas' {FDatosExcelFOB},
   DatosExcelFOBReport in 'Comun\FOB\DatosExcelFOBReport.pas' {QRDatosExcelFOBReport: TQuickRep},
   DatosExcelFOBReportEx in 'Comun\FOB\DatosExcelFOBReportEx.pas' {QRDatosExcelFOBReportEx: TQuickRep},
@@ -849,7 +848,8 @@ uses
   MEntradasFrutaEx in 'GComerSAT\Formularios\Detalles\MEntradasFrutaEx.pas' {FMEntradasFrutaEx},
   UFDPutEscandalloSemanal in 'Comun\Entradas\UFDPutEscandalloSemanal.pas' {FDPutEscandalloSemanal},
   ArticuloDesgloseSalQR in 'Comun\Salidas\ArticuloDesgloseSalQR.pas' {QRArticuloDesgloseSal: TQuickRep},
-  CosteEnvasado in 'Comun\Envasado\CosteEnvasado.pas' {FCosteEnvasado};
+  CosteEnvasado in 'Comun\Envasado\CosteEnvasado.pas' {FCosteEnvasado},
+  CVariables in 'Comun\Codigo\CVariables.pas';
 
 (*COMERBAG*)
 

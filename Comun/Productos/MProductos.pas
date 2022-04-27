@@ -13,7 +13,7 @@ type
     PMaestro: TPanel;
     DSMaestro: TDataSource;
     ACosecheros: TActionList;
-    ARejillaFlotante: TAction;
+    ARejillaFlotante: TAction;                                               
     QProductos: TQuery;
     PageControl: TPageControl;
     tsCategorias: TTabSheet;
@@ -112,6 +112,9 @@ type
     qryComercialdes_comercial: TStringField;
     Panel1: TPanel;
     btnComercial: TBitBtn;
+    lblNombre1: TLabel;
+    area_p: TBDEdit;
+    btnArea: TBGridButton;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -376,6 +379,7 @@ begin
   {+}FocoLocalizar := producto_p;
 
   pais_psp.Tag:= kPais;
+  area_p.Tag := kArea;
   bFlag:= False;
 
   if CGlobal.gProgramVersion = CGlobal.pvSAT then
@@ -807,6 +811,9 @@ begin
   if QProductos.Fieldbyname('tipo_venta_p').AsString = '' then
       raise Exception.Create('Por favor marque si el producto es de venta o no.');
 
+  if QProductos.Fieldbyname('area_p').AsString = '' then
+      raise Exception.Create('Se debe selecionar un area para el producto..');
+
 
   if QProductos.State = dsInsert then
   begin
@@ -1025,7 +1032,8 @@ end;
 procedure TFMProductos.ARejillaFlotanteExecute(Sender: TObject);
 begin
   case ActiveControl.Tag of
-    kPais: DespliegaRejilla(btnpais);
+    kPais: DespliegaRejilla( btnpais );
+    kArea: DespliegaRejilla( btnArea );
   end;
 end;
 
